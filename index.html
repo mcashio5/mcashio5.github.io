@@ -1,67 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Michael Cashion – UNC Charlotte Homepage</title>
+
+  <!-- Optional: page lint kit -->
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+
   <style>
+    /* Reset + full height for sticky footer layout */
+    html, body { height: 100%; margin: 0; padding: 0; }
+
+    /* Dark theme + centered column layout */
     body {
+      display: flex;               /* sticky footer structure */
+      flex-direction: column;
+      min-height: 100vh;
       font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #0a2a4d; /* dark navy */
-      color: #ffffff;
-      line-height: 1.6;
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: 60px auto;
+      background: #0a2a4d;         /* your dark navy */
+      color: #ffffff;              /* white text */
+      max-width: 900px;
+      width: 90%;
+      margin: 0 auto;
       padding: 20px;
+      line-height: 1.6;
     }
-    h1 { font-size: 2.5rem; }
-    h2 { font-size: 1.5rem; margin-top: 30px; }
-    a {
-      color: #87ceeb;
-      text-decoration: none;
-      font-weight: bold;
+
+    header { margin-top: 10px; }
+    main   { flex: 1; }
+
+    /* Headings */
+    h1 {
+      font-family: Georgia, serif;
+      font-size: 2.5em;
+      color: #ffffff;
+      margin: 0 0 0.5em 0;
+      text-align: left;
     }
+    h2 {
+      font-family: Georgia, serif;
+      font-size: 1.7em;
+      color: #cfe8ff; /* soft light blue accent */
+      margin: 0 0 0.5em 0;
+      text-align: left;
+    }
+
+    p { font-size: 1.05em; }
+
+    /* Links */
+    a { color: #87ceeb; text-decoration: none; font-weight: bold; }
     a:hover { text-decoration: underline; }
+
+  
     footer {
       margin-top: 40px;
-      font-size: 0.9rem;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95em;
+      text-align: center;
       color: #cccccc;
     }
-    nav {
-      margin-top: 20px;
+    footer nav {
       display: flex;
       justify-content: center;
-      gap: 15px;
       flex-wrap: wrap;
+      gap: 14px;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-  <div class="container">
+  <header>
     <h1>Michael Cashion</h1>
-    <p>Welcome to my UNC Charlotte personal webpage!</p>
+  </header>
+
+  <main>
+    <h2>UNC Charlotte Personal Homepage</h2>
+    <p>Hello! I’m Michael Cashion. Welcome to my UNC Charlotte website.</p>
 
     <h2>Course Link</h2>
-    <p><a href="itis3135/">Click to go to ITIS3135 Site</a></p>
 
-    <h2>Profiles</h2>
+    <p><a href="/itis3135/">Click to go to ITIS3135 Site</a></p>
+  </main>
+
+  <footer>
     <nav>
-      <a href="https://github.com/mcashio5" target="_blank">GitHub</a>
-      <a href="https://mcashio5.github.io/" target="_blank">GitHub Pages</a>
-      <a href="https://mcashio5.github.io/itis3135/" target="_blank">CLT Web Home</a>
-      <a href="https://www.freecodecamp.org/mcashio5" target="_blank">freeCodeCamp</a>
-      <a href="https://www.codecademy.com/profiles/mcashio5" target="_blank">Codecademy</a>
-      <a href="https://www.linkedin.com/in/michael-cashion-a891082b6/" target="_blank">LinkedIn</a>
+      <a href="/itis3135/" target="_blank" rel="noopener">UNC ITIS 3135</a>
+      <a href="https://github.com/mcashio5" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://mcashio5.github.io/" target="_blank" rel="noopener">GitHub Pages</a>
+      <a href="https://www.freecodecamp.org/mcashio5" target="_blank" rel="noopener">freeCodeCamp</a>
+      <a href="https://www.codecademy.com/profiles/mcashio5" target="_blank" rel="noopener">Codecademy</a>
+      <a href="https://www.linkedin.com/in/michael-cashion-a891082b6/" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
-
-    <footer>
-      &copy; 2025 Michael Cashion
-    </footer>
-  </div>
+    <p>&copy; 2025 Michael Cashion</p>
+    <p>
+      <a href="https://validator.w3.org/">HTML Validation</a> |
+      <a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a>
+    </p>
+  </footer>
 </body>
 </html>
