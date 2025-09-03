@@ -3,9 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <!-- Title = H1 + divider + H2 -->
-  <title>Michael Cashion – Personal Homepage</title>
+  <title>Michael Cashion – UNC Charlotte Homepage</title>
 
   <!-- Optional: page lint kit -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -19,11 +17,11 @@
       display: flex;               /* sticky footer structure */
       flex-direction: column;
       min-height: 100vh;
-      font-family: Arial, sans-serif;     /* body font */
-      background: #0a2a4d;                /* dark navy */
-      color: #ffffff;                      /* white text */
-      max-width: 900px;                    /* 600–1000 range */
-      width: 90%;                          /* 80–95% */
+      font-family: Arial, sans-serif;
+      background: #0a2a4d;         /* dark navy */
+      color: #ffffff;              /* white text */
+      max-width: 900px;
+      width: 90%;
       margin: 0 auto;
       padding: 20px;
       line-height: 1.6;
@@ -32,19 +30,20 @@
     header { margin-top: 10px; }
     main   { flex: 1; }
 
-    /* Headings (second font) */
-    h1, h2 {
-      font-family: Georgia, serif;   /* heading font, distinct from body */
-      text-align: left;
-      margin: 0 0 0.5em 0;
-    }
+    /* Headings */
     h1 {
+      font-family: Georgia, serif;
       font-size: 2.5em;
       color: #ffffff;
+      margin: 0 0 0.5em 0;
+      text-align: left;
     }
     h2 {
+      font-family: Georgia, serif;
       font-size: 1.7em;
-      color: #cfe8ff;               /* soft light blue accent */
+      color: #cfe8ff; /* soft light blue accent */
+      margin: 0 0 0.5em 0;
+      text-align: left;
     }
 
     p { font-size: 1.05em; }
@@ -53,7 +52,6 @@
     a { color: #87ceeb; text-decoration: none; font-weight: bold; }
     a:hover { text-decoration: underline; }
 
-    /* Footer */
     footer {
       margin-top: 40px;
       padding-top: 20px;
@@ -66,14 +64,9 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 10px;
+      gap: 14px;
       margin-bottom: 10px;
     }
-    /* visual separators */
-    .sep { opacity: 0.7; }
-
-    /* Accessibility focus */
-    a:focus { outline: 2px dashed #87ceeb; outline-offset: 2px; }
   </style>
 </head>
 <body>
@@ -81,33 +74,22 @@
     <h1>Michael Cashion</h1>
   </header>
 
-  <main aria-labelledby="page-title">
-    <h2 id="page-title">Personal Homepage</h2>
-<<<<<<< HEAD
-    <p>Hello! I’m <strong>Michael Cashion</strong>, a UNC Charlotte Computer Science student focused on systems, networking, and building clean, reliable web experiences. I enjoy shipping practical projects and learning by doing.</p>
-    <p>This site is my professional landing page. From here you can jump to my course hub, code, and profiles. Course-specific content (like labs and assignments) lives in the <em>ITIS&nbsp;3135</em> section, linked below in the footer.</p>
-=======
-    <p>Hello! I’m <strong>Michael Cashion</strong>, a UNC Charlotte Computer Science student focused cloud computing.</p>
->>>>>>> dfbc9f1e8c35e46c3bafc89de811e173c16e4236
+  <main>
+    <h2>UNC Charlotte Personal Homepage</h2>
+    <p>Hello! I’m Michael Cashion. Welcome to my UNC Charlotte website.</p>
+    <p>This page serves as my professional landing page, connecting my GitHub projects, coursework, and professional profiles.</p>
   </main>
 
   <footer>
-    <nav aria-label="Footer navigation">
-      <a href="itis3135/">ITIS3135</a>
-      <span class="sep">~</span>
-      <a href="https://github.com/mcashio5" target="_blank" rel="noopener">GitHub.com</a>
-      <span class="sep">~</span>
+    <nav>
+      <a href="/itis3135/" target="_blank" rel="noopener">UNC ITIS 3135</a>
+      <a href="https://github.com/mcashio5" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://mcashio5.github.io/" target="_blank" rel="noopener">GitHub Pages</a>
       <a href="https://webpages.charlotte.edu/mcashio5/" target="_blank" rel="noopener">CLT Web</a>
-      <span class="sep">~</span>
-      <a href="https://mcashio5.github.io/" target="_blank" rel="noopener">GitHub.io</a>
-      <span class="sep">~</span>
       <a href="https://www.freecodecamp.org/mcashio5" target="_blank" rel="noopener">freeCodeCamp</a>
-      <span class="sep">~</span>
       <a href="https://www.codecademy.com/profiles/mcashio5" target="_blank" rel="noopener">Codecademy</a>
-      <span class="sep">~</span>
       <a href="https://www.linkedin.com/in/michael-cashion-a891082b6/" target="_blank" rel="noopener">LinkedIn</a>
     </nav>
-
     <p>&copy; 2025 Michael Cashion</p>
     <p>
       <a href="https://validator.w3.org/">HTML Validation</a> |
