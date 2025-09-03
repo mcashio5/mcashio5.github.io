@@ -1,184 +1,114 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Michael Cashion | Personal Home Page</title>
 
-  <!-- Accumulus validator -->
+  <!-- Title = H1 + divider + H2 -->
+  <title>Michael Cashion – Personal Homepage</title>
+
+  <!-- Optional: page lint kit -->
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 
   <style>
-    /* Color palette reference (save for submission):
-       https://coolors.co/0a2a4d-0f3a6b-87ceeb-f5f7fb-cccccc
-    */
+    /* Reset + full height for sticky footer layout */
+    html, body { height: 100%; margin: 0; padding: 0; }
 
-    :root{
-      --bg:#0a2a4d;        /* dark blue background */
-      --bg-soft:#0f3a6b;   /* slightly lighter panel/header */
-      --text:#ffffff;      /* primary text */
-      --muted:#cccccc;     /* muted text */
-      --accent:#87ceeb;    /* links / accents (light blue) */
-      --card:#0f3a6b;      /* card color */
-      --shadow: 0 10px 24px rgba(0,0,0,.22);
-      --radius: 18px;
-    }
-
-    html, body {
-      height: 100%;
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-    }
-
-    /* Two distinct font stacks (headings vs body) */
+    /* Dark theme + centered column layout */
     body {
-      font-family: "Segoe UI", Roboto, Helvetica, Arial, "Apple Color Emoji",
-                   "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+      display: flex;               /* sticky footer structure */
+      flex-direction: column;
+      min-height: 100vh;
+      font-family: Arial, sans-serif;     /* body font */
+      background: #0a2a4d;                /* dark navy */
+      color: #ffffff;                      /* white text */
+      max-width: 900px;                    /* 600–1000 range */
+      width: 90%;                          /* 80–95% */
+      margin: 0 auto;
+      padding: 20px;
       line-height: 1.6;
     }
+
+    header { margin-top: 10px; }
+    main   { flex: 1; }
+
+    /* Headings (second font) */
     h1, h2 {
-      font-family: Georgia, "Times New Roman", Times, serif;
-      margin: 0;
+      font-family: Georgia, serif;   /* heading font, distinct from body */
+      text-align: left;
+      margin: 0 0 0.5em 0;
+    }
+    h1 {
+      font-size: 2.5em;
+      color: #ffffff;
+    }
+    h2 {
+      font-size: 1.7em;
+      color: #cfe8ff;               /* soft light blue accent */
     }
 
-    .wrap {
-      max-width: 900px;   /* between 600–1000px as requested */
-      width: 92%;         /* 80–95% as requested */
-      margin: 56px auto;  /* centers the page */
-    }
+    p { font-size: 1.05em; }
 
-    header {
-      background: linear-gradient(180deg, var(--bg-soft), rgba(15,58,107,0.6));
-      border-radius: var(--radius);
-      padding: 28px 26px;
-      box-shadow: var(--shadow);
-      text-align: center;
-    }
+    /* Links */
+    a { color: #87ceeb; text-decoration: none; font-weight: bold; }
+    a:hover { text-decoration: underline; }
 
-    header h1 {
-      font-size: clamp(1.9rem, 2.6vw, 2.6rem);
-      letter-spacing: .5px;
-    }
-
-    main {
-      margin-top: 22px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid rgba(255,255,255,0.08);
-      border-radius: var(--radius);
-      padding: 24px 22px;
-      box-shadow: var(--shadow);
-    }
-
-    main h2 {
-      font-size: clamp(1.2rem, 2.1vw, 1.6rem);
-      color: var(--accent);
-      margin-bottom: 12px;
-      text-align: center;
-    }
-
-    p {
-      margin: 12px 0;
-      font-size: 1rem;
-      color: var(--text);
-    }
-
-    .card {
-      background: var(--card);
-      border-radius: var(--radius);
-      padding: 18px 16px;
-      margin-top: 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-
+    /* Footer */
     footer {
-      margin-top: 26px;
-      padding: 18px 0 8px;
+      margin-top: 40px;
+      padding-top: 20px;
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: 0.95em;
       text-align: center;
-      color: var(--muted);
+      color: #cccccc;
     }
-
-    .footer-nav {
-      display: inline-flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      align-items: center;
+    footer nav {
+      display: flex;
       justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
       margin-bottom: 10px;
-      font-weight: 600;
     }
+    /* visual separators */
+    .sep { opacity: 0.7; }
 
-    .footer-nav a {
-      color: var(--accent);
-      text-decoration: none;
-      padding: 6px 8px;
-      border-radius: 12px;
-      transition: transform .08s ease-in-out, background .2s ease-in-out;
-    }
-
-    .footer-nav a:hover,
-    .footer-nav a:focus-visible {
-      background: rgba(135,206,235,0.12);
-      outline: none;
-      transform: translateY(-1px);
-    }
-
-    .sep {
-      color: var(--muted);
-      user-select: none;
-    }
-
-    /* Accessibility helpers */
-    a:focus-visible {
-      outline: 2px dashed var(--accent);
-      outline-offset: 2px;
-    }
+    /* Accessibility focus */
+    a:focus { outline: 2px dashed #87ceeb; outline-offset: 2px; }
   </style>
 </head>
 <body>
-  <div class="wrap">
-    <header role="banner">
-      <h1>Michael Cashion</h1>
-    </header>
+  <header>
+    <h1>Michael Cashion</h1>
+  </header>
 
-    <main id="main" role="main" aria-labelledby="page-title">
-      <h2 id="page-title">Personal Home Page</h2>
+  <main aria-labelledby="page-title">
+    <h2 id="page-title">Personal Homepage</h2>
+    <p>Hello! I’m <strong>Michael Cashion</strong>, a UNC Charlotte Computer Science student focused on systems, networking, and building clean, reliable web experiences. I enjoy shipping practical projects and learning by doing.</p>
+    <p>This site is my professional landing page. From here you can jump to my course hub, code, and profiles. Course-specific content (like labs and assignments) lives in the <em>ITIS&nbsp;3135</em> section, linked below in the footer.</p>
+  </main>
 
-      <div class="card">
-        <p>
-          Hi! I’m Michael Cashion, a Computer Science student at UNC Charlotte. I’m interested in
-          software engineering, cloud infrastructure, and building reliable web apps. This page is
-          my central hub—use it to jump to my course site, school web space, GitHub projects, and professional profiles.
-        </p>
-        <p>
-          I keep this homepage clean and professional so it works as a landing page for both
-          my university web space and my GitHub Pages site. If you spot anything broken, feel free to reach out on LinkedIn.
-        </p>
-      </div>
-    </main>
+  <footer>
+    <nav aria-label="Footer navigation">
+      <a href="itis3135/">ITIS3135</a>
+      <span class="sep">~</span>
+      <a href="https://github.com/mcashio5" target="_blank" rel="noopener">GitHub.com</a>
+      <span class="sep">~</span>
+      <a href="https://webpages.charlotte.edu/mcashio5/" target="_blank" rel="noopener">CLT Web</a>
+      <span class="sep">~</span>
+      <a href="https://mcashio5.github.io/" target="_blank" rel="noopener">GitHub.io</a>
+      <span class="sep">~</span>
+      <a href="https://www.freecodecamp.org/mcashio5" target="_blank" rel="noopener">freeCodeCamp</a>
+      <span class="sep">~</span>
+      <a href="https://www.codecademy.com/profiles/mcashio5" target="_blank" rel="noopener">Codecademy</a>
+      <span class="sep">~</span>
+      <a href="https://www.linkedin.com/in/michael-cashion-a891082b6/" target="_blank" rel="noopener">LinkedIn</a>
+    </nav>
 
-    <footer role="contentinfo" aria-label="Site navigation">
-      <nav class="footer-nav" aria-label="Quick links">
-        <a href="itis3135/">ITIS3135</a>
-        <span class="sep">~</span>
-        <a href="https://github.com/mcashio5" target="_blank" rel="noopener">GitHub.com</a>
-        <span class="sep">~</span>
-        <a href="https://webpages.charlotte.edu/mcashio5/" target="_blank" rel="noopener">CLT Web</a>
-        <span class="sep">~</span>
-        <a href="https://mcashio5.github.io/" target="_blank" rel="noopener">GitHub.io</a>
-        <span class="sep">~</span>
-        <a href="https://www.linkedin.com/in/michael-cashion-a891082b6/" target="_blank" rel="noopener">LinkedIn</a>
-      </nav>
-      <div>&copy; <span id="year">2025</span> Michael Cashion</div>
-    </footer>
-  </div>
-
-  <script>
-    // keep footer year current
-    document.getElementById('year').textContent = new Date().getFullYear();
-  </script>
+    <p>&copy; 2025 Michael Cashion</p>
+    <p>
+      <a href="https://validator.w3.org/">HTML Validation</a> |
+      <a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a>
+    </p>
+  </footer>
 </body>
 </html>
