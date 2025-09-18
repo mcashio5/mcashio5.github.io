@@ -14,18 +14,19 @@
 
     /* Dark theme + centered column layout */
     body {
-      display: flex;               /* sticky footer structure */
-      flex-direction: column;
-      min-height: 100vh;
-      font-family: Arial, sans-serif;
-      background: #0a2a4d;         /* dark navy */
-      color: #ffffff;              /* white text */
-      max-width: 900px;
-      width: 90%;
-      margin: 0 auto;
-      padding: 20px;
-      line-height: 1.6;
-    }
+  display: flex;               /* sticky footer structure */
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+  background: #0a2a4d;         /* dark navy */
+  color: #ffffff;              /* white text */
+  max-width: 900px;
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+  line-height: 1.6;
+  box-sizing: border-box;      /* ✅ fixes warning, no visual change */
+}
 
     header { margin-top: 10px; }
     main   { flex: 1; }
