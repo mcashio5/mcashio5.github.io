@@ -1,14 +1,18 @@
 /* Base */
-:root{
-  --bg:#0a2a4d;
-  --panel:#081d33;
-  --ink:#ffffff;
-  --ink-dim:#cccccc;
-  --link:#87ceeb;
-  --link-hover:#b4e6ff;
+:root {
+  --bg: #0a2a4d;
+  --panel: #081d33;
+  --ink: #ffffff;
+  --ink-dim: #cccccc;
+  --link: #87ceeb;
+  --link-hover: #b4e6ff;
 }
 
-html, body { margin:0; padding:0; }
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   background: var(--bg);
@@ -17,16 +21,27 @@ body {
 }
 
 /* Header + Footer */
-header, footer { background: var(--panel); padding: 15px; }
-header h1 { margin: 0; font-size: 1.8rem; }
+header, footer {
+  background: var(--panel);
+  padding: 15px;
+}
+
+.site-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
 
 /* Nav (shared) – remove default blue/purple/red with pseudo classes */
-nav a:link, nav a:visited {
+nav a:link,
+nav a:visited {
   color: var(--link);
   text-decoration: none;
   font-weight: bold;
 }
-nav a:hover, nav a:active, nav a:focus {
+
+nav a:hover,
+nav a:active,
+nav a:focus {
   color: var(--link-hover);
   text-decoration: underline;
 }
@@ -39,27 +54,51 @@ main {
 }
 
 /* Page title + tagline */
-h2 { margin-top: 0; }
-.tagline { margin-top: 6px; color: var(--ink-dim); font-style: italic; }
+h2 {
+  margin-top: 0;
+}
+
+.tagline {
+  margin-top: 6px;
+  color: var(--ink-dim);
+  font-style: italic;
+}
 
 /* Section cards on Website Evaluations */
 .eval-section {
-  background: rgba(255,255,255,0.04);
-  border: 1px solid rgba(255,255,255,0.08);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   padding: 16px 18px;
   margin: 22px 0;
 }
-.eval-section h3 a:link,
-.eval-section h3 a:visited { color: var(--ink); text-decoration: none; }
-.eval-section h3 a:hover { text-decoration: underline; }
+
+.section-title a:link,
+.section-title a:visited {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.section-title a:hover {
+  text-decoration: underline;
+}
 
 /* Footer extras */
 footer nav {
-  display: flex; justify-content: center; flex-wrap: wrap;
-  gap: 15px; margin-bottom: 10px;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 10px;
 }
-footer p { text-align: center; color: var(--ink-dim); font-size: 0.9rem; }
+
+footer p {
+  text-align: center;
+  color: var(--ink-dim);
+  font-size: 0.9rem;
+}
 
 /* Simple list spacing */
-ul { margin-top: 8px; }
+ul {
+  margin-top: 8px;
+}
