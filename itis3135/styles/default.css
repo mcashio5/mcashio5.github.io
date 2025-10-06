@@ -1,104 +1,75 @@
-/* Base */
-:root {
-  --bg: #0a2a4d;
-  --panel: #081d33;
-  --ink: #ffffff;
-  --ink-dim: #cccccc;
-  --link: #87ceeb;
-  --link-hover: #b4e6ff;
+/* ====== Foundations ====== */
+:root{
+  --bg:#0a2a4d;
+  --panel:#081d33;
+  --ink:#ffffff;
+  --ink-dim:#cfd8e3;
+  --link:#87ceeb;
+  --link-hover:#b4e6ff;
 }
 
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
+/* Base page */
+html, body { margin:0; padding:0; }
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--bg);
-  color: var(--ink);
   line-height: 1.6;
-}
-
-/* Header + Footer */
-header, footer {
-  background: var(--panel);
-  padding: 15px;
-}
-
-.site-title {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-/* Nav (shared) – remove default blue/purple/red with pseudo classes */
-nav a:link,
-nav a:visited {
-  color: var(--link);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-nav a:hover,
-nav a:active,
-nav a:focus {
-  color: var(--link-hover);
-  text-decoration: underline;
-}
-
-/* Layout */
-main {
-  max-width: 900px;
-  margin: 40px auto;
-  padding: 20px;
-}
-
-/* Page title + tagline */
-h2 {
-  margin-top: 0;
-}
-
-.tagline {
-  margin-top: 6px;
-  color: var(--ink-dim);
-  font-style: italic;
-}
-
-/* Section cards on Website Evaluations */
-.eval-section {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
-  padding: 16px 18px;
-  margin: 22px 0;
-}
-
-.section-title a:link,
-.section-title a:visited {
   color: var(--ink);
-  text-decoration: none;
+  background: var(--bg);
 }
 
-.section-title a:hover {
-  text-decoration: underline;
+/* Page frame */
+main, .maincontainer {
+  /* ✅ percentage width + centered */
+  width: 92%;
+  margin: 0 auto;
+
+  /* ✅ max width for readability */
+  max-width: 1200px;
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
 }
 
-/* Footer extras */
-footer nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-  margin-bottom: 10px;
+/* Helpful defaults */
+img, video { max-width: 100%; height: auto; display: block; }
+a:link, a:visited { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
+
+/* Simple responsive layout helpers */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+header, footer { background: #07172b; padding: 16px; }
+header h1 { margin:0; font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem); }
+
+/* Example nav that collapses on small screens */
+nav { display: flex; gap: 12px; flex-wrap: wrap; }
+nav a { padding: 6px 10px; border-radius: 10px; background: rgba(255,255,255,.06); }
+
+/* ====== Responsive Breakpoints (Next 3 & Mobile) ====== */
+/* Desktop/Large screens = default rules above */
+
+/* 📱 Tablet: 601–980px */
+@media screen and (max-width: 980px) {
+  main, .maincontainer { width: 94%; padding: 1rem; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  header, footer { padding: 14px; }
+  nav a { padding: 6px 8px; }
 }
 
-footer p {
-  text-align: center;
-  color: var(--ink-dim);
-  font-size: 0.9rem;
+/* 📱 Mobile: ≤600px */
+@media screen and (max-width: 600px) {
+  main, .maincontainer { width: 96%; padding: .9rem; border-radius: 12px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }         /* stack columns */
+  nav { flex-direction: column; align-items: stretch; }     /* stacked nav */
+  nav a { text-align: center; padding: 10px; }
+  body { line-height: 1.55; }
 }
 
-/* Simple list spacing */
-ul {
-  margin-top: 8px;
+/* (Optional) very small phones: ≤370px */
+/*
+@media screen and (max-width: 370px) {
+  header h1 { font-size: 1.2rem; }
 }
+*/
