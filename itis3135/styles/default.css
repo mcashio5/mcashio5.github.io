@@ -1,24 +1,75 @@
+/* ====== Foundations ====== */
+:root{
+  --bg:#0a2a4d;
+  --panel:#081d33;
+  --ink:#ffffff;
+  --ink-dim:#cfd8e3;
+  --link:#87ceeb;
+  --link-hover:#b4e6ff;
+}
+
+/* Base page */
+html, body { margin:0; padding:0; }
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #f4f4f4;
-    color: #333;
-  }
-  
-  header, footer {
-    background: #222;
-    color: #fff;
-    padding: 1rem;
-  }
-  
-  nav a {
-    color: #fff;
-    text-decoration: none;
-    margin-right: 1rem;
-  }
-  
-  main {
-    padding: 1rem;
-  }
-  
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.6;
+  color: var(--ink);
+  background: var(--bg);
+}
+
+/* Page frame */
+main, .maincontainer {
+  /* ✅ percentage width + centered */
+  width: 92%;
+  margin: 0 auto;
+
+  /* ✅ max width for readability */
+  max-width: 1200px;
+  background: var(--panel);
+  border-radius: 16px;
+  padding: 1.25rem;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+}
+
+/* Helpful defaults */
+img, video { max-width: 100%; height: auto; display: block; }
+a:link, a:visited { color: var(--link); text-decoration: none; }
+a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
+
+/* Simple responsive layout helpers */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+header, footer { background: #07172b; padding: 16px; }
+header h1 { margin:0; font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem); }
+
+/* Example nav that collapses on small screens */
+nav { display: flex; gap: 12px; flex-wrap: wrap; }
+nav a { padding: 6px 10px; border-radius: 10px; background: rgba(255,255,255,.06); }
+
+/* ====== Responsive Breakpoints (Next 3 & Mobile) ====== */
+/* Desktop/Large screens = default rules above */
+
+/* 📱 Tablet: 601–980px */
+@media screen and (max-width: 980px) {
+  main, .maincontainer { width: 94%; padding: 1rem; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  header, footer { padding: 14px; }
+  nav a { padding: 6px 8px; }
+}
+
+/* 📱 Mobile: ≤600px */
+@media screen and (max-width: 600px) {
+  main, .maincontainer { width: 96%; padding: .9rem; border-radius: 12px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }         /* stack columns */
+  nav { flex-direction: column; align-items: stretch; }     /* stacked nav */
+  nav a { text-align: center; padding: 10px; }
+  body { line-height: 1.55; }
+}
+
+/* (Optional) very small phones: ≤370px */
+/*
+@media screen and (max-width: 370px) {
+  header h1 { font-size: 1.2rem; }
+}
+*/

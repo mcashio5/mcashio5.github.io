@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Mighty Chicken — About</title>
+  <style>
+    :root{
+      --crimson:#B23A48; --gold:#E3A008; --charcoal:#1F2937;
+      --cream:#FFF7ED; --warm:#E5E7EB;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--cream);color:var(--charcoal);line-height:1.6;display:flex;min-height:100vh;flex-direction:column}
+    .wrap{width:min(980px,92%);margin:0 auto;flex:1}
+    header{background:linear-gradient(90deg,var(--crimson),#c94b56);color:#fff;border-bottom:6px solid var(--gold)}
+    .bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:16px 0}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{display:grid;place-items:center;width:64px;height:64px;border-radius:14px;background:#fff;color:var(--crimson);font-weight:800;font-size:1.1rem;box-shadow:0 2px 6px rgba(0,0,0,.15)}
+    h1{margin:0;font-size:clamp(1.5rem,2.6vw,2.1rem)}
+    nav a{color:#fff;text-decoration:none;font-weight:700;padding:.4rem .6rem;border-radius:.5rem;border:2px solid rgba(255,255,255,.25)}
+    nav a:hover{background:rgba(255,255,255,.12)}
+    .slogan{margin:.25rem 0 .75rem;font-size:1rem}
+    main{padding:22px 0}
+    h2{color:var(--crimson);margin:.3rem 0 .6rem}
+    .panel{margin:18px 0;padding:14px 16px;background:#fff;border:1px solid var(--warm);border-left:6px solid var(--gold);border-radius:10px}
+    footer{border-top:1px solid var(--warm);background:#fff;color:#374151;padding:14px 0 28px;text-align:center}
+    .fine{font-size:.95rem;color:#4b5563}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap bar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">MC</div>
+        <div>
+          <h1>Mighty Chicken</h1>
+          <div class="slogan">"Cluck yeah, we ship joy."</div>
+        </div>
+      </div>
+      <nav>
+        <a href="./">Home</a>
+        <a href="./about.html">About</a>
+        <a href="/mcashio5/itis3135/">Course</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h2>About Mighty Chicken</h2>
+    <p>
+      Mighty Chicken began as a design exercise and became a tiny laboratory for joyful, chicken-themed products.
+      Each release is intentionally small, thoughtfully packaged, and easy to gift.
+    </p>
+    <p>
+      We keep categories limited—spice kits, enamel pins, desktop mascots—so you’re never overwhelmed.
+      Everything is built with accessibility and sustainability in mind: clear labels, high-contrast design,
+      recyclable materials, and simple instructions.
+    </p>
+
+    <div class="panel">
+      <p><strong>Why “Mighty Chicken”?</strong> It matches the mascot rule (M + C), it’s memorable,
+      and it gives us endless themes without needing a huge catalog.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="fine">© 2025 Mighty Chicken • "Cluck yeah, we ship joy."</p>
+    </div>
+  </footer>
+</body>
+</html>
+EOF
+
