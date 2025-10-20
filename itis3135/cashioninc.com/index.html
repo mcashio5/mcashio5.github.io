@@ -1,1 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cashion Inc. — Web Design & Development</title>
+
+  <!-- Coolors palette URL (must keep for assignment):
+       https://coolors.co/63a46c-1b1f22-283845-f5f7fa-d3d9e0
+       Accent: #63A46C
+       Ink:    #1B1F22
+       Head:   #283845
+       Paper:  #F5F7FA
+       Muted:  #D3D9E0
+  -->
+
+  <!-- Embedded stylesheet (assignment requires internal CSS) -->
+  <style>
+    :root{
+      --accent:#63A46C;
+      --ink:#1B1F22;
+      --head:#283845;
+      --paper:#F5F7FA;
+      --muted:#D3D9E0;
+    }
+    *{ box-sizing:border-box }
+    html,body{ margin:0; padding:0 }
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      color: var(--ink);
+      background: var(--paper);
+      line-height: 1.6;
+      display:flex; min-height:100vh; flex-direction:column;
+    }
+    .wrap{ width:min(980px,92%); margin:0 auto; padding:16px 0 28px; flex:1 }
+
+    /* Header */
+    header{
+      border-bottom: 4px solid var(--accent);
+      padding: 18px 0 14px;
+      margin-bottom: 18px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:14px;
+    }
+    .brand img{
+      display:block; border-radius:10px;
+      /* IMPORTANT: set to your TRUE resized pixel size */
+      width:56px; height:56px;
+    }
+    h1{
+      font-size: clamp(1.6rem, 2.8vw, 2.2rem);
+      color: var(--head); margin:0; letter-spacing:0.4px;
+    }
+    .tagline{ color:var(--accent); font-weight:700; margin-top:4px }
+
+    /* Main */
+    main h2{
+      font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+      color: var(--head); margin:18px 0 8px;
+    }
+    p{ margin:10px 0; max-width:70ch }
+
+    /* Non-standard bullet style using ::before */
+    ul{ padding-left:1.2em; margin:10px 0 18px }
+    li{ list-style:none; margin:6px 0 }
+    li::before{
+      content:"◆"; color:var(--accent);
+      display:inline-block; width:1.2em; margin-left:-1.2em;
+    }
+
+    /* Contact block */
+    .contact{
+      margin:18px 0 6px; padding:14px 16px;
+      background:#fff; border:1px solid var(--muted);
+      border-left:6px solid var(--accent); border-radius:8px; max-width:52ch;
+    }
+    .contact p{ margin:6px 0 }
+    .contact a{ color:var(--head); text-decoration:none; border-bottom:1px dashed var(--accent) }
+    .contact a:hover{ text-decoration:underline }
+
+    /* Footer */
+    footer{
+      border-top:1px solid var(--muted);
+      padding:14px 0 28px; text-align:center; color:#3a4650;
+      background: linear-gradient(to bottom, transparent, rgba(99,164,108,0.08));
+    }
+    .footline{ font-weight:700; color:var(--head); margin:6px 0 10px }
+    .validators{ display:inline-flex; gap:12px; flex-wrap:wrap; margin-top:6px }
+    .validators a{ color:var(--accent); text-decoration:none; font-weight:700 }
+    .validators a:hover{ text-decoration:underline }
+    .copyright{ margin-top:8px; color:#5a6670; font-size:0.95rem }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand">
+        <!-- Replace with your resized logo file & keep true width/height -->
+        <img src="images/logo.png" alt="Cashion Inc. logo" width="56" height="56" />
+        <div>
+          <h1>Cashion Inc.</h1>
+          <div class="tagline">Design • Develop • Deliver</div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h2>Cashion Inc. Services</h2>
+
+      <p>
+        Cashion Inc. is a web design & development studio focused on clean, accessible,
+        and fast experiences. I work with student orgs, startups, and small businesses
+        to plan, build, and launch sites that look sharp and perform even better.
+      </p>
+
+      <ul>
+        <li>Mobile-first layouts and responsive components</li>
+        <li>Semantic HTML with WCAG-aware color & contrast</li>
+        <li>Design systems and reusable UI patterns</li>
+        <li>Performance budgets and Lighthouse optimizations</li>
+        <li>SEO-friendly structure, titles, and metadata</li>
+        <li>GitHub Pages ↔ UNCC deployment workflows</li>
+        <li>Clear documentation and handoff</li>
+      </ul>
+
+      <p>
+        I’d love to help you scope a simple, modern, and maintainable website.
+        Share your goals and timeline, and I’ll map milestones, iterate openly,
+        and ship with quality.
+      </p>
+
+      <div class="contact">
+        <p><strong>Contact</strong></p>
+        <p>Email: <a href="mailto:hello@cashioninc.com">hello@cashioninc.com</a></p>
+        <p>Phone: (704) 555-0199</p>
+        <p>Address: 9201 University City Blvd, Charlotte, NC 28223</p>
+      </div>
+    </main>
+  </div>
+
+  <footer>
+    <!-- This page should NOT say “Designed by …” (per assignment) -->
+    <div class="footline">Design • Develop • Deliver</div>
+    <div class="validators">
+      <a href="https://validator.w3.org/" target="_blank" rel="noopener">HTML Validation</a>
+      <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">CSS Validation</a>
+    </div>
+    <div class="copyright">© 2025 Cashion Inc.</div>
+  </footer>
+</body>
+</html>
 
