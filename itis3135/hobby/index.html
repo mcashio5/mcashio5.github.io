@@ -1,1 +1,388 @@
+x<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Fishing — Hobby Site (Single Page)</title>
+
+  <!-- Embedded stylesheet (required) -->
+  <style>
+    :root{
+      /* Distinct scheme (no blue): pine green + sand + charcoal + accent orange */
+      --bg:#F7F2E8;         /* paper */
+      --ink:#232525;        /* charcoal text */
+      --pine:#2E6B4F;       /* headers / accents */
+      --pine-weak:#3c7d60;  /* hover */
+      --sand:#E6D8C3;       /* panels / borders */
+      --accent:#F08C2B;     /* callouts */
+      --muted:#CFC4B3;      /* lines */
+      --link:#2E6B4F;       /* intentionally not blue */
+      --link-hover:#F08C2B; /* warm hover */
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      line-height:1.65;
+      display:flex; min-height:100vh; flex-direction:column;
+    }
+    .wrap{ width:min(1100px,92%); margin:0 auto; }
+
+    /* Header + nav */
+    header{
+      background: linear-gradient(90deg, var(--pine), #2f6b4f);
+      color:#fff;
+      border-bottom:6px solid var(--accent);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between;
+      gap:16px; padding:18px 0;
+    }
+    h1{ margin:0; font-size:clamp(1.6rem,3vw,2.2rem); letter-spacing:.3px }
+    .nav{
+      display:flex; flex-wrap:wrap; gap:10px; align-items:center;
+    }
+    .nav a{
+      display:inline-block; padding:.45rem .70rem;
+      text-decoration:none; color:#fff; font-weight:700;
+      border:2px solid rgba(255,255,255,.25); border-radius:.6rem;
+    }
+    .nav a:hover{ background:rgba(255,255,255,.12); border-color:rgba(255,255,255,.5) }
+    .divider{ color:#ffe9d3; padding:0 .1rem; font-weight:700 }
+
+    /* Sections SPA */
+    main{ padding:22px 0 28px }
+    section{ display:none; }
+    section.active{ display:block; }
+    section h2{
+      color:var(--pine);
+      margin:.25rem 0 .75rem;
+      font-size:clamp(1.3rem,2.2vw,1.6rem);
+    }
+    .panel{
+      background:#fff; border:1px solid var(--sand);
+      border-left:6px solid var(--accent);
+      border-radius:12px; padding:14px 16px; margin:14px 0;
+    }
+    figure{
+      margin:16px 0; background:#fff; border:1px solid var(--muted);
+      border-radius:10px; padding:12px;
+    }
+    figure img{ display:block; width:100%; max-width:860px; height:auto; border-radius:8px }
+    figcaption{ font-weight:700; margin-top:8px; color:var(--pine) }
+    .prompt{ font-style:italic; margin:6px 0 0; color:#514a40 }
+
+    /* Content helpers */
+    a{ color:var(--link); text-decoration:underline; text-decoration-thickness:2px }
+    a:hover{ color:var(--link-hover) }
+    ul,ol{ padding-left:1.2rem }
+    table{ border-collapse:collapse; width:100%; max-width:780px; background:#fff; }
+    th,td{ border:1px solid var(--sand); padding:.55rem .6rem; text-align:left }
+    th{ background:#f3eadc }
+    .grid{
+      display:grid; grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
+      gap:14px;
+    }
+    .callout{
+      background:#fff5eb; border:1px solid #ffd4aa; color:#6a4a21;
+      border-radius:10px; padding:12px 14px;
+    }
+    .btn{
+      appearance:none; border:none; border-radius:.6rem; font-weight:700;
+      background:var(--pine); color:#fff; padding:.6rem .9rem; cursor:pointer;
+    }
+    .btn:hover{ background:var(--pine-weak) }
+    .field{ display:flex; flex-direction:column; gap:.3rem; margin:.5rem 0 }
+    input,select,textarea{
+      padding:.55rem .6rem; border-radius:.5rem; border:1px solid var(--muted);
+      background:#fff; color:var(--ink);
+    }
+
+    /* Footer */
+    footer{
+      margin-top:auto; border-top:1px solid var(--muted);
+      background:#fff; color:#3a3b37; text-align:center; padding:16px 0 28px;
+    }
+    .validators{ display:inline-flex; gap:12px; flex-wrap:wrap; margin-top:6px }
+    .validators a{ text-decoration:none; font-weight:700; color:var(--pine) }
+    .validators a:hover{ color:var(--accent) }
+    .designed{ margin:8px 0 6px }
+
+    /* Accessibility: focus */
+    a:focus, button:focus{ outline:3px solid var(--accent); outline-offset:2px }
+    .skip{ position:absolute; left:-9999px; top:auto; width:1px; height:1px; overflow:hidden }
+    .skip:focus{ position:static; width:auto; height:auto; padding:.4rem .6rem; background:#fff2e6; border:1px dashed var(--accent) }
+
+    /* Hide-only technique (no scrolling bleed) */
+    .sections{ min-height:55vh }
+  </style>
+
+  <script>
+    // Tiny SPA: show one section at a time
+    document.addEventListener('DOMContentLoaded', () => {
+      const links = document.querySelectorAll('[data-target]');
+      const sections = document.querySelectorAll('main section');
+
+      function show(id){
+        sections.forEach(s => s.classList.toggle('active', s.id === id));
+        links.forEach(a => a.setAttribute('aria-current', a.dataset.target === id ? 'page' : 'false'));
+      }
+
+      links.forEach(a => a.addEventListener('click', (e) => {
+        e.preventDefault();
+        show(a.dataset.target);
+        // Move focus to the active section heading for a11y
+        const h2 = document.querySelector(`#${a.dataset.target} h2`);
+        if(h2) h2.focus();
+      }));
+
+      // Default: show "what"
+      show('what');
+    });
+  </script>
+</head>
+<body>
+  <a class="skip" href="#what">Skip to content</a>
+
+  <header>
+    <div class="wrap topbar">
+      <h1>Fishing</h1>
+      <!-- unique divider symbol different from your other pages: ⟡ -->
+      <nav class="nav" aria-label="Section navigation">
+        <a href="#what" data-target="what">What</a><span class="divider">⟡</span>
+        <a href="#who" data-target="who">Who</a><span class="divider">⟡</span>
+        <a href="#when" data-target="when">When</a><span class="divider">⟡</span>
+        <a href="#where" data-target="where">Where</a><span class="divider">⟡</span>
+        <a href="#how" data-target="how">How</a><span class="divider">⟡</span>
+        <a href="#why" data-target="why">Why</a><span class="divider">⟡</span>
+        <a href="#ai" data-target="ai">AI&nbsp;Prompts</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <div class="sections">
+      <!-- WHAT (home/default) -->
+      <section id="what" tabindex="-1" class="active" aria-labelledby="what-h2">
+        <h2 id="what-h2">What: The Joy of Fishing</h2>
+
+        <div class="panel">
+          <p>
+            My favorite hobby is <strong>fishing</strong>—mostly <em>freshwater</em> for bass and catfish,
+            and <em>surf fishing</em> at the beach for flounder, mackerel, and (tiny) baby sharks. I love the
+            patience, the patterns, and the surprise when the rod bends.
+          </p>
+        </div>
+
+        <figure>
+          <img src="images/freshwater.jpg" alt="Casting a line at sunrise on a calm freshwater lake">
+          <figcaption>Freshwater morning — chasing largemouth bass and blue catfish.</figcaption>
+          <p class="prompt">If AI-generated: “photorealistic sunrise on a calm lake, person casting a fishing line from shore, soft mist on water, golden hour lighting.”</p>
+        </figure>
+
+        <div class="grid">
+          <div class="panel">
+            <h3 style="margin:.2rem 0;">Why freshwater?</h3>
+            <p>Accessible, peaceful, and a great way to learn reading structure, seasonal patterns, and lure selection.</p>
+          </div>
+          <div class="panel">
+            <h3 style="margin:.2rem 0;">Why surf?</h3>
+            <p>The beach changes daily—currents, troughs, and tides make every session a puzzle with moving pieces.</p>
+          </div>
+          <div class="panel callout">
+            <strong>Default Section:</strong> This “What” page loads first and others are hidden until selected in the nav.
+          </div>
+        </div>
+      </section>
+
+      <!-- WHO -->
+      <section id="who" tabindex="-1" aria-labelledby="who-h2">
+        <h2 id="who-h2">Who: Bass, Cats & Beach Bites</h2>
+
+        <div class="panel">
+          <p>
+            I’m a weekend angler who splits time between local lakes and the Carolina coast. When I’m not
+            testing spinnerbaits for bass or cut bait for catfish, I’m scouting sandbars looking for flounder
+            ambush points and mackerel runs.
+          </p>
+        </div>
+
+        <figure>
+          <img src="images/profile_angler.jpg" alt="Angler holding a bass near the shoreline">
+          <figcaption>Freshwater bass sessions are my reset button.</figcaption>
+          <p class="prompt">If AI-generated: “portrait of a happy angler holding a largemouth bass near shoreline, natural colors, shallow depth of field.”</p>
+        </figure>
+
+        <table aria-label="My usual targets and typical setups">
+          <thead>
+            <tr><th>Target</th><th>Typical Setup</th><th>Notes</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Largemouth Bass</td><td>Medium spinning, 8–12 lb mono, spinnerbait/senko</td><td>Key cover: grass edges, wood, points</td></tr>
+            <tr><td>Catfish</td><td>Medium-heavy, 15–20 lb mono, circle hook + cut bait</td><td>Deep channels, evening bite</td></tr>
+            <tr><td>Flounder</td><td>7' medium, 15 lb braid + 20 lb fluoro, bucktail + Gulp</td><td>Ambush near inlets & troughs</td></tr>
+            <tr><td>Mackerel</td><td>Light surf, metal spoons, fast retrieve</td><td>Find bait schools & birds</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- WHEN -->
+      <section id="when" tabindex="-1" aria-labelledby="when-h2">
+        <h2 id="when-h2">When: Seasons & Bite Windows</h2>
+
+        <div class="panel">
+          <p>
+            Timing matters. For freshwater bass, spring and fall are peak; catfish like warm evenings.
+            Surf fishing keys on tides and moving water—dawn and dusk around a good tide swing are money.
+          </p>
+        </div>
+
+        <figure>
+          <img src="images/tide_chart.jpg" alt="Stylized tide chart and sunrise icons">
+          <figcaption>Tides + low light = great surf fishing windows.</figcaption>
+          <p class="prompt">If AI-generated: “flat vector graphic of a coastal tide chart and sunrise/sunset icons, warm palette, clean icons.”</p>
+        </figure>
+
+        <div class="grid">
+          <div class="panel"><strong>Freshwater:</strong> Pre-spawn (spring) & fall shad runs.</div>
+          <div class="panel"><strong>Surf:</strong> 1–2 hours around incoming/outgoing tide.</div>
+          <div class="panel"><strong>Night:</strong> Catfish & sharks (follow local regs).</div>
+        </div>
+      </section>
+
+      <!-- WHERE -->
+      <section id="where" tabindex="-1" aria-labelledby="where-h2">
+        <h2 id="where-h2">Where: Lakes, Piers & Troughs</h2>
+
+        <div class="panel">
+          <p>
+            On lakes, I target points, grass lines, and creek mouths. On the beach, I read the surf: look for
+            darker “cuts,” sandbar gaps, and rips that funnel bait (and predators).
+          </p>
+        </div>
+
+        <figure>
+          <img src="images/surf_read.jpg" alt="Annotated surf zone showing bars, troughs, and cuts">
+          <figcaption>Reading the surf: bars, troughs, cuts, and rips.</figcaption>
+          <p class="prompt">If AI-generated: “diagram of a sandy beach with labeled sandbars, troughs, and cuts; simple overhead view.”</p>
+        </figure>
+
+        <ul>
+          <li>Lakes: points adjacent to deep water, windblown banks, docks with shade.</li>
+          <li>Surf: trough edges, near inlets, around bait schools.</li>
+          <li>Piers: current breaks, shade lines, live bait rigs for flounder.</li>
+        </ul>
+      </section>
+
+      <!-- HOW -->
+      <section id="how" tabindex="-1" aria-labelledby="how-h2">
+        <h2 id="how-h2">How: Gear, Rigs & Simple Plan</h2>
+
+        <div class="panel">
+          <p>
+            Keep it simple: one medium spinning combo for bass, one heavier setup for catfish, and a
+            corrosion-safe surf rod for the beach. Match your rig to the target and conditions.
+          </p>
+        </div>
+
+        <figure>
+          <img src="images/rigs.jpg" alt="Three rig diagrams: Texas rig, Carolina rig, fish-finder rig">
+          <figcaption>Rigs I use most: Texas (bass), Carolina (bass/cat), Fish-Finder (surf).</figcaption>
+          <p class="prompt">If AI-generated: “clean line drawings of three fishing rigs (Texas, Carolina, fish-finder), labeled, minimal style.”</p>
+        </figure>
+
+        <form class="panel" aria-label="Trip planner (not submitting anywhere)">
+          <div class="grid">
+            <div class="field">
+              <label for="wherePick"><strong>Location</strong></label>
+              <select id="wherePick">
+                <option>Freshwater Lake</option>
+                <option>Surf Beach</option>
+                <option>Pier</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="targetPick"><strong>Target Species</strong></label>
+              <select id="targetPick">
+                <option>Bass</option>
+                <option>Catfish</option>
+                <option>Flounder</option>
+                <option>Mackerel</option>
+                <option>Baby Sharks</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="timePick"><strong>Time</strong></label>
+              <select id="timePick">
+                <option>Dawn</option>
+                <option>Midday</option>
+                <option>Dusk</option>
+                <option>Night</option>
+              </select>
+            </div>
+          </div>
+          <button type="button" class="btn" onclick="alert('Packed! Rod, tackle, license, and tide chart. Tight lines!')">Build Simple Plan</button>
+        </form>
+      </section>
+
+      <!-- WHY -->
+      <section id="why" tabindex="-1" aria-labelledby="why-h2">
+        <h2 id="why-h2">Why: Patience, Patterns, Peace</h2>
+
+        <div class="panel">
+          <p>
+            Fishing teaches patience and pattern recognition—weather, water, seasons, forage. It’s also a way
+            to reset mentally: slow down, watch, learn, and enjoy being outside.
+          </p>
+        </div>
+
+        <figure>
+          <img src="images/reflection.jpg" alt="Quiet shoreline reflection with rod leaning on a chair">
+          <figcaption>A quiet shoreline beats any algorithm.</figcaption>
+          <p class="prompt">If AI-generated: “serene lake shoreline at golden hour with a fishing chair and rod; warm tones, reflective water.”</p>
+        </figure>
+
+        <div class="panel callout">
+          <strong>Respect the water:</strong> follow local regulations, practice safe handling, and pack out all trash.
+        </div>
+      </section>
+
+      <!-- AI PROMPTS -->
+      <section id="ai" tabindex="-1" aria-labelledby="ai-h2">
+        <h2 id="ai-h2">AI Prompts & Tools Used</h2>
+
+        <div class="panel">
+          <p><strong>Model(s):</strong> (Fill in the model you used, e.g., “Midjourney v6 / DALL·E / Stable Diffusion”).</p>
+          <ul>
+            <li><strong>freshwater.jpg</strong> — <em>“photorealistic sunrise on a calm lake, person casting a fishing line from shore, soft mist on water, golden hour lighting.”</em></li>
+            <li><strong>profile_angler.jpg</strong> — <em>“portrait of a happy angler holding a largemouth bass near shoreline, natural colors, shallow depth of field.”</em></li>
+            <li><strong>tide_chart.jpg</strong> — <em>“flat vector graphic of a coastal tide chart and sunrise/sunset icons, warm palette, clean icons.”</em></li>
+            <li><strong>surf_read.jpg</strong> — <em>“diagram of a sandy beach with labeled sandbars, troughs, and cuts; simple overhead view.”</em></li>
+            <li><strong>rigs.jpg</strong> — <em>“clean line drawings of three fishing rigs (Texas, Carolina, fish-finder), labeled, minimal style.”</em></li>
+            <li><strong>reflection.jpg</strong> — <em>“serene lake shoreline at golden hour with a fishing chair and rod; warm tones, reflective water.”</em></li>
+          </ul>
+          <p class="callout" style="margin-top:10px">
+            If you only used AI for images, add this sentence to your Canvas submission comment:
+            <em>“I only used AI for images.”</em>
+          </p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p class="designed">Page designed by <a href="https://cashioninc.com" target="_blank" rel="noopener">Cashion Inc.</a></p>
+      <div class="validators" aria-label="Validation links">
+        <a href="https://validator.w3.org/" target="_blank" rel="noopener">HTML Validation</a>
+        <a href="https://jigsaw.w3.org/css-validator/" target="_blank" rel="noopener">CSS Validation</a>
+        <a href="https://wave.webaim.org/" target="_blank" rel="noopener">Accessibility (WAVE)</a>
+      </div>
+      <p style="margin-top:8px;color:#5b564d">© 2025 Michael Cashion</p>
+    </div>
+  </footer>
+</body>
+</html>
 
