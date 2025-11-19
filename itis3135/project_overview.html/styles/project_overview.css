@@ -1,1 +1,114 @@
+/* Overall page layout */
+.project-overview-page {
+  margin: 0;
+  padding: 0;
+  background-color: #fdfbf7; /* soft off-white */
+  color: #222;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+/* Header and nav */
+.project-overview-page header {
+  background-color: #ffffff;
+  border-bottom: 4px solid #d4af37; /* gold accent */
+  padding: 1rem 2rem;
+}
+
+.project-overview-page h1 {
+  margin: 0 0 0.5rem;
+  font-size: 1.9rem;
+}
+
+.project-overview-page nav ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.project-overview-page nav a {
+  text-decoration: none;
+  color: #b48817; /* darker gold */
+  font-weight: 600;
+}
+
+.project-overview-page nav a:hover,
+.project-overview-page nav a:focus {
+  text-decoration: underline;
+}
+
+/* Main content card */
+.project-overview-page main {
+  max-width: 960px;
+  margin: 2rem auto 3rem;
+  padding: 2rem 1.5rem 2.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* Headings */
+.project-overview-page h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #f0e1b0;
+  color: #b48817;
+}
+
+.project-overview-page h3 {
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.project-overview-page h4 {
+  margin-top: 1.25rem;
+  margin-bottom: 0.25rem;
+  color: #b48817;
+}
+
+/* Lists and paragraphs */
+.project-overview-page p {
+  line-height: 1.6;
+}
+
+.project-overview-page ul {
+  margin-left: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Figures/images */
+.project-overview-page figure {
+  margin: 1.25rem auto;
+  text-align: center;
+}
+
+.project-overview-page figure img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 6px;
+  border: 1px solid #eee;
+}
+
+.project-overview-page figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #666;
+}
+
+/* Sections spacing */
+.project-overview-page section {
+  margin-top: 1.5rem;
+}
+
+/* Footer */
+.project-overview-page footer {
+  text-align: center;
+  padding: 1.5rem 0 2rem;
+  font-size: 0.9rem;
+  color: #777;
+}
 
