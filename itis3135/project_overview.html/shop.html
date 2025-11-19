@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shop Page Design – Dragonfly Home Market</title>
+  <link rel="stylesheet" href="styles/project_overview.css">
+</head>
+<body class="project-overview-page">
+  <header>
+    <h1>Dragonfly Home Market – Page Design</h1>
+    <nav>
+      <ul>
+        <li><a href="../index.html">Course Home</a></li>
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="home_page_design.html">Home Page Design</a></li>
+        <li><a href="shop_page_design.html">Shop Page Design</a></li>
+        <li><a href="gallery_page_design.html">Gallery Page Design</a></li>
+        <li><a href="about_page_design.html">About Page Design</a></li>
+        <li><a href="contact_page_design.html">Contact Page Design</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <h2>Shop Inventory Page Design (shop.html)</h2>
+
+    <ul>
+      <li><strong>Name of the page:</strong> Shop Inventory</li>
+      <li><strong>Purpose of the page:</strong>
+        Display currently available furniture pieces with details so users can decide which items they want to inquire about.
+      </li>
+      <li><strong>Audience/Users of page:</strong>
+        Primary customers who want to purchase furniture; Dragonfly Homes staff sharing item links.
+      </li>
+      <li><strong>Content of the page:</strong>
+        <ul>
+          <li>A grid or list of item cards with photo, name, short description, condition, dimensions, and price.</li>
+          <li>Filters for category (sofa, chair, table, decor), room (living room, bedroom, dining room, office), and price range.</li>
+          <li>“Interested” or “Add to Wishlist” buttons on each item.</li>
+        </ul>
+      </li>
+      <li><strong>Is this a page where you are asking users to enter data?</strong>
+        Only through interactive controls such as filter selections and optional quantity selectors, but not through a full data-storing form.
+      </li>
+      <li><strong>Will those data fields need any validations?</strong>
+        Filter selections will be validated on the client side to ensure appropriate ranges (for example, minimum price is not greater than maximum price).
+      </li>
+      <li><strong>Buttons, hyperlinks, drop downs:</strong>
+        <ul>
+          <li>Drop down lists for category and room filters.</li>
+          <li>jQuery UI slider for price range.</li>
+          <li>Buttons on each item: “View Details” or “Interested in this piece.”</li>
+          <li>Link at the bottom to the How to Buy / Contact page.</li>
+        </ul>
+      </li>
+      <li><strong>Actions that will happen on the page:</strong>
+        <ul>
+          <li>JavaScript filters the visible items instantly based on user selections, without reloading the page.</li>
+          <li>Clicking “Interested” for an item highlights it in a temporary wishlist panel (stored only in the current session).</li>
+          <li>Clicking “Contact about selected items” navigates to the Contact page and can pre-fill a message with the selected item names.</li>
+        </ul>
+      </li>
+      <li><strong>Special notes:</strong>
+        Inventory data will be loaded via AJAX from a JSON file to make it easier to update stock without editing HTML.
+      </li>
+    </ul>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Michael Cashion – Dragonfly Home Market Project Overview</p>
+  </footer>
+</body>
+</html>
