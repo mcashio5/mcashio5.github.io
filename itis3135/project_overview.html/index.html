@@ -3,8 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Project Overview – Dragonfly Home Market</title>
-  <link rel="stylesheet" href="styles.css">
-
   <link rel="stylesheet" href="styles/project_overview.css">
 </head>
 <body class="project-overview-page">
@@ -12,8 +10,16 @@
     <h1>Michael Cashion – ITIS 3135</h1>
     <nav>
       <ul>
-        <li><a href="index.html">Course Home</a></li>
-        <li><a href="project_overview.html">Project Overview</a></li>
+        <!-- Go back to main course home -->
+        <li><a href="../index.html">Course Home</a></li>
+
+        <!-- Design-doc navigation -->
+        <li><a href="index.html">Overview</a></li>
+        <li><a href="home_page_design.html">Home Page Design</a></li>
+        <li><a href="shop_page_design.html">Shop Page Design</a></li>
+        <li><a href="gallery_page_design.html">Gallery Page Design</a></li>
+        <li><a href="about_page_design.html">About Page Design</a></li>
+        <li><a href="contact_page_design.html">Contact Page Design</a></li>
       </ul>
     </nav>
   </header>
@@ -74,18 +80,17 @@
         including header, navigation, hero content, featured categories, and footer.
       </p>
 
-      <!-- Replace WIREFRAMELINK.png with your actual filename/path -->
       <figure>
-        <img src="images/dragonfly_Wireframe.png"
-          alt="Site map for Dragonfly Home Market website">
-        <figcaption>Site map diagram for the Dragonfly Home Market website.</figcaption>
+        <img src="images/dragonfly_wireframe.png"
+             alt="Wireframe layout for Dragonfly Home Market home page">
+        <figcaption>Wireframe for the Dragonfly Home Market home page.</figcaption>
       </figure>
-      
+    </section>
+
     <!-- 4. Site Map -->
     <section id="site-map">
       <h3>4. Site Map</h3>
 
-      <!-- Replace SITEMAPLINK.png with your actual filename/path -->
       <figure>
         <img src="images/dragonfly_SiteMap.png"
              alt="Site map for Dragonfly Home Market website">
@@ -101,177 +106,9 @@
       </ul>
     </section>
 
-    <!-- 5. Page Design -->
-    <section id="page-design">
-      <h3>5. Page Design</h3>
-      <p>For each page in the site map, the following details describe the planned design.</p>
-
-      <!-- 5.1 Home -->
-      <h4>5.1 Home (index.html)</h4>
-      <ul>
-        <li><strong>Name of the page:</strong> Home</li>
-        <li><strong>Purpose of the page:</strong> Introduce Dragonfly Homes and explain the purpose of the furniture sale, while directing visitors quickly to the Shop and Gallery.</li>
-        <li><strong>Audience/Users of page:</strong> All visitors, including homeowners, renters, realtors, and staging clients.</li>
-        <li><strong>Content of the page:</strong>
-          <ul>
-            <li>Short description of Dragonfly Homes and the surplus furniture sale.</li>
-            <li>Hero image from a staged home.</li>
-            <li>Three featured category cards (Living Room, Bedroom, Dining).</li>
-            <li>A small “How it works” section that describes browsing, inquiring, and pickup.</li>
-          </ul>
-        </li>
-        <li><strong>Is this a page where you are asking users to enter data?</strong> No.</li>
-        <li><strong>Will those data fields need any validations?</strong> Not applicable.</li>
-        <li><strong>Buttons, hyperlinks, drop downs:</strong>
-          <ul>
-            <li>Navigation bar links to all pages.</li>
-            <li>“Shop Now” button linking to Shop Inventory.</li>
-            <li>“View Room Ideas” button linking to Styled Rooms Gallery.</li>
-          </ul>
-        </li>
-        <li><strong>Actions that will happen on the page:</strong>
-          <ul>
-            <li>Clicking call-to-action buttons navigates to Shop or Gallery pages.</li>
-            <li>Featured cards link to filtered views of the Shop page (for example, Living Room items only).</li>
-          </ul>
-        </li>
-        <li><strong>Special notes:</strong> This page sets the tone for the site, so imagery and branding for Dragonfly Homes are especially important.</li>
-      </ul>
-
-      <!-- 5.2 Shop Inventory -->
-      <h4>5.2 Shop Inventory (shop.html)</h4>
-      <ul>
-        <li><strong>Name of the page:</strong> Shop Inventory</li>
-        <li><strong>Purpose of the page:</strong> Display currently available furniture pieces with details so users can decide which items they want to inquire about.</li>
-        <li><strong>Audience/Users of page:</strong> Primary customers who want to purchase furniture; Dragonfly Homes staff sharing item links.</li>
-        <li><strong>Content of the page:</strong>
-          <ul>
-            <li>A grid or list of item cards with photo, name, short description, condition, dimensions, and price.</li>
-            <li>Filters for category (sofa, chair, table, decor), room (living room, bedroom, dining room, office), and price range.</li>
-            <li>“Interested” or “Add to Wishlist” buttons on each item.</li>
-          </ul>
-        </li>
-        <li><strong>Is this a page where you are asking users to enter data?</strong> Only through interactive controls such as filter selections and optional quantity selectors, but not through a full data-storing form.</li>
-        <li><strong>Will those data fields need any validations?</strong> Filter selections will be validated on the client side to ensure appropriate ranges (for example, minimum price is not greater than maximum price).</li>
-        <li><strong>Buttons, hyperlinks, drop downs:</strong>
-          <ul>
-            <li>Drop down lists for category and room filters.</li>
-            <li>jQuery UI slider for price range.</li>
-            <li>Buttons on each item: “View Details” or “Interested in this piece.”</li>
-            <li>Link at the bottom to the How to Buy / Contact page.</li>
-          </ul>
-        </li>
-        <li><strong>Actions that will happen on the page:</strong>
-          <ul>
-            <li>JavaScript filters the visible items instantly based on user selections, without reloading the page.</li>
-            <li>Clicking “Interested” for an item highlights it in a temporary wishlist panel (stored only in the current session).</li>
-            <li>Clicking “Contact about selected items” navigates to the Contact page and can pre-fill a message with the selected item names.</li>
-          </ul>
-        </li>
-        <li><strong>Special notes:</strong> Inventory data will be loaded via AJAX from a JSON file to make it easier to update stock without editing HTML.</li>
-      </ul>
-
-      <!-- 5.3 Styled Rooms Gallery -->
-      <h4>5.3 Styled Rooms Gallery (gallery.html)</h4>
-      <ul>
-        <li><strong>Name of the page:</strong> Styled Rooms Gallery</li>
-        <li><strong>Purpose of the page:</strong> Show complete staged rooms so visitors can see furniture in context and discover items they might want to buy.</li>
-        <li><strong>Audience/Users of page:</strong> Homeowners, renters, and realtors looking for design inspiration and available pieces.</li>
-        <li><strong>Content of the page:</strong>
-          <ul>
-            <li>A gallery of room photos (living rooms, bedrooms, dining areas).</li>
-            <li>Captions that list which items in the photo are currently available for sale.</li>
-            <li>Optional “Shop this room” links.</li>
-          </ul>
-        </li>
-        <li><strong>Is this a page where you are asking users to enter data?</strong> No.</li>
-        <li><strong>Will those data fields need any validations?</strong> Not applicable.</li>
-        <li><strong>Buttons, hyperlinks, drop downs:</strong>
-          <ul>
-            <li>Thumbnail images that can be clicked to open a larger view (lightbox).</li>
-            <li>“Shop this room” links that lead to filtered results on the Shop Inventory page.</li>
-          </ul>
-        </li>
-        <li><strong>Actions that will happen on the page:</strong>
-          <ul>
-            <li>Clicking a thumbnail opens a modal/lightbox with a larger image, using jQuery or a gallery plugin.</li>
-            <li>Inside the lightbox, left and right arrows allow users to move between images.</li>
-            <li>“Shop this room” links apply filters on the Shop page to show matching items.</li>
-          </ul>
-        </li>
-        <li><strong>Special notes:</strong> This page is visually focused; load times and image sizes should be carefully managed.</li>
-      </ul>
-
-      <!-- 5.4 About Dragonfly Homes -->
-      <h4>5.4 About Dragonfly Homes (about.html)</h4>
-      <ul>
-        <li><strong>Name of the page:</strong> About Dragonfly Homes</li>
-        <li><strong>Purpose of the page:</strong> Provide background on Dragonfly Homes, highlight Brittney’s experience, and build trust with potential buyers.</li>
-        <li><strong>Audience/Users of page:</strong> New visitors who want to know more about the business and its owner.</li>
-        <li><strong>Content of the page:</strong>
-          <ul>
-            <li>Short business history and mission statement.</li>
-            <li>Photos of past staging projects.</li>
-            <li>Bullet list of services (staging, consultations, styling).</li>
-          </ul>
-        </li>
-        <li><strong>Is this a page where you are asking users to enter data?</strong> No.</li>
-        <li><strong>Will those data fields need any validations?</strong> Not applicable.</li>
-        <li><strong>Buttons, hyperlinks, drop downs:</strong>
-          <ul>
-            <li>Links back to Home and Shop pages.</li>
-            <li>Possibly a “Book a staging consultation” link that jumps to the Contact page form.</li>
-          </ul>
-        </li>
-        <li><strong>Actions that will happen on the page:</strong>
-          <ul>
-            <li>Smooth scrolling or navigation to the Contact form when a “Book now” button is clicked.</li>
-          </ul>
-        </li>
-        <li><strong>Special notes:</strong> This page could include a jQuery UI accordion for “Services” that expands and collapses details.</li>
-      </ul>
-
-      <!-- 5.5 How to Buy / Contact -->
-      <h4>5.5 How to Buy / Contact (contact.html)</h4>
-      <ul>
-        <li><strong>Name of the page:</strong> How to Buy / Contact</li>
-        <li><strong>Purpose of the page:</strong> Explain how the purchasing process works and provide a form for users to ask about specific items or schedule pickup.</li>
-        <li><strong>Audience/Users of page:</strong> Serious buyers ready to contact Dragonfly Homes.</li>
-        <li><strong>Content of the page:</strong>
-          <ul>
-            <li>Step-by-step explanation of how to inquire about a piece, confirm availability, and arrange payment and pickup.</li>
-            <li>Contact form fields: Name, Email, Phone (optional), Item of Interest, Message.</li>
-            <li>FAQ section about condition, holds, and pickup times.</li>
-          </ul>
-        </li>
-        <li><strong>Is this a page where you are asking users to enter data?</strong> Yes, users will submit a contact form.</li>
-        <li><strong>Will those data fields need any validations?</strong>
-          <ul>
-            <li>Required fields: Name, Email, and Message.</li>
-            <li>Email must match a basic email pattern.</li>
-            <li>Optional phone field can be validated for numeric characters and length.</li>
-          </ul>
-        </li>
-        <li><strong>Buttons, hyperlinks, drop downs:</strong>
-          <ul>
-            <li>Submit button for the contact form.</li>
-            <li>Clear/Reset button (optional).</li>
-            <li>Links back to Shop Inventory and Home pages.</li>
-          </ul>
-        </li>
-        <li><strong>Actions that will happen on the page:</strong>
-          <ul>
-            <li>JavaScript validates the form on submit and shows friendly error messages if any required fields are missing or invalid.</li>
-            <li>If the form passes validation, the page will show a confirmation message and could send the data to an email endpoint or a placeholder “success” page (depending on what is allowed in the course).</li>
-          </ul>
-        </li>
-        <li><strong>Special notes:</strong> The FAQ section below the form may use a jQuery UI accordion for collapsible questions and answers.</li>
-      </ul>
-    </section>
-
-    <!-- 6. Dynamic Functionality -->
+    <!-- 5. Dynamic Functionality -->
     <section id="dynamic-functionality">
-      <h3>6. Dynamic Functionality on the Website</h3>
+      <h3>5. Dynamic Functionality on the Website</h3>
 
       <h4>Filtering and Searching Inventory (Shop Inventory page)</h4>
       <ul>
@@ -309,7 +146,7 @@
 
       <h4>Optional jQuery UI Accordion for FAQs (How to Buy / Policies page)</h4>
       <ul>
-        <li>The FAQ section may use a jQuery UI accordion widget so that each question expands or collapses when clicked.</li>
+        <li>The FAQ section may use a jQuery UI accordion widget so that each question expands and collapses when clicked.</li>
         <li>This keeps the page compact while still providing detail for users who want it.</li>
       </ul>
     </section>
