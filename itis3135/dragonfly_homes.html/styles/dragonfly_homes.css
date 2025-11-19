@@ -108,6 +108,19 @@ ul {
   background-position: center;
 }
 
+.hero-figure {
+  margin: 0;              /* so it lines up nicely in the grid */
+}
+
+.hero-caption {
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #8a6d1d;         /* soft gold tone to match theme */
+  text-align: center;      /* or left/center if you prefer */
+  font-style: italic;
+}
+
+
 /* Buttons */
 
 .btn {
