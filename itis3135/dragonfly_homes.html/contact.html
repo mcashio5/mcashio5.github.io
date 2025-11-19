@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dragonfly Home Market – How to Buy / Contact</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1>Dragonfly Home Market</h1>
+      <p>How to Buy and Contact</p>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Inventory</a></li>
+          <li><a href="gallery.html">Styled Rooms</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">How to Buy / Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>How to Buy</h2>
+
+      <section>
+        <h3>Steps to purchase</h3>
+        <ol>
+          <li>Browse the <a href="shop.html">Shop Inventory</a> and note the item names that interest you.</li>
+          <li>Fill out the contact form below with your preferred items and any questions.</li>
+          <li>Dragonfly Homes will confirm availability, answer questions, and send pickup details.</li>
+          <li>Arrange pickup and payment, then take your staged piece home.</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>Contact Dragonfly Homes</h3>
+
+        <form id="contact-form" novalidate>
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+
+          <label for="phone">Phone (optional)</label>
+          <input type="text" id="phone" name="phone">
+
+          <label for="item">Item of Interest</label>
+          <input type="text" id="item" name="item"
+                 placeholder="Example: Neutral Linen Sofa, Round Dining Table">
+
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" required></textarea>
+
+          <button type="submit" class="btn btn-primary">Submit inquiry</button>
+          <button type="reset" class="btn btn-outline">Clear</button>
+
+          <div id="form-status"></div>
+        </form>
+      </section>
+
+      <section>
+        <h3>Frequently Asked Questions</h3>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Are the items new or used?</span>
+          </div>
+          <div class="faq-answer">
+            Most items have been lightly used in staged homes and may show minor wear.
+            Condition details are listed on each product card in the Shop.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you offer delivery?</span>
+          </div>
+          <div class="faq-answer">
+            Delivery is not included by default. In some cases, local delivery may be
+            arranged for an additional fee. Include this question in your message if needed.
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can you hold an item for me?</span>
+          </div>
+          <div class="faq-answer">
+            Items are available on a first come, first served basis. Short holds may be possible
+            once pickup has been scheduled.
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Dragonfly Homes – Dragonfly Home Market</p>
+    </footer>
+  </div>
+</body>
+</html>
