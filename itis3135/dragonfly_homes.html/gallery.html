@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Dragonfly Home Market – Shop Inventory</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="scripts.js" defer></script>
+</head>
+<body>
+  <div class="wrapper">
+    <header class="site-header">
+      <h1>Dragonfly Home Market</h1>
+      <p>Shop Inventory</p>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="shop.html">Shop Inventory</a></li>
+          <li><a href="gallery.html">Styled Rooms</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="contact.html">How to Buy / Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Shop Inventory</h2>
+      <p>Browse available staging pieces below. Use the filters to narrow by room, category, and price range.</p>
+
+      <section class="shop-layout">
+        <aside class="filter-panel">
+          <h3>Filter items</h3>
+
+          <label for="filter-room">Room</label>
+          <select id="filter-room">
+            <option value="all">All rooms</option>
+            <option value="Living Room">Living Room</option>
+            <option value="Bedroom">Bedroom</option>
+            <option value="Dining Room">Dining Room</option>
+          </select>
+
+          <label for="filter-category">Category</label>
+          <select id="filter-category">
+            <option value="all">All categories</option>
+            <option value="Sofa">Sofa</option>
+            <option value="Chair">Chair</option>
+            <option value="Table">Table</option>
+            <option value="Bench">Bench</option>
+            <option value="Decor">Decor</option>
+          </select>
+
+          <label>Price range ($)</label>
+          <div>
+            <input id="filter-min-price" type="number" min="0" value="0">
+            <input id="filter-max-price" type="number" min="0" value="1000">
+          </div>
+
+          <section class="wishlist">
+            <h3>Interested items</h3>
+            <ul class="wishlist-items">
+              <!-- Filled by JS -->
+            </ul>
+            <a href="contact.html" class="contact-selected-link" style="display:none;">
+              Contact about selected items
+            </a>
+          </section>
+        </aside>
+
+        <section>
+          <div class="shop-grid">
+            <!-- Item cards injected by JS -->
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2025 Dragonfly Homes – Dragonfly Home Market</p>
+    </footer>
+  </div>
+</body>
+</html>
