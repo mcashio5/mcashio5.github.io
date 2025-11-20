@@ -8,14 +8,12 @@
   <!-- Site-wide styles (matches index.html look) -->
   <link rel="stylesheet" type="text/css" href="styles/default.css" />
 
-  <!-- Form-specific styles -->
+  <!-- Form-specific styles (for better colors and placeholders) -->
   <link rel="stylesheet" href="styles/intro_form.css" />
 
   <!-- Highlight.js theme for the generated code block -->
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-  />
+  <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" />
 </head>
 <body>
   <!-- Same header / nav as index.html -->
@@ -40,28 +38,46 @@
     <section id="result" class="hidden" aria-live="polite"></section>
 
     <!-- FORM AREA -->
-    <form id="intro-form" novalidate>
+    <form id="intro-form" novalidate autocomplete="off">
       <!-- ===================== NAME BLOCK ===================== -->
       <fieldset>
         <legend>Identity</legend>
+
         <div class="grid two">
           <label>
             First Name *
-            <input type="text" id="firstName" name="firstName" required placeholder="First name" />
+            <input type="text"
+                   id="firstName"
+                   name="firstName"
+                   required
+                   placeholder="First name" />
           </label>
+
           <label>
             Middle Name / Initial (optional)
-            <input type="text" id="middleName" name="middleName" placeholder="M. or Middle name" />
+            <input type="text"
+                   id="middleName"
+                   name="middleName"
+                   placeholder="M. or middle name" />
           </label>
         </div>
+
         <div class="grid two">
           <label>
             Preferred/Nickname (optional)
-            <input type="text" id="nickname" name="nickname" placeholder="Preferred name" />
+            <input type="text"
+                   id="nickname"
+                   name="nickname"
+                   placeholder="Preferred name" />
           </label>
+
           <label>
             Last Name *
-            <input type="text" id="lastName" name="lastName" required placeholder="Last name" />
+            <input type="text"
+                   id="lastName"
+                   name="lastName"
+                   required
+                   placeholder="Last name" />
           </label>
         </div>
       </fieldset>
@@ -72,12 +88,19 @@
         <div class="grid two">
           <label>
             Statement *
-            <input type="text" id="ackStatement" name="ackStatement" required
-                   placeholder="I understand this is my intro page..." />
+            <input type="text"
+                   id="ackStatement"
+                   name="ackStatement"
+                   required
+                   placeholder="I understand this introduction will be displayed as my course intro..." />
           </label>
+
           <label>
             Date *
-            <input type="date" id="ackDate" name="ackDate" required />
+            <input type="date"
+                   id="ackDate"
+                   name="ackDate"
+                   required />
           </label>
         </div>
       </fieldset>
@@ -88,15 +111,29 @@
         <div class="grid three">
           <label>
             Adjective *
-            <input type="text" id="mascotAdj" name="mascotAdj" required placeholder="e.g., Majestic" />
+            <input type="text"
+                   id="mascotAdj"
+                   name="mascotAdj"
+                   required
+                   placeholder="e.g., Majestic" />
           </label>
+
           <label>
             Animal *
-            <input type="text" id="mascotAnimal" name="mascotAnimal" required placeholder="e.g., Phoenix" />
+            <input type="text"
+                   id="mascotAnimal"
+                   name="mascotAnimal"
+                   required
+                   placeholder="e.g., Phoenix" />
           </label>
+
           <label>
             Divider *
-            <input type="text" id="divider" name="divider" required maxlength="3"
+            <input type="text"
+                   id="divider"
+                   name="divider"
+                   required
+                   maxlength="3"
                    placeholder="~, |, ♥" />
           </label>
         </div>
@@ -105,20 +142,32 @@
       <!-- ===================== IMAGE ===================== -->
       <fieldset>
         <legend>Profile Image</legend>
+
         <div class="grid two">
           <label>
             Default Image URL *
-            <input type="url" id="imageUrl" name="imageUrl" required
+            <input type="url"
+                   id="imageUrl"
+                   name="imageUrl"
+                   required
                    placeholder="https://.../myphoto.jpg" />
           </label>
+
           <label>
             Upload Your Image (overrides URL)
-            <input type="file" id="imageFile" name="imageFile" accept="image/*" />
+            <input type="file"
+                   id="imageFile"
+                   name="imageFile"
+                   accept="image/*" />
           </label>
         </div>
+
         <label>
           Picture Caption *
-          <input type="text" id="imageCaption" name="imageCaption" required
+          <input type="text"
+                 id="imageCaption"
+                 name="imageCaption"
+                 required
                  placeholder="Photo caption" />
         </label>
       </fieldset>
@@ -126,7 +175,10 @@
       <!-- ===================== PERSONAL STATEMENT ===================== -->
       <fieldset>
         <legend>Personal Statement *</legend>
-        <textarea id="personalStatement" name="personalStatement" rows="3" required
+        <textarea id="personalStatement"
+                  name="personalStatement"
+                  rows="3"
+                  required
                   placeholder="Brief summary of yourself..."></textarea>
       </fieldset>
 
@@ -135,46 +187,66 @@
         <legend>Main Sections (7) *</legend>
         <p class="muted">
           These correspond to the seven “bullets” on your original intro page
-          (e.g., Personal Background, Academic Background, etc.).
+          (for example, Personal Background, Academic Background).
         </p>
+
         <div class="grid two">
           <label>
             Personal Background *
-            <textarea id="personalBackground" rows="2" required
+            <textarea id="personalBackground"
+                      rows="2"
+                      required
                       placeholder="About your personal background..."></textarea>
           </label>
+
           <label>
             Academic Background *
-            <textarea id="academicBackground" rows="2" required
+            <textarea id="academicBackground"
+                      rows="2"
+                      required
                       placeholder="About your academic background..."></textarea>
           </label>
         </div>
+
         <div class="grid two">
           <label>
             Professional Background *
-            <textarea id="professionalBackground" rows="2" required
+            <textarea id="professionalBackground"
+                      rows="2"
+                      required
                       placeholder="About your professional background..."></textarea>
           </label>
+
           <label>
             Primary Computer Platform *
-            <textarea id="primaryComputerPlatform" rows="2" required
-                      placeholder="Windows/Mac/Linux + details"></textarea>
+            <textarea id="primaryComputerPlatform"
+                      rows="2"
+                      required
+                      placeholder="Windows / Mac / Linux and details"></textarea>
           </label>
         </div>
+
         <div class="grid two">
           <label>
             Courses (overall thoughts) *
-            <textarea id="coursesOverview" rows="2" required
+            <textarea id="coursesOverview"
+                      rows="2"
+                      required
                       placeholder="What you expect from your courses..."></textarea>
           </label>
+
           <label>
             Funny Thing (optional)
-            <textarea id="funnyThing" rows="2" placeholder="Something funny..."></textarea>
+            <textarea id="funnyThing"
+                      rows="2"
+                      placeholder="Something funny..."></textarea>
           </label>
         </div>
+
         <label>
           Something I'd Like to Share (optional)
-          <textarea id="somethingToShare" rows="2"
+          <textarea id="somethingToShare"
+                    rows="2"
                     placeholder="Something you'd like to share..."></textarea>
         </label>
       </fieldset>
@@ -191,45 +263,95 @@
       <!-- ===================== LINKS (5) ===================== -->
       <fieldset>
         <legend>Links (5) *</legend>
+
         <div class="links five">
           <div class="grid two link-row">
-            <label>Text *
-              <input type="text" class="linkText" required placeholder="LinkedIn" />
+            <label>
+              Text *
+              <input type="text"
+                     class="linkText"
+                     required
+                     placeholder="LinkedIn" />
             </label>
-            <label>URL *
-              <input type="url" class="linkUrl" required placeholder="https://..." />
-            </label>
-          </div>
-          <div class="grid two link-row">
-            <label>Text *
-              <input type="text" class="linkText" required placeholder="GitHub" />
-            </label>
-            <label>URL *
-              <input type="url" class="linkUrl" required placeholder="https://..." />
-            </label>
-          </div>
-          <div class="grid two link-row">
-            <label>Text *
-              <input type="text" class="linkText" required placeholder="Resume" />
-            </label>
-            <label>URL *
-              <input type="url" class="linkUrl" required placeholder="https://..." />
+
+            <label>
+              URL *
+              <input type="url"
+                     class="linkUrl"
+                     required
+                     placeholder="https://..." />
             </label>
           </div>
+
           <div class="grid two link-row">
-            <label>Text *
-              <input type="text" class="linkText" required placeholder="Portfolio" />
+            <label>
+              Text *
+              <input type="text"
+                     class="linkText"
+                     required
+                     placeholder="GitHub" />
             </label>
-            <label>URL *
-              <input type="url" class="linkUrl" required placeholder="https://..." />
+
+            <label>
+              URL *
+              <input type="url"
+                     class="linkUrl"
+                     required
+                     placeholder="https://..." />
             </label>
           </div>
+
           <div class="grid two link-row">
-            <label>Text *
-              <input type="text" class="linkText" required placeholder="Favorite Site" />
+            <label>
+              Text *
+              <input type="text"
+                     class="linkText"
+                     required
+                     placeholder="Resume" />
             </label>
-            <label>URL *
-              <input type="url" class="linkUrl" required placeholder="https://..." />
+
+            <label>
+              URL *
+              <input type="url"
+                     class="linkUrl"
+                     required
+                     placeholder="https://..." />
+            </label>
+          </div>
+
+          <div class="grid two link-row">
+            <label>
+              Text *
+              <input type="text"
+                     class="linkText"
+                     required
+                     placeholder="Portfolio" />
+            </label>
+
+            <label>
+              URL *
+              <input type="url"
+                     class="linkUrl"
+                     required
+                     placeholder="https://..." />
+            </label>
+          </div>
+
+          <div class="grid two link-row">
+            <label>
+              Text *
+              <input type="text"
+                     class="linkText"
+                     required
+                     placeholder="Favorite Site" />
+            </label>
+
+            <label>
+              URL *
+              <input type="url"
+                     class="linkUrl"
+                     required
+                     placeholder="https://..." />
             </label>
           </div>
         </div>
