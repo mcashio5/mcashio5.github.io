@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dragonfly Home Market – Shop Inventory</title>
+  <title>Dragonfly Home Market – Styled Rooms</title>
   <link rel="stylesheet" href="styles/dragonfly_homes.css">
   <script src="scripts.js" defer></script>
 </head>
@@ -10,7 +10,7 @@
   <div class="wrapper">
     <header class="site-header">
       <h1>Dragonfly Home Market</h1>
-      <p>Shop Inventory</p>
+      <p>Styled Rooms Gallery</p>
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -23,54 +23,49 @@
     </header>
 
     <main>
-      <h2>Shop Inventory</h2>
-      <p>Browse available staging pieces below. Use the filters to narrow by room, category, and price range.</p>
+      <h2>Styled Rooms Gallery</h2>
+      <p>See how Dragonfly Homes stages complete rooms. Items currently available for purchase are labeled below each photo.</p>
 
-      <section class="shop-layout">
-        <aside class="filter-panel">
-          <h3>Filter items</h3>
+      <section class="gallery-grid">
+        <article class="card gallery-card">
+          <img src="images/gallery_living_placeholder.jpg"
+               alt="Bright living room with neutral sofa"
+               data-lightbox-src="images/gallery_living_placeholder.jpg"
+               data-lightbox-caption="Living room: neutral linen sofa, wood coffee table, accent chair. Sofa and coffee table currently available.">
+          <h3>Neutral Living Room</h3>
+          <p>Sofa, coffee table, and accent chair available.</p>
+          <a href="shop.html" class="btn btn-outline">Shop this room</a>
+        </article>
 
-          <label for="filter-room">Room</label>
-          <select id="filter-room">
-            <option value="all">All rooms</option>
-            <option value="Living Room">Living Room</option>
-            <option value="Bedroom">Bedroom</option>
-            <option value="Dining Room">Dining Room</option>
-          </select>
+        <article class="card gallery-card">
+          <img src="images/gallery_bedroom_placeholder.jpg"
+               alt="Calm bedroom with upholstered headboard"
+               data-lightbox-src="images/gallery_bedroom_placeholder.jpg"
+               data-lightbox-caption="Bedroom: queen headboard, nightstands, bench. Bench and lamps currently available.">
+          <h3>Calm Bedroom</h3>
+          <p>Bench and lamps currently available.</p>
+          <a href="shop.html" class="btn btn-outline">Shop this room</a>
+        </article>
 
-          <label for="filter-category">Category</label>
-          <select id="filter-category">
-            <option value="all">All categories</option>
-            <option value="Sofa">Sofa</option>
-            <option value="Chair">Chair</option>
-            <option value="Table">Table</option>
-            <option value="Bench">Bench</option>
-            <option value="Decor">Decor</option>
-          </select>
-
-          <label>Price range ($)</label>
-          <div>
-            <input id="filter-min-price" type="number" min="0" value="0">
-            <input id="filter-max-price" type="number" min="0" value="1000">
-          </div>
-
-          <section class="wishlist">
-            <h3>Interested items</h3>
-            <ul class="wishlist-items">
-              <!-- Filled by JS -->
-            </ul>
-            <a href="contact.html" class="contact-selected-link" style="display:none;">
-              Contact about selected items
-            </a>
-          </section>
-        </aside>
-
-        <section>
-          <div class="shop-grid">
-            <!-- Item cards injected by JS -->
-          </div>
-        </section>
+        <article class="card gallery-card">
+          <img src="images/gallery_dining_placeholder.jpg"
+               alt="Dining room with round table"
+               data-lightbox-src="images/gallery_dining_placeholder.jpg"
+               data-lightbox-caption="Dining: round table, four chairs, art. Table and chairs currently available.">
+          <h3>Open Dining Area</h3>
+          <p>Round table and chair set currently available.</p>
+          <a href="shop.html" class="btn btn-outline">Shop this room</a>
+        </article>
       </section>
+
+      <!-- Lightbox overlay -->
+      <div class="lightbox-overlay">
+        <div class="lightbox-content">
+          <button class="btn btn-outline lightbox-close">Close</button>
+          <img src="" alt="Expanded room image">
+          <p></p>
+        </div>
+      </div>
     </main>
 
     <footer class="site-footer">
