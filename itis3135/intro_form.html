@@ -6,7 +6,18 @@
   <title>Introduction Form – ITIS 3135 – Michael Cashion</title>
 
   <!-- Site-wide styles (matches index.html look) -->
-  <link rel="stylesheet" type="text/css" href="styles/defaut.css" />
+  <link rel="stylesheet" type="text/css" href="styles/default.css" />
+
+  <!-- Page-only overrides for text visibility -->
+  <style>
+    /* Make key page titles bright and easy to read on this page only */
+    header h1,
+    main.container h2,
+    main.container h3,
+    footer p {
+      color: #ffffff;
+    }
+  </style>
 
   <!-- Highlight.js theme for the generated code block -->
   <link rel="stylesheet"
@@ -390,5 +401,22 @@
   <script src="scripts/introduction.js" defer></script>
   <script src="scripts/generate_json.js" defer></script>
   <script src="scripts/generate_html.js" defer></script>
+
+  <!-- Clear any prefilled values so placeholders show everywhere -->
+  <script>
+    window.addEventListener('load', function () {
+      const fields = document.querySelectorAll(
+        '#intro-form input[type="text"], ' +
+        '#intro-form input[type="url"], ' +
+        '#intro-form input[type="date"], ' +
+        '#intro-form textarea'
+      );
+      fields.forEach(function (el) {
+        if (el.hasAttribute('placeholder')) {
+          el.value = '';
+        }
+      });
+    });
+  </script>
 </body>
 </html>
