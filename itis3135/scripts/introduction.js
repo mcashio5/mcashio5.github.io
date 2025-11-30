@@ -57,7 +57,7 @@
 
   function setValue(id, value) {
     const el = document.getElementById(id);
-    if (el) el.value = value ? "";
+    if (el) el.value = value ?? "";
   }
 
   function getValue(id) {
