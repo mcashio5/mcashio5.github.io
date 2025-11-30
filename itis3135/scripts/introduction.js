@@ -56,9 +56,12 @@
   const coursesWrap = $("#courses");
 
   function setValue(id, value) {
-    const el = document.getElementById(id);
-    if (el) el.value = value ?? "";
+  const el = document.getElementById(id);
+  if (el) {
+    el.value = value == null ? "" : value;
   }
+}
+
 
   function getValue(id) {
     const el = document.getElementById(id);
