@@ -1,14 +1,3 @@
-/* introduction.js
- * - Prefills form with your defaults
- * - Validates required inputs
- * - Adds/removes course rows
- * - Renders a result page that mirrors your intro page structure
- * - Clear / Reset / Restart behaviors
- *
- * TODO: Replace the DEFAULTS content below with YOUR actual intro details
- * so the prefilled values match your original intro page.
- */
-
 (() => {
   // ---------- DEFAULTS (EDIT THESE TO MATCH YOUR INTRO PAGE) ----------
   const DEFAULTS = {
@@ -56,12 +45,10 @@
   const coursesWrap = $("#courses");
 
   function setValue(id, value) {
-  const el = document.getElementById(id);
-  if (el) {
-    el.value = value == null ? "" : value;
+    const el = document.getElementById(id);
+    if (el) el.value = value ? "";
+    if (el) el.value = value ?? "";
   }
-}
-
 
   function getValue(id) {
     const el = document.getElementById(id);
