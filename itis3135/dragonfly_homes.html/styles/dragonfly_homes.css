@@ -6,14 +6,14 @@ body {
   color: #222;
 }
 
-/* Use border-box so width + border doesn't break layout */
+/* Use border-box globally to avoid width+border issues */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Headings (defined once, not qualified) */
+/* Headings (only defined once, not qualified) */
 h1 {
   margin: 0;
   font-size: 1.8rem;
@@ -40,6 +40,7 @@ ul {
   line-height: 1.5;
 }
 
+/* Wrapper */
 .wrapper {
   min-height: 100vh;
   display: flex;
@@ -74,14 +75,14 @@ ul {
   padding: 0.25rem 0;
 }
 
-/* .active is not tied to the element type */
+/* .active is not tied to element name */
 .main-nav a:hover,
 .main-nav a:focus,
 .main-nav .active {
   border-bottom: 2px solid #b48817;
 }
 
-/* Main */
+/* Main shell */
 main {
   max-width: 1100px;
   margin: 2rem auto;
@@ -95,12 +96,10 @@ main {
 /* Hero section (home) */
 .hero {
   display: grid;
-  grid-template-columns: 2fr 1.5fr; /* simpler syntax for validator */
+  grid-template-columns: 2fr 1.5fr;
   gap: 2rem;
   align-items: center;
 }
-
-/* removed .hero-text h2 to avoid qualified heading */
 
 .hero-image {
   border-radius: 10px;
@@ -112,13 +111,13 @@ main {
 }
 
 .hero-figure {
-  margin: 0;              /* so it lines up nicely in the grid */
+  margin: 0;
 }
 
 .hero-caption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
-  color: #8a6d1d;         /* soft gold tone to match theme */
+  color: #8a6d1d;
   text-align: center;
   font-style: italic;
 }
@@ -138,7 +137,7 @@ main {
 
 .btn-primary {
   background-color: #b48817;
-  color: #fff;
+  color: #ffffff;
 }
 
 .btn-outline {
@@ -155,7 +154,7 @@ main {
 /* Featured categories (home) */
 .featured-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* simpler for validator */
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -167,12 +166,10 @@ main {
   border: 1px solid #eee;
 }
 
-/* removed .card h3 to avoid qualified heading */
-
 /* Shop layout */
 .shop-layout {
   display: grid;
-  grid-template-columns: 260px 1fr; /* simpler for validator */
+  grid-template-columns: 260px 1fr;
   gap: 1.5rem;
 }
 
@@ -201,7 +198,7 @@ main {
 
 .shop-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* simpler for validator */
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
 
@@ -213,9 +210,7 @@ main {
   margin-bottom: 0.5rem;
 }
 
-.item-card h3 {
-  margin: 0.3rem 0;
-}
+/* no .item-card h3 here to keep linter happy */
 
 .item-meta {
   font-size: 0.9rem;
@@ -237,7 +232,7 @@ main {
 /* Gallery */
 .gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr; /* simpler for validator */
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
 }
 
@@ -252,7 +247,7 @@ main {
 /* Lightbox */
 .lightbox-overlay {
   position: fixed;
-  top: 0;      /* replacing inset: 0; for validator */
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -281,17 +276,15 @@ main {
 /* About */
 .about-layout {
   display: grid;
-  grid-template-columns: 3fr 2fr; /* simpler for validator */
+  grid-template-columns: 3fr 2fr;
   gap: 2.5rem;
   align-items: stretch;
 }
 
-/* left text column */
 .about-text p {
   margin-bottom: 1rem;
 }
 
-/* right image column */
 .about-image-panel {
   display: flex;
   align-items: stretch;
@@ -306,7 +299,6 @@ main {
 
 .about-hero-image {
   width: 100%;
-  height: 100%;
   max-height: 480px;
   object-fit: cover;
   border-radius: 12px;
