@@ -143,14 +143,14 @@ function initShopPage() {
     window.location.href = url.toString();
   });
 
-  // ----- ✅ View Item Button Functionality -----
+  // ----- View Item Button Functionality -----
   const viewBtn = document.getElementById("view-item-btn");
   if (viewBtn) {
     viewBtn.addEventListener("click", () => {
       const cat = catSelect.value;
       if (cat === "all") return;
 
-      const imageName = cat.toLowerCase() + ".png";
+      const imageName = cat.toLowerCase() + ".png"; // sofa.png, chair.png, etc.
       const prices = {
         Sofa: 500,
         Chair: 150,
@@ -160,6 +160,7 @@ function initShopPage() {
       };
 
       const item = {
+        id: 999, // dummy id
         name: cat,
         room: "Staging",
         category: cat,
@@ -301,3 +302,4 @@ function initFAQAccordion() {
     });
   });
 }
+
