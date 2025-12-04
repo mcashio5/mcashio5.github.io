@@ -34,28 +34,28 @@
     ],
   };
 
-  // ---------- HELPERS ----------
-  const $ = (sel, root = document) => root.querySelector(sel);
-  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
-  const form = $("#intro-form");
-  const result = $("#result");
-  const restart = $("#restart");
-  const clearBtn = $("#clearBtn");
-  const addCourseBtn = $("#addCourseBtn");
-  const coursesWrap = $("#courses");
+const $ = (sel, root = document) => root.querySelector(sel);
+const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+const form = $("#intro-form");
+const result = $("#result");
+const restart = $("#restart");
+const clearBtn = $("#clearBtn");
+const addCourseBtn = $("#addCourseBtn");
+const coursesWrap = $("#courses");
 
-  function setValue(id, value) {
+function setValue(id, value) {
   const el = document.getElementById(id);
   if (el) {
-    el.value = value ?? "";
+    // Fallback to empty string if value is null or undefined
+    el.value = (value !== undefined && value !== null) ? value : "";
   }
 }
 
+function getValue(id) {
+  const el = document.getElementById(id);
+  return el ? el.value.trim() : "";
+}
 
-  function getValue(id) {
-    const el = document.getElementById(id);
-    return el ? el.value.trim() : "";
-  }
 
   function createCourseRow(course = { dept: "", number: "", name: "", reason: "" }) {
     const row = document.createElement("div");
