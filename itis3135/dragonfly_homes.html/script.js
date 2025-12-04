@@ -85,17 +85,77 @@ function initShopPage() {
   }
 
   function applyFilters() {
-    let filtered = [...sampleInventory];
     const room = roomSelect.value;
     const cat = catSelect.value;
     const minP = Number(minPriceInput.value) || 0;
     const maxP = Number(maxPriceInput.value) || 10000;
 
+    // If a specific category is chosen, show that single item with your PNG image
+    if (cat !== "all") {
+      const prices = {
+        Sofa: 500,
+        Chair: 150,
+        Table: 300,
+        Bench: 200,
+        Decor: 75
+      };
+
+      const names = {
+        Sofa: "Sofa",
+        Chair: "Chair",
+        Table: "Table",
+        Bench: "Bench",
+        Decor: "Decor Lamp"
+      };
+
+      const descriptions = {
+        Sofa: "Previewing a staging sofa.",
+        Chair: "Previewing a staging chair.",
+        Table: "Previewing a staging table.",
+        Bench: "Previewing a staging bench.",
+        Decor: "Previewing a decor lamp."
+      };
+
+      const images = {
+        Sofa: "images/sofa.png",
+        Chair: "images/chair.png",
+        Table: "images/table.png",
+        Bench: "images/bench.png",
+        Decor: "images/decor.png"
+      };
+
+      const price = prices[cat];
+      const image = images[cat];
+
+      // Respect price range
+      if (price < minP || price > maxP) {
+        renderItems([]);
+        return;
+      }
+
+      const item = {
+        id: 999,
+        name: names[cat],
+        room: room === "all" ? "Staging" : room,
+        category: cat,
+        price: price,
+        condition: "New",
+        dimensions: "",
+        description: descriptions[cat],
+        image: image
+      };
+
+      renderItems([item]);
+      return;
+    }
+
+    // If "All categories" selected, fall back to original inventory filter
+    let filtered = [...sampleInventory];
+
     filtered = filtered.filter(item => {
       const byRoom = room === "all" || item.room === room;
-      const byCat = cat === "all" || item.category === cat;
       const byPrice = item.price >= minP && item.price <= maxP;
-      return byRoom && byCat && byPrice;
+      return byRoom && byPrice;
     });
 
     renderItems(filtered);
@@ -113,15 +173,15 @@ function initShopPage() {
     contactSelectedLink.style.display = wishlist.length ? "inline" : "none";
   }
 
-  // initial render
-  renderItems(sampleInventory);
+  // initial render (shows original items when category = all)
+  applyFilters();
 
-  // filter listeners
+  // filter listeners (category change will now immediately show image)
   [roomSelect, catSelect, minPriceInput, maxPriceInput].forEach(el => {
     el.addEventListener("change", applyFilters);
   });
 
-  // delegate wishlist clicks
+  // delegate wishlist clicks (only works for items from sampleInventory, which is fine)
   shopGrid.addEventListener("click", e => {
     if (!e.target.classList.contains("btn-wishlist")) return;
     const id = Number(e.target.dataset.id);
@@ -142,38 +202,6 @@ function initShopPage() {
     if (names) url.searchParams.set("items", names);
     window.location.href = url.toString();
   });
-
-  // ----- View Item Button Functionality -----
-  const viewBtn = document.getElementById("view-item-btn");
-  if (viewBtn) {
-    viewBtn.addEventListener("click", () => {
-      const cat = catSelect.value;
-      if (cat === "all") return;
-
-      const imageName = cat.toLowerCase() + ".png"; // sofa.png, chair.png, etc.
-      const prices = {
-        Sofa: 500,
-        Chair: 150,
-        Table: 300,
-        Bench: 200,
-        Decor: 75
-      };
-
-      const item = {
-        id: 999, // dummy id
-        name: cat,
-        room: "Staging",
-        category: cat,
-        price: prices[cat],
-        condition: "New",
-        dimensions: "",
-        description: `Preview of a ${cat.toLowerCase()}`,
-        image: `images/${imageName}`
-      };
-
-      renderItems([item]);
-    });
-  }
 }
 
 // ----- Gallery lightbox -----
@@ -302,4 +330,3 @@ function initFAQAccordion() {
     });
   });
 }
-
