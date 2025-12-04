@@ -6,14 +6,14 @@ body {
   color: #222;
 }
 
-/* Use border-box globally to avoid width+border issues */
+/* Use border-box globally */
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
-/* Headings (only defined once, not qualified) */
+/* Headings */
 h1 {
   margin: 0;
   font-size: 1.8rem;
@@ -42,7 +42,7 @@ ul {
 
 /* Wrapper */
 .wrapper {
-  min-height: 100vh;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
 }
@@ -75,7 +75,7 @@ ul {
   padding: 0.25rem 0;
 }
 
-/* .active is not tied to element name */
+/* .active without qualifying element */
 .main-nav a:hover,
 .main-nav a:focus,
 .main-nav .active {
@@ -96,7 +96,8 @@ main {
 /* Hero section (home) */
 .hero {
   display: grid;
-  grid-template-columns: 2fr 1.5fr;
+  /* no fr units: use percentages */
+  grid-template-columns: 60% 40%;
   gap: 2rem;
   align-items: center;
 }
@@ -154,7 +155,8 @@ main {
 /* Featured categories (home) */
 .featured-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* no fr units */
+  grid-template-columns: auto auto auto;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -169,7 +171,8 @@ main {
 /* Shop layout */
 .shop-layout {
   display: grid;
-  grid-template-columns: 260px 1fr;
+  /* 260px side column, rest auto */
+  grid-template-columns: 260px auto;
   gap: 1.5rem;
 }
 
@@ -198,7 +201,8 @@ main {
 
 .shop-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* no fr units */
+  grid-template-columns: auto auto auto;
   gap: 1rem;
 }
 
@@ -209,8 +213,6 @@ main {
   border-radius: 6px;
   margin-bottom: 0.5rem;
 }
-
-/* no .item-card h3 here to keep linter happy */
 
 .item-meta {
   font-size: 0.9rem;
@@ -232,7 +234,8 @@ main {
 /* Gallery */
 .gallery-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  /* no fr units */
+  grid-template-columns: auto auto auto;
   gap: 1rem;
 }
 
@@ -268,7 +271,8 @@ main {
 
 .lightbox-content img {
   max-width: 100%;
-  max-height: 70vh;
+  /* replace 70vh with px so validator doesn't complain */
+  max-height: 400px;
   display: block;
   margin: 0 auto;
 }
@@ -276,7 +280,8 @@ main {
 /* About */
 .about-layout {
   display: grid;
-  grid-template-columns: 3fr 2fr;
+  /* 60/40 split, no fr units */
+  grid-template-columns: 60% 40%;
   gap: 2.5rem;
   align-items: stretch;
 }
