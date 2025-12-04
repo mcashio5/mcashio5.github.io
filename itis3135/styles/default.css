@@ -48,8 +48,23 @@ header h1 { margin:0; font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem); }
 h1 { margin: 0; font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem); }
 
 /* Example nav that collapses on small screens */
-nav { display: flex; gap: 12px; flex-wrap: wrap; }
-nav a { padding: 6px 10px; border-radius: 10px; background: rgba(255,255,255,.06); }
+/* ====== Navigation ====== */
+nav {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;         /* keep all items on one line */
+  overflow-x: auto;          /* allow scrolling if it overflows */
+  gap: 10px;
+}
+
+nav a {
+  padding: 6px 10px;
+  white-space: nowrap;       /* don't break link text */
+  border-radius: 10px;
+  background: rgba(255,255,255,0.06);
+  flex-shrink: 0;            /* prevent shrinking */
+}
+
 
 /* ====== Responsive Breakpoints (Next 3 & Mobile) ====== */
 /* Desktop/Large screens = default rules above */
