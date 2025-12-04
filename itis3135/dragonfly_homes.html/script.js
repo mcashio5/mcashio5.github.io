@@ -142,6 +142,37 @@ function initShopPage() {
     if (names) url.searchParams.set("items", names);
     window.location.href = url.toString();
   });
+
+  // ----- ✅ View Item Button Functionality -----
+  const viewBtn = document.getElementById("view-item-btn");
+  if (viewBtn) {
+    viewBtn.addEventListener("click", () => {
+      const cat = catSelect.value;
+      if (cat === "all") return;
+
+      const imageName = cat.toLowerCase() + ".png";
+      const prices = {
+        Sofa: 500,
+        Chair: 150,
+        Table: 300,
+        Bench: 200,
+        Decor: 75
+      };
+
+      const item = {
+        name: cat,
+        room: "Staging",
+        category: cat,
+        price: prices[cat],
+        condition: "New",
+        dimensions: "",
+        description: `Preview of a ${cat.toLowerCase()}`,
+        image: `images/${imageName}`
+      };
+
+      renderItems([item]);
+    });
+  }
 }
 
 // ----- Gallery lightbox -----
