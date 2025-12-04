@@ -1,6 +1,6 @@
 (() => {
   // ---------- DEFAULTS (EDIT THESE TO MATCH YOUR INTRO PAGE) ----------
-  const DEFAULTS = {
+    const DEFAULTS = {
     firstName: "First",
     middleName: "",
     nickname: "",
@@ -23,16 +23,17 @@
     somethingToShare: "",
     // At least one starter course
     courses: [
-      { dept: "ITIS", number: "3135", name: "Web App Design & Dev", reason: "Core course" },
+      { dept: "ITIS", number: "3135", name: "Web App Design & Dev", reason: "Core course" }
     ],
     links: [
       { text: "LinkedIn", url: "https://www.linkedin.com/" },
       { text: "GitHub", url: "https://github.com/" },
       { text: "Resume", url: "https://example.com/resume.pdf" },
       { text: "Portfolio", url: "https://example.com/" },
-      { text: "Favorite Site", url: "https://news.ycombinator.com" },
-    ],
+      { text: "Favorite Site", url: "https://news.ycombinator.com" }
+    ]
   };
+
 
 const $ = (sel, root = document) => root.querySelector(sel);
 const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
@@ -124,14 +125,15 @@ function getValue(id) {
     });
   }
 
-  function collectCourses() {
+    function collectCourses() {
     return $$(".course-row").map((row) => ({
       dept: $(".c-dept", row).value.trim(),
       number: $(".c-number", row).value.trim(),
       name: $(".c-name", row).value.trim(),
-      reason: $(".c-reason", row).value.trim(),
+      reason: $(".c-reason", row).value.trim()
     }));
   }
+
 
   function collectLinks() {
     const texts = $$(".linkText");
@@ -311,7 +313,7 @@ function getValue(id) {
       somethingToShare: getValue("somethingToShare"),
 
       courses: collectCourses(),
-      links: collectLinks(),
+      links: collectLinks()
     };
   }
 
