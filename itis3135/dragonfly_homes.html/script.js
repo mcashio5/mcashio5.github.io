@@ -185,17 +185,24 @@ function initShopPage() {
     }
   });
 
-  // link to contact page with items in query string
   contactSelectedLink.addEventListener("click", e => {
     e.preventDefault();
+
     const names = wishlist
-      .map(id => sampleInventory.find(i => i.id === id)?.name)
-      .filter(Boolean)
+      .map(id => {
+        const item = sampleInventory.find(i => i.id === id);
+        return item ? item.name : null;
+      })
+      .filter(name => name)
       .join(", ");
+
     const url = new URL("contact.html", window.location.href);
-    if (names) url.searchParams.set("items", names);
+    if (names) {
+      url.searchParams.set("items", names);
+    }
     window.location.href = url.toString();
   });
+
 }
 
 // ----- Gallery lightbox -----
