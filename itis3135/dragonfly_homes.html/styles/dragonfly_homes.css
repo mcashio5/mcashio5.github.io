@@ -152,11 +152,9 @@ main {
   opacity: 0.9;
 }
 
-/* Featured categories (home) */
 .featured-grid {
-  display: grid;
-  /* no fr units */
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
   margin-top: 1rem;
 }
@@ -200,9 +198,8 @@ main {
 }
 
 .shop-grid {
-  display: grid;
-  /* no fr units */
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
@@ -231,11 +228,9 @@ main {
   font-size: 0.9rem;
 }
 
-/* Gallery */
 .gallery-grid {
-  display: grid;
-  /* no fr units */
-  grid-template-columns: auto auto auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1rem;
 }
 
