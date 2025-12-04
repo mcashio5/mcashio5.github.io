@@ -152,7 +152,6 @@ main {
   opacity: 0.9;
 }
 
-/* Featured categories (home) – VERY SIMPLE so validator chills */
 .featured-grid {
   margin-top: 1rem;
 }
@@ -196,10 +195,9 @@ main {
   border: 1px solid #ccc;
 }
 
-/* Shop grid – keep it basic to avoid parser issues */
 .shop-grid {
-  /* no flex, no grid-template, nothing fancy */
 }
+
 
 /* Item cards */
 .item-card img {
@@ -227,10 +225,9 @@ main {
   font-size: 0.9rem;
 }
 
-/* Gallery – also keep basic to keep validator happy */
 .gallery-grid {
-  /* no flex/grid syntax here */
 }
+
 
 .gallery-card img {
   width: 100%;
