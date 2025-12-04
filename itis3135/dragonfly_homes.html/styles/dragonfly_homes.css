@@ -155,9 +155,14 @@ main {
 .featured-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
   margin-top: 1rem;
 }
+
+/* spacing between featured cards */
+.featured-grid > * {
+  margin: 0 1rem 1rem 0;
+}
+
 
 .card {
   background-color: #fcfaf4;
@@ -200,8 +205,13 @@ main {
 .shop-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
 }
+
+/* spacing between item cards */
+.shop-grid > * {
+  margin: 0 1rem 1rem 0;
+}
+
 
 .item-card img {
   width: 100%;
@@ -231,8 +241,13 @@ main {
 .gallery-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
 }
+
+/* spacing between gallery items */
+.gallery-grid > * {
+  margin: 0 1rem 1rem 0;
+}
+
 
 .gallery-card img {
   width: 100%;
