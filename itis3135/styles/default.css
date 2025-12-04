@@ -1,4 +1,3 @@
-/* ====== Foundations ====== */
 :root{
   --bg:#0a2a4d;
   --panel:#081d33;
@@ -19,10 +18,12 @@ body {
 
 /* Page frame */
 main, .maincontainer {
+  /* ✅ percentage width + centered */
   /* percentage width + centered */
   width: 92%;
   margin: 0 auto;
 
+  /* ✅ max width for readability */
   /* max width for readability */
   max-width: 1200px;
   background: var(--panel);
@@ -42,83 +43,42 @@ a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
 .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; }
 
-header, footer {
-  background: #07172b;
-  padding: 16px;
-}
+header, footer { background: #07172b; padding: 16px; }
+header h1 { margin:0; font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem); }
 h1 { margin: 0; font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem); }
 
-/* ====== Navigation Layout Fix ====== */
-nav {
-  display: flex;
-  flex-wrap: nowrap;                 /* keep all items on one line by default */
-  justify-content: space-between;   /* evenly spread content */
-  align-items: center;
-  gap: 12px;
-  overflow-x: auto;                  /* allow horizontal scroll if needed */
-}
-
-nav a {
-  padding: 6px 10px;
-  white-space: nowrap;              /* prevent link text from breaking */
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.06);
-  flex-shrink: 0;                   /* prevent items from shrinking and wrapping */
-}
+/* Example nav that collapses on small screens */
+nav { display: flex; gap: 12px; flex-wrap: wrap; }
+nav a { padding: 6px 10px; border-radius: 10px; background: rgba(255,255,255,.06); }
 
 /* ====== Responsive Breakpoints (Next 3 & Mobile) ====== */
 /* Desktop/Large screens = default rules above */
 
+/* 📱 Tablet: 601–980px */
 @media screen and (max-width: 980px) {
-  main, .maincontainer {
-    width: 94%;
-    padding: 1rem;
-    box-sizing: border-box;
-  }
-
-  .grid-3, .grid-4 {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  header, footer {
-    padding: 14px;
-  }
-
-  nav a {
-    padding: 6px 8px;
-  }
+  main, .maincontainer { width: 94%; padding: 1rem; }
+  .grid-3 { grid-template-columns: 1fr 1fr; }
+  main, .maincontainer { width: 94%; padding: 1rem; box-sizing: border-box; }
+  .grid-3, .grid-4 { grid-template-columns: 1fr 1fr; }
+  header, footer { padding: 14px; }
+  nav a { padding: 6px 8px; }
 }
 
+/* 📱 Mobile: ≤600px */
 @media screen and (max-width: 600px) {
-  main, .maincontainer {
-    width: 96%;
-    padding: .9rem;
-    border-radius: 12px;
-    box-sizing: border-box;
-  }
-
-  .grid-2, .grid-3, .grid-4 {
-    grid-template-columns: 1fr;
-  }
-
-  nav {
-    flex-direction: column;         /* stack nav links vertically */
-    align-items: stretch;
-  }
-
-  nav a {
-    text-align: center;
-    padding: 10px;
-  }
-
-  body {
-    line-height: 1.55;
-  }
+  main, .maincontainer { width: 96%; padding: .9rem; border-radius: 12px; }
+  .grid-2, .grid-3 { grid-template-columns: 1fr; }         /* stack columns */
+  main, .maincontainer { width: 96%; padding: .9rem; border-radius: 12px; box-sizing: border-box; }
+  .grid-2, .grid-3, .grid-4 { grid-template-columns: 1fr; }         /* stack columns */
+  nav { flex-direction: column; align-items: stretch; }     /* stacked nav */
+  nav a { text-align: center; padding: 10px; }
+  body { line-height: 1.55; }
 }
 
 /* (Optional) very small phones: ≤370px */
 /*
 @media screen and (max-width: 370px) {
+  header h1 { font-size: 1.2rem; }
   h1 { font-size: 1.2rem; }
 }
 */
