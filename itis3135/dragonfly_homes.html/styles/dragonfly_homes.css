@@ -39,6 +39,8 @@ ul {
 /* Wrapper */
 .wrapper {
   min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 /* Header and nav */
@@ -55,10 +57,9 @@ ul {
   list-style: none;
   padding: 0;
   margin: 0;
-}
-.main-nav li {
-  display: inline-block;
-  margin-right: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 .main-nav a {
   text-decoration: none;
@@ -80,20 +81,20 @@ main {
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+  flex: 1;
 }
 
-/* Hero section (home) */
+/* Hero section (home) – flex instead of grid */
 .hero {
-  overflow: hidden; /* contain floats */
+  display: flex;
+  gap: 2rem;
+  align-items: center;
 }
 .hero-text {
-  float: left;
-  width: 60%;
-  padding-right: 2rem;
+  flex: 1 1 60%;
 }
 .hero-image {
-  float: left;
-  width: 40%;
+  flex: 0 0 40%;
   border-radius: 10px;
   border: 1px solid #eee;
   min-height: 220px;
@@ -138,7 +139,6 @@ main {
   opacity: 0.9;
 }
 
-/* Featured section */
 .featured-grid {
   margin-top: 16px;
 }
@@ -151,18 +151,17 @@ main {
   border: 1px solid #eee;
 }
 
-/* Shop layout */
+/* Shop layout – flex instead of grid */
 .shop-layout {
-  overflow: hidden; /* contain floats */
+  display: flex;
+  gap: 1.5rem;
 }
 .filter-panel {
-  float: left;
-  width: 260px;
+  flex: 0 0 260px;
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 1rem;
   border: 1px solid #eee;
-  margin-right: 1.5rem;
 }
 .filter-panel label {
   display: block;
@@ -178,25 +177,22 @@ main {
   border: 1px solid #ccc;
 }
 
-/* Grid that holds item cards */
+/* Grid that holds item cards – flex */
 .shop-grid {
-  overflow: hidden; /* contain floats */
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
-
-/* Item cards */
 .item-card {
-  float: left;
-  width: 31%;
-  margin-right: 3.5%;
-  margin-bottom: 1.25rem;
+  flex: 0 0 32%;
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 0.75rem;
   border: 1px solid #eee;
 }
-.item-card:nth-child(3n) {
-  margin-right: 0;
-}
+
+/* Item cards */
 .item-card img {
   width: 100%;
   height: 170px;
@@ -213,25 +209,20 @@ main {
   color: #b48817;
 }
 .wishlist {
-  clear: both;
   margin-top: 1.5rem;
   padding-top: 1rem;
   border-top: 1px dashed #e2d2a1;
   font-size: 0.9rem;
 }
 
-/* Gallery grid */
+/* Gallery grid – flex */
 .gallery-grid {
-  overflow: hidden; /* contain floats */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
 }
 .gallery-card {
-  float: left;
-  width: 31%;
-  margin-right: 3.5%;
-  margin-bottom: 1.25rem;
-}
-.gallery-card:nth-child(3n) {
-  margin-right: 0;
+  flex: 0 0 32%;
 }
 .gallery-card img {
   width: 100%;
@@ -250,11 +241,11 @@ main {
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   display: none;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
 }
 .lightbox-content {
-  display: inline-block;
-  margin-top: 5%;
   background-color: #ffffff;
   padding: 1rem;
   border-radius: 10px;
@@ -268,24 +259,28 @@ main {
   margin: 0 auto;
 }
 
-/* About */
+/* About – flex instead of grid */
 .about-layout {
-  overflow: hidden; /* contain floats */
+  display: flex;
+  gap: 2.5rem;
+  align-items: stretch;
 }
 .about-text {
-  float: left;
-  width: 60%;
+  flex: 1 1 60%;
 }
 .about-text p {
   margin-bottom: 1rem;
 }
 .about-image-panel {
-  float: left;
-  width: 40%;
+  flex: 0 0 40%;
+  display: flex;
+  align-items: stretch;
 }
 .about-hero-figure {
   margin: 0;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .about-hero-image {
   width: 100%;
@@ -336,6 +331,8 @@ form textarea {
 }
 .faq-question {
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
 }
 .faq-answer {
   display: none;
@@ -354,24 +351,24 @@ form textarea {
 
 /* Responsive */
 @media (max-width: 800px) {
-  .hero-text,
-  .hero-image,
-  .filter-panel,
+  .hero {
+    flex-direction: column;
+  }
+
+  .shop-layout {
+    flex-direction: column;
+  }
+
   .item-card,
-  .gallery-card,
-  .about-text,
+  .gallery-card {
+    flex: 0 0 48%;
+  }
+
+  .about-layout {
+    flex-direction: column;
+  }
+
   .about-image-panel {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .hero-text {
-    padding-right: 0;
-    margin-bottom: 1.5rem;
-  }
-
-  .filter-panel {
-    margin-bottom: 1.5rem;
+    flex: 1 1 auto;
   }
 }
