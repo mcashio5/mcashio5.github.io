@@ -18,7 +18,6 @@ h1 {
   margin: 0;
   font-size: 1.8rem;
 }
-
 h2 {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -26,16 +25,13 @@ h2 {
   border-bottom: 2px solid #f0e1b0;
   color: #b48817;
 }
-
 h3 {
   margin-top: 1.5rem;
   color: #333;
 }
-
 p {
   line-height: 1.6;
 }
-
 ul {
   line-height: 1.5;
 }
@@ -53,12 +49,10 @@ ul {
   border-bottom: 4px solid #d4af37;
   padding: 0.75rem 2rem;
 }
-
 .site-header p {
   margin: 0.1rem 0 0.5rem;
   color: #555;
 }
-
 .main-nav ul {
   list-style: none;
   padding: 0;
@@ -67,14 +61,12 @@ ul {
   flex-wrap: wrap;
   gap: 1rem;
 }
-
 .main-nav a {
   text-decoration: none;
   color: #b48817;
   font-weight: 600;
   padding: 0.25rem 0;
 }
-
 /* .active without qualifying element */
 .main-nav a:hover,
 .main-nav a:focus,
@@ -101,7 +93,6 @@ main {
   gap: 2rem;
   align-items: center;
 }
-
 .hero-image {
   border-radius: 10px;
   border: 1px solid #eee;
@@ -110,11 +101,9 @@ main {
   background-size: cover;
   background-position: center;
 }
-
 .hero-figure {
   margin: 0;
 }
-
 .hero-caption {
   margin-top: 0.5rem;
   font-size: 0.9rem;
@@ -135,18 +124,15 @@ main {
   margin-right: 0.5rem;
   margin-top: 0.5rem;
 }
-
 .btn-primary {
   background-color: #b48817;
   color: #ffffff;
 }
-
 .btn-outline {
   background-color: transparent;
   color: #b48817;
   border: 2px solid #b48817;
 }
-
 .btn-primary:hover,
 .btn-outline:hover {
   opacity: 0.9;
@@ -171,20 +157,17 @@ main {
   grid-template-columns: 260px auto;
   gap: 1.5rem;
 }
-
 .filter-panel {
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 1rem;
   border: 1px solid #eee;
 }
-
 .filter-panel label {
   display: block;
   margin-top: 0.5rem;
   font-size: 0.9rem;
 }
-
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
@@ -195,9 +178,12 @@ main {
   border: 1px solid #ccc;
 }
 
+/* Grid that holds item cards */
 .shop-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
 }
-
 
 /* Item cards */
 .item-card img {
@@ -207,17 +193,14 @@ main {
   border-radius: 6px;
   margin-bottom: 0.5rem;
 }
-
 .item-meta {
   font-size: 0.9rem;
   color: #555;
 }
-
 .price {
   font-weight: 700;
   color: #b48817;
 }
-
 .wishlist {
   margin-top: 1.5rem;
   padding-top: 1rem;
@@ -225,10 +208,12 @@ main {
   font-size: 0.9rem;
 }
 
+/* Gallery grid */
 .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 1.25rem;
 }
-
-
 .gallery-card img {
   width: 100%;
   height: 190px;
@@ -250,7 +235,6 @@ main {
   justify-content: center;
   z-index: 1000;
 }
-
 .lightbox-content {
   background-color: #ffffff;
   padding: 1rem;
@@ -258,7 +242,6 @@ main {
   max-width: 90%;
   max-height: 90%;
 }
-
 .lightbox-content img {
   max-width: 100%;
   /* replace 70vh with px so validator doesn't complain */
@@ -275,23 +258,19 @@ main {
   gap: 2.5rem;
   align-items: stretch;
 }
-
 .about-text p {
   margin-bottom: 1rem;
 }
-
 .about-image-panel {
   display: flex;
   align-items: stretch;
 }
-
 .about-hero-figure {
   margin: 0;
   width: 100%;
   display: flex;
   flex-direction: column;
 }
-
 .about-hero-image {
   width: 100%;
   max-height: 480px;
@@ -299,7 +278,6 @@ main {
   border-radius: 12px;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
-
 .about-hero-caption {
   margin-top: 0.75rem;
   font-size: 0.9rem;
@@ -314,7 +292,6 @@ form label {
   margin-top: 0.75rem;
   font-weight: 500;
 }
-
 form input,
 form textarea,
 form select {
@@ -324,16 +301,13 @@ form select {
   border: 1px solid #ccc;
   margin-top: 0.2rem;
 }
-
 form textarea {
   min-height: 120px;
 }
-
 .error {
   color: #b00020;
   font-size: 0.85rem;
 }
-
 .success {
   color: #0d7c3b;
   font-size: 0.95rem;
@@ -345,13 +319,11 @@ form textarea {
   border-bottom: 1px solid #eee;
   padding: 0.5rem 0;
 }
-
 .faq-question {
   cursor: pointer;
   display: flex;
   justify-content: space-between;
 }
-
 .faq-answer {
   display: none;
   padding-top: 0.25rem;
