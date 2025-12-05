@@ -22,10 +22,10 @@
   }
 
   /* Replace header h1 to avoid qualified heading warning */
-  h1.page-title {
-    margin: 0 0 8px 0;
-    font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem);
-  }
+  .page-title {
+  margin: 0 0 8px 0;
+  font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem);
+}
 
   /* Navigation */
   nav ul {
@@ -52,18 +52,16 @@
 
   /* Main panel */
   main {
-    width: 92%;
-    max-width: 1200px;
-    margin: 24px auto;
-    padding: 1.25rem;
-
-    background-color: #081d33;
-    border-radius: 16px;
-    box-shadow: 0 6px 24px rgba(0,0,0,.25);
-
-    /* FIXES the width+padding warning */
-    box-sizing: border-box;
-  }
+  max-width: 1200px;
+  width: 92%;            
+  margin: 24px auto 40px; 
+  padding: 1.25rem;
+  background-color: #081d33;
+  border-radius: 16px;
+  box-shadow: 0 6px 24px rgba(0,0,0,.25);
+  text-align: center;    
+  box-sizing: border-box;  
+}
 
   /* Footer */
   footer {
