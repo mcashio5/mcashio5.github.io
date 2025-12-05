@@ -15,30 +15,30 @@
     line-height: 1.6;
   }
 
-  /* Match all other pages — compact header */
+  /* Header */
   header {
     background-color: #081d33;
-    padding: 12px 24px; /* Smaller */
+    padding: 12px 24px;
   }
 
-  /* Removes extra spacing under your title */
-  header h1 {
+  /* Replace header h1 to avoid qualified heading warning */
+  h1.page-title {
     margin: 0 0 8px 0;
     font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem);
   }
 
-  /* Match the good spacing of nav buttons */
+  /* Navigation */
   nav ul {
     margin: 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: 10px; /* tighter spacing */
+    gap: 10px;
     list-style: none;
   }
 
   nav a {
-    padding: 6px 10px;   /* same as other pages */
+    padding: 6px 10px;
     border-radius: 10px;
     background: rgba(255,255,255,.06);
     color: #87ceeb;
@@ -50,17 +50,22 @@
     text-decoration: underline;
   }
 
-  /* Make the content centered like your other pages */
+  /* Main panel */
   main {
     width: 92%;
     max-width: 1200px;
-    margin: 24px auto;      /* smaller top spacing */
+    margin: 24px auto;
     padding: 1.25rem;
+
     background-color: #081d33;
     border-radius: 16px;
     box-shadow: 0 6px 24px rgba(0,0,0,.25);
+
+    /* FIXES the width+padding warning */
+    box-sizing: border-box;
   }
 
+  /* Footer */
   footer {
     background-color: #081d33;
     padding: 12px 24px;
