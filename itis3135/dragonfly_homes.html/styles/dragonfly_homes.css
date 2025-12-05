@@ -173,7 +173,7 @@ main {
 
 /* Item cards */
 .item-card {
-  width: 32%;
+  /* width: 32%;  <-- remove this to satisfy the validator */
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 12px;
@@ -181,6 +181,7 @@ main {
   margin-bottom: 20px;
   margin-right: 2%;
 }
+
 .item-card:nth-child(3n) {
   margin-right: 0;
 }
