@@ -16,17 +16,17 @@ body {
 /* Headings */
 h1 {
   margin: 0;
-  font-size: 29px; /* ~1.8rem */
+  font-size: 29px;
 }
 h2 {
   margin-top: 0;
-  margin-bottom: 16px; /* ~1rem */
-  padding-bottom: 8px; /* ~0.5rem */
+  margin-bottom: 16px;
+  padding-bottom: 8px;
   border-bottom: 2px solid #f0e1b0;
   color: #b48817;
 }
 h3 {
-  margin-top: 24px; /* ~1.5rem */
+  margin-top: 24px;
   color: #333;
 }
 p {
@@ -47,10 +47,10 @@ ul {
 .site-header {
   background-color: #ffffff;
   border-bottom: 4px solid #d4af37;
-  padding: 12px 32px; /* 0.75rem 2rem */
+  padding: 12px 32px;
 }
 .site-header p {
-  margin: 2px 0 8px; /* ~0.1rem 0 0.5rem */
+  margin: 2px 0 8px;
   color: #555;
 }
 .main-nav ul {
@@ -61,13 +61,13 @@ ul {
   flex-wrap: wrap;
 }
 .main-nav li {
-  margin-right: 16px; /* manual gap replacement */
+  margin-right: 16px;
 }
 .main-nav a {
   text-decoration: none;
   color: #b48817;
   font-weight: 600;
-  padding: 4px 0; /* ~0.25rem */
+  padding: 4px 0;
 }
 .main-nav a:hover,
 .main-nav a:focus,
@@ -78,24 +78,22 @@ ul {
 /* Main shell */
 main {
   max-width: 1100px;
-  margin: 32px auto; /* 2rem auto */
-  padding: 32px 24px 40px; /* 2rem 1.5rem 2.5rem */
+  margin: 32px auto;
+  padding: 32px 24px 40px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
   flex: 1;
 }
 
-/* Hero section (home) – flex instead of grid */
+/* Hero section (home) */
 .hero {
   display: flex;
   align-items: center;
 }
 .hero-text {
-  /* no width, no padding-right to avoid warnings */
 }
 .hero-image {
-  /* no width to avoid width+border warning */
   border-radius: 10px;
   border: 1px solid #eee;
   min-height: 220px;
@@ -107,8 +105,8 @@ main {
   margin: 0;
 }
 .hero-caption {
-  margin-top: 8px; /* 0.5rem */
-  font-size: 14px; /* ~0.9rem */
+  margin-top: 8px;
+  font-size: 14px;
   color: #8a6d1d;
   text-align: center;
   font-style: italic;
@@ -117,14 +115,14 @@ main {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 9px 21px; /* ~0.55rem 1.3rem */
+  padding: 9px 21px;
   border-radius: 999px;
   border: none;
   text-decoration: none;
   cursor: pointer;
   font-weight: 600;
-  margin-right: 8px; /* 0.5rem */
-  margin-top: 8px;   /* 0.5rem */
+  margin-right: 8px;
+  margin-top: 8px;
 }
 .btn-primary {
   background-color: #b48817;
@@ -144,40 +142,33 @@ main {
 .card {
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 16px; /* 1rem */
+  padding: 16px;
   border: 1px solid #eee;
 }
 
-/* Shop layout – flex instead of grid */
+/* Shop layout */
 .shop-layout {
   display: flex;
 }
 .filter-panel {
-  /* no width to avoid width+padding+border warning */
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 16px; /* 1rem */
+  padding: 16px;
   border: 1px solid #eee;
-  margin-right: 24px; /* simulate gap */
+  margin-right: 24px;
 }
 .filter-panel label {
   display: block;
-  margin-top: 8px; /* 0.5rem */
-  font-size: 14px; /* 0.9rem */
+  margin-top: 8px;
+  font-size: 14px;
 }
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
-  padding: 6px;         /* ~0.35rem */
-  margin-top: 2px;      /* ~0.1rem */
+  padding: 6px;
+  margin-top: 2px;
   border-radius: 4px;
   border: 1px solid #ccc;
-}
-
-/* Grid that holds item cards – flex */
-.shop-grid {
-  display: flex;
-  flex-wrap: wrap;
 }
 
 /* Item cards */
@@ -185,10 +176,10 @@ main {
   width: 32%;
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 12px; /* 0.75rem */
+  padding: 12px;
   border: 1px solid #eee;
-  margin-bottom: 20px; /* ~1.25rem */
-  margin-right: 2%;    /* fake gap between columns */
+  margin-bottom: 20px;
+  margin-right: 2%;
 }
 .item-card:nth-child(3n) {
   margin-right: 0;
@@ -198,10 +189,10 @@ main {
   height: 170px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 8px; /* 0.5rem */
+  margin-bottom: 8px;
 }
 .item-meta {
-  font-size: 14px; /* 0.9rem */
+  font-size: 14px;
   color: #555;
 }
 .price {
@@ -209,17 +200,17 @@ main {
   color: #b48817;
 }
 .wishlist {
-  margin-top: 24px;   /* 1.5rem */
-  padding-top: 16px;  /* 1rem */
+  margin-top: 24px;
+  padding-top: 16px;
   border-top: 1px dashed #e2d2a1;
-  font-size: 14px;    /* 0.9rem */
+  font-size: 14px;
 }
 
-/* Gallery cards – flex container is removed to avoid error on .gallery-grid */
+/* Gallery cards */
 .gallery-card {
   width: 32%;
   margin-right: 2%;
-  margin-bottom: 20px; /* ~1.25rem */
+  margin-bottom: 20px;
 }
 .gallery-card:nth-child(3n) {
   margin-right: 0;
@@ -247,7 +238,7 @@ main {
 }
 .lightbox-content {
   background-color: #ffffff;
-  padding: 16px; /* 1rem */
+  padding: 16px;
   border-radius: 10px;
   max-width: 90%;
   max-height: 90%;
@@ -259,15 +250,15 @@ main {
   margin: 0 auto;
 }
 
-/* About – flex instead of grid */
+/* About */
 .about-layout {
   display: flex;
 }
 .about-text {
-  margin-right: 40px; /* simulate gap (~2.5rem) */
+  margin-right: 40px;
 }
 .about-text p {
-  margin-bottom: 16px; /* 1rem */
+  margin-bottom: 16px;
 }
 .about-image-panel {
   display: flex;
@@ -287,8 +278,8 @@ main {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 .about-hero-caption {
-  margin-top: 12px; /* 0.75rem */
-  font-size: 14px; /* 0.9rem */
+  margin-top: 12px;
+  font-size: 14px;
   color: #8a6d1d;
   text-align: right;
   font-style: italic;
@@ -297,34 +288,34 @@ main {
 /* Contact form */
 form label {
   display: block;
-  margin-top: 12px; /* 0.75rem */
+  margin-top: 12px;
   font-weight: 500;
 }
 form input,
 form textarea,
 form select {
-  padding: 6px; /* 0.4rem approx */
+  padding: 6px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  margin-top: 3px; /* ~0.2rem */
+  margin-top: 3px;
 }
 form textarea {
   min-height: 120px;
 }
 .error {
   color: #b00020;
-  font-size: 13px; /* 0.85rem */
+  font-size: 13px;
 }
 .success {
   color: #0d7c3b;
-  font-size: 15px; /* 0.95rem */
-  margin-top: 12px; /* 0.75rem */
+  font-size: 15px;
+  margin-top: 12px;
 }
 
 /* FAQ */
 .faq-item {
   border-bottom: 1px solid #eee;
-  padding: 8px 0; /* 0.5rem */
+  padding: 8px 0;
 }
 .faq-question {
   cursor: pointer;
@@ -333,16 +324,16 @@ form textarea {
 }
 .faq-answer {
   display: none;
-  padding-top: 4px; /* 0.25rem */
-  font-size: 14px; /* 0.9rem */
+  padding-top: 4px;
+  font-size: 14px;
   color: #555;
 }
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 24px 0 32px; /* 1.5rem 0 2rem */
-  font-size: 14px; /* 0.9rem */
+  padding: 24px 0 32px;
+  font-size: 14px;
   color: #777;
 }
 
@@ -363,7 +354,7 @@ form textarea {
   }
   .item-card,
   .gallery-card {
-    width: 48%; /* instead of flex: 0 0 48% */
+    width: 48%;
     margin-right: 4%;
   }
   .item-card:nth-child(2n),
