@@ -67,7 +67,6 @@ ul {
   font-weight: 600;
   padding: 0.25rem 0;
 }
-/* .active without qualifying element */
 .main-nav a:hover,
 .main-nav a:focus,
 .main-nav .active {
@@ -85,15 +84,17 @@ main {
   flex: 1;
 }
 
-/* Hero section (home) */
+/* Hero section (home) – flex instead of grid */
 .hero {
-  display: grid;
-  /* validator-safe percentages */
-  grid-template-columns: 60% 40%;
+  display: flex;
   gap: 2rem;
   align-items: center;
 }
+.hero-text {
+  flex: 1 1 60%;
+}
 .hero-image {
+  flex: 0 0 40%;
   border-radius: 10px;
   border: 1px solid #eee;
   min-height: 220px;
@@ -139,7 +140,7 @@ main {
 }
 
 .featured-grid {
-  margin-top: 16px; /* px to keep parser happy */
+  margin-top: 16px;
 }
 
 /* Cards */
@@ -150,14 +151,13 @@ main {
   border: 1px solid #eee;
 }
 
-/* Shop layout */
+/* Shop layout – flex instead of grid */
 .shop-layout {
-  display: grid;
-  /* 260px side column, rest auto */
-  grid-template-columns: 260px auto;
+  display: flex;
   gap: 1.5rem;
 }
 .filter-panel {
+  flex: 0 0 260px;
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 1rem;
@@ -171,19 +171,25 @@ main {
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
-  /* no width + border to avoid warning */
   padding: 0.35rem;
   margin-top: 0.1rem;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-/* Grid that holds item cards */
+/* Grid that holds item cards – flex */
 .shop-grid {
-  display: grid;
-  /* simple percentage columns instead of repeat()/fr */
-  grid-template-columns: 33% 33% 33%;
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
+}
+.item-card {
+  flex: 0 0 32%;
+  background-color: #fcfaf4;
+  border-radius: 8px;
+  padding: 0.75rem;
+  border: 1px solid #eee;
 }
 
 /* Item cards */
@@ -209,11 +215,14 @@ main {
   font-size: 0.9rem;
 }
 
-/* Gallery grid */
+/* Gallery grid – flex */
 .gallery-grid {
-  display: grid;
-  grid-template-columns: 33% 33% 33%;
+  display: flex;
+  flex-wrap: wrap;
   gap: 1.25rem;
+}
+.gallery-card {
+  flex: 0 0 32%;
 }
 .gallery-card img {
   width: 100%;
@@ -250,18 +259,20 @@ main {
   margin: 0 auto;
 }
 
-/* About */
+/* About – flex instead of grid */
 .about-layout {
-  display: grid;
-  /* 60/40 split, no fr units */
-  grid-template-columns: 60% 40%;
+  display: flex;
   gap: 2.5rem;
   align-items: stretch;
+}
+.about-text {
+  flex: 1 1 60%;
 }
 .about-text p {
   margin-bottom: 1rem;
 }
 .about-image-panel {
+  flex: 0 0 40%;
   display: flex;
   align-items: stretch;
 }
@@ -295,7 +306,6 @@ form label {
 form input,
 form textarea,
 form select {
-  /* no width + border combo */
   padding: 0.4rem;
   border-radius: 4px;
   border: 1px solid #ccc;
@@ -341,13 +351,24 @@ form textarea {
 
 /* Responsive */
 @media (max-width: 800px) {
-  .hero,
-  .about-layout,
-  .shop-layout {
-    grid-template-columns: 1fr;
+  .hero {
+    flex-direction: column;
   }
 
-  .shop-grid,
-  .gallery-grid {
-    grid-template-columns: 50% 50%;
+  .shop-layout {
+    flex-direction: column;
   }
+
+  .item-card,
+  .gallery-card {
+    flex: 0 0 48%;
+  }
+
+  .about-layout {
+    flex-direction: column;
+  }
+
+  .about-image-panel {
+    flex: 1 1 auto;
+  }
+}
