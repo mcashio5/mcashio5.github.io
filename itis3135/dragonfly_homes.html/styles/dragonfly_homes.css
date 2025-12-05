@@ -16,17 +16,17 @@ body {
 /* Headings */
 h1 {
   margin: 0;
-  font-size: 28px;
+  font-size: 1.8rem;
 }
 h2 {
   margin-top: 0;
-  margin-bottom: 16px;
-  padding-bottom: 8px;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
   border-bottom: 2px solid #f0e1b0;
   color: #b48817;
 }
 h3 {
-  margin-top: 24px;
+  margin-top: 1.5rem;
   color: #333;
 }
 p {
@@ -39,17 +39,16 @@ ul {
 /* Wrapper */
 .wrapper {
   min-height: 100%;
-  display: block;
 }
 
 /* Header and nav */
 .site-header {
   background-color: #ffffff;
   border-bottom: 4px solid #d4af37;
-  padding: 12px 32px;
+  padding: 0.75rem 2rem;
 }
 .site-header p {
-  margin: 2px 0 8px;
+  margin: 0.1rem 0 0.5rem;
   color: #555;
 }
 .main-nav ul {
@@ -59,20 +58,16 @@ ul {
 }
 .main-nav li {
   display: inline-block;
-  margin-right: 16px;
+  margin-right: 1rem;
 }
 .main-nav a {
   text-decoration: none;
   color: #b48817;
   font-weight: 600;
-  padding: 4px 0;
+  padding: 0.25rem 0;
 }
-.main-nav a:hover {
-  border-bottom: 2px solid #b48817;
-}
-.main-nav a:focus {
-  border-bottom: 2px solid #b48817;
-}
+.main-nav a:hover,
+.main-nav a:focus,
 .main-nav .active {
   border-bottom: 2px solid #b48817;
 }
@@ -80,24 +75,25 @@ ul {
 /* Main shell */
 main {
   max-width: 1100px;
-  margin: 32px auto;
-  padding: 32px 24px 40px;
+  margin: 2rem auto;
+  padding: 2rem 1.5rem 2.5rem;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
 }
 
-/* Hero section (home) – floats instead of flex/grid */
+/* Hero section (home) */
 .hero {
-  overflow: hidden;
+  overflow: hidden; /* contain floats */
 }
 .hero-text {
   float: left;
   width: 60%;
+  padding-right: 2rem;
 }
 .hero-image {
-  float: right;
-  width: 38%;
+  float: left;
+  width: 40%;
   border-radius: 10px;
   border: 1px solid #eee;
   min-height: 220px;
@@ -109,8 +105,8 @@ main {
   margin: 0;
 }
 .hero-caption {
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
   color: #8a6d1d;
   text-align: center;
   font-style: italic;
@@ -119,14 +115,14 @@ main {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 8px 20px;
+  padding: 0.55rem 1.3rem;
   border-radius: 999px;
   border: none;
   text-decoration: none;
   cursor: pointer;
   font-weight: 600;
-  margin-right: 8px;
-  margin-top: 8px;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
 }
 .btn-primary {
   background-color: #b48817;
@@ -137,14 +133,12 @@ main {
   color: #b48817;
   border: 2px solid #b48817;
 }
-.btn-primary:hover {
-  opacity: 0.9;
-}
+.btn-primary:hover,
 .btn-outline:hover {
   opacity: 0.9;
 }
 
-/* Featured grid */
+/* Featured section */
 .featured-grid {
   margin-top: 16px;
 }
@@ -153,51 +147,51 @@ main {
 .card {
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 16px;
+  padding: 1rem;
   border: 1px solid #eee;
 }
 
-/* Shop layout – floats instead of grid/flex */
+/* Shop layout */
 .shop-layout {
-  overflow: hidden;
-  margin-top: 24px;
+  overflow: hidden; /* contain floats */
 }
 .filter-panel {
   float: left;
   width: 260px;
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 16px;
+  padding: 1rem;
   border: 1px solid #eee;
+  margin-right: 1.5rem;
 }
 .filter-panel label {
   display: block;
-  margin-top: 8px;
-  font-size: 14px;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
 }
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
-  padding: 6px;
-  margin-top: 2px;
+  padding: 0.35rem;
+  margin-top: 0.1rem;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-/* Grid that holds item cards – floats */
+/* Grid that holds item cards */
 .shop-grid {
-  margin-left: 280px;
+  overflow: hidden; /* contain floats */
 }
 
 /* Item cards */
 .item-card {
   float: left;
-  width: 30%;
-  margin-right: 3.333%;
-  margin-bottom: 20px;
+  width: 31%;
+  margin-right: 3.5%;
+  margin-bottom: 1.25rem;
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 12px;
+  padding: 0.75rem;
   border: 1px solid #eee;
 }
 .item-card:nth-child(3n) {
@@ -208,10 +202,10 @@ main {
   height: 170px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 8px;
+  margin-bottom: 0.5rem;
 }
 .item-meta {
-  font-size: 14px;
+  font-size: 0.9rem;
   color: #555;
 }
 .price {
@@ -219,21 +213,22 @@ main {
   color: #b48817;
 }
 .wishlist {
-  margin-top: 24px;
-  padding-top: 16px;
+  clear: both;
+  margin-top: 1.5rem;
+  padding-top: 1rem;
   border-top: 1px dashed #e2d2a1;
-  font-size: 14px;
+  font-size: 0.9rem;
 }
 
-/* Gallery grid – floats */
+/* Gallery grid */
 .gallery-grid {
-  margin-top: 24px;
+  overflow: hidden; /* contain floats */
 }
 .gallery-card {
   float: left;
-  width: 30%;
-  margin-right: 3.333%;
-  margin-bottom: 20px;
+  width: 31%;
+  margin-right: 3.5%;
+  margin-bottom: 1.25rem;
 }
 .gallery-card:nth-child(3n) {
   margin-right: 0;
@@ -255,15 +250,16 @@ main {
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   display: none;
-  z-index: 1000;
+  text-align: center;
 }
 .lightbox-content {
+  display: inline-block;
+  margin-top: 5%;
   background-color: #ffffff;
-  padding: 16px;
+  padding: 1rem;
   border-radius: 10px;
   max-width: 90%;
   max-height: 90%;
-  margin: 40px auto 0;
 }
 .lightbox-content img {
   max-width: 100%;
@@ -272,21 +268,20 @@ main {
   margin: 0 auto;
 }
 
-/* About – floats instead of grid/flex */
+/* About */
 .about-layout {
-  overflow: hidden;
-  margin-top: 24px;
+  overflow: hidden; /* contain floats */
 }
 .about-text {
   float: left;
   width: 60%;
 }
 .about-text p {
-  margin-bottom: 16px;
+  margin-bottom: 1rem;
 }
 .about-image-panel {
-  float: right;
-  width: 38%;
+  float: left;
+  width: 40%;
 }
 .about-hero-figure {
   margin: 0;
@@ -300,8 +295,8 @@ main {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 .about-hero-caption {
-  margin-top: 12px;
-  font-size: 14px;
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
   color: #8a6d1d;
   text-align: right;
   font-style: italic;
@@ -310,95 +305,73 @@ main {
 /* Contact form */
 form label {
   display: block;
-  margin-top: 12px;
+  margin-top: 0.75rem;
   font-weight: 500;
 }
 form input,
 form textarea,
 form select {
-  padding: 6px;
+  padding: 0.4rem;
   border-radius: 4px;
   border: 1px solid #ccc;
-  margin-top: 4px;
+  margin-top: 0.2rem;
 }
 form textarea {
   min-height: 120px;
 }
 .error {
   color: #b00020;
-  font-size: 13px;
+  font-size: 0.85rem;
 }
 .success {
   color: #0d7c3b;
-  font-size: 14px;
-  margin-top: 12px;
+  font-size: 0.95rem;
+  margin-top: 0.75rem;
 }
 
 /* FAQ */
 .faq-item {
   border-bottom: 1px solid #eee;
-  padding: 8px 0;
+  padding: 0.5rem 0;
 }
 .faq-question {
   cursor: pointer;
-  display: flex;
-  justify-content: space-between;
 }
 .faq-answer {
   display: none;
-  padding-top: 4px;
-  font-size: 14px;
+  padding-top: 0.25rem;
+  font-size: 0.9rem;
   color: #555;
 }
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 24px 0 32px;
-  font-size: 14px;
+  padding: 1.5rem 0 2rem;
+  font-size: 0.9rem;
   color: #777;
 }
 
 /* Responsive */
 @media (max-width: 800px) {
-  .hero {
-    overflow: visible;
-  }
   .hero-text,
-  .hero-image {
-    float: none;
-    width: 100%;
-  }
-
-  .shop-layout {
-    overflow: visible;
-  }
-  .filter-panel {
-    float: none;
-    width: 100%;
-    margin-bottom: 16px;
-  }
-  .shop-grid {
-    margin-left: 0;
-  }
-  .item-card {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .gallery-card {
-    float: none;
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .about-layout {
-    overflow: visible;
-  }
+  .hero-image,
+  .filter-panel,
+  .item-card,
+  .gallery-card,
   .about-text,
   .about-image-panel {
     float: none;
     width: 100%;
+    margin-right: 0;
+  }
+
+  .hero-text {
+    padding-right: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .filter-panel {
+    margin-bottom: 1.5rem;
   }
 }
