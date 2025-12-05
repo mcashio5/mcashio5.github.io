@@ -6,49 +6,81 @@
   <title>ITIS 3135 – Michael Cashion</title>
   <link rel="stylesheet" type="text/css" href="styles/default.css" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background-color: #0a2a4d;
-      color: #ffffff;
-      line-height: 1.6;
-    }
-    header, footer {
-      background-color: #081d33;
-      padding: 15px;
-    }
-    nav a {
-      color: #87ceeb;
-      margin: 0 10px;
-      text-decoration: none;
-      font-weight: bold;
-    }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      max-width: 800px;
-      margin: 40px auto;
-      padding: 20px;
-      text-align: center;
-    }
-    footer nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 15px;
-      margin-bottom: 10px;
-    }
-    footer a {
-      color: #ffffff;
-    }
-    footer p {
-      text-align: center;
-      color: #cccccc;
-      font-size: 0.9rem;
-    }
-  </style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #0a2a4d;
+    color: #ffffff;
+    line-height: 1.6;
+  }
+
+  /* Match all other pages — compact header */
+  header {
+    background-color: #081d33;
+    padding: 12px 24px; /* Smaller */
+  }
+
+  /* Removes extra spacing under your title */
+  header h1 {
+    margin: 0 0 8px 0;
+    font-size: clamp(1.4rem, 2.2vw + 1rem, 2rem);
+  }
+
+  /* Match the good spacing of nav buttons */
+  nav ul {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* tighter spacing */
+    list-style: none;
+  }
+
+  nav a {
+    padding: 6px 10px;   /* same as other pages */
+    border-radius: 10px;
+    background: rgba(255,255,255,.06);
+    color: #87ceeb;
+    font-weight: bold;
+    text-decoration: none;
+  }
+
+  nav a:hover {
+    text-decoration: underline;
+  }
+
+  /* Make the content centered like your other pages */
+  main {
+    width: 92%;
+    max-width: 1200px;
+    margin: 24px auto;      /* smaller top spacing */
+    padding: 1.25rem;
+    background-color: #081d33;
+    border-radius: 16px;
+    box-shadow: 0 6px 24px rgba(0,0,0,.25);
+  }
+
+  footer {
+    background-color: #081d33;
+    padding: 12px 24px;
+  }
+
+  footer nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  footer p {
+    text-align: center;
+    color: #cccccc;
+    font-size: 0.9rem;
+  }
+</style>
+
 
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
 </head>
