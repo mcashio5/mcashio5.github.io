@@ -16,17 +16,17 @@ body {
 /* Headings */
 h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 29px; /* ~1.8rem */
 }
 h2 {
   margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 16px; /* ~1rem */
+  padding-bottom: 8px; /* ~0.5rem */
   border-bottom: 2px solid #f0e1b0;
   color: #b48817;
 }
 h3 {
-  margin-top: 1.5rem;
+  margin-top: 24px; /* ~1.5rem */
   color: #333;
 }
 p {
@@ -47,10 +47,10 @@ ul {
 .site-header {
   background-color: #ffffff;
   border-bottom: 4px solid #d4af37;
-  padding: 0.75rem 2rem;
+  padding: 12px 32px; /* 0.75rem 2rem */
 }
 .site-header p {
-  margin: 0.1rem 0 0.5rem;
+  margin: 2px 0 8px; /* ~0.1rem 0 0.5rem */
   color: #555;
 }
 .main-nav ul {
@@ -59,13 +59,15 @@ ul {
   margin: 0;
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+}
+.main-nav li {
+  margin-right: 16px; /* manual gap replacement */
 }
 .main-nav a {
   text-decoration: none;
   color: #b48817;
   font-weight: 600;
-  padding: 0.25rem 0;
+  padding: 4px 0; /* ~0.25rem */
 }
 .main-nav a:hover,
 .main-nav a:focus,
@@ -76,8 +78,8 @@ ul {
 /* Main shell */
 main {
   max-width: 1100px;
-  margin: 2rem auto;
-  padding: 2rem 1.5rem 2.5rem;
+  margin: 32px auto; /* 2rem auto */
+  padding: 32px 24px 40px; /* 2rem 1.5rem 2.5rem */
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
@@ -87,14 +89,14 @@ main {
 /* Hero section (home) – flex instead of grid */
 .hero {
   display: flex;
-  gap: 2rem;
   align-items: center;
 }
 .hero-text {
-  flex: 1 1 60%;
+  width: 60%; /* instead of flex: 1 1 60% */
+  padding-right: 32px; /* replacement for gap */
 }
 .hero-image {
-  flex: 0 0 40%;
+  width: 40%; /* instead of flex: 0 0 40% */
   border-radius: 10px;
   border: 1px solid #eee;
   min-height: 220px;
@@ -106,8 +108,8 @@ main {
   margin: 0;
 }
 .hero-caption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 8px; /* 0.5rem */
+  font-size: 14px; /* ~0.9rem */
   color: #8a6d1d;
   text-align: center;
   font-style: italic;
@@ -116,14 +118,14 @@ main {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 0.55rem 1.3rem;
+  padding: 9px 21px; /* ~0.55rem 1.3rem */
   border-radius: 999px;
   border: none;
   text-decoration: none;
   cursor: pointer;
   font-weight: 600;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
+  margin-right: 8px; /* 0.5rem */
+  margin-top: 8px;   /* 0.5rem */
 }
 .btn-primary {
   background-color: #b48817;
@@ -147,61 +149,64 @@ main {
 .card {
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 16px; /* 1rem */
   border: 1px solid #eee;
 }
 
 /* Shop layout – flex instead of grid */
 .shop-layout {
   display: flex;
-  gap: 1.5rem;
 }
 .filter-panel {
-  flex: 0 0 260px;
+  width: 260px; /* instead of flex: 0 0 260px */
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 16px; /* 1rem */
   border: 1px solid #eee;
+  margin-right: 24px; /* simulate gap */
 }
 .filter-panel label {
   display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 8px; /* 0.5rem */
+  font-size: 14px; /* 0.9rem */
 }
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
-  padding: 0.35rem;
-  margin-top: 0.1rem;
+  padding: 6px;         /* ~0.35rem */
+  margin-top: 2px;      /* ~0.1rem */
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
 /* Grid that holds item cards – flex */
 .shop-grid {
-  flex: 1 1 auto;
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
-}
-.item-card {
-  flex: 0 0 32%;
-  background-color: #fcfaf4;
-  border-radius: 8px;
-  padding: 0.75rem;
-  border: 1px solid #eee;
 }
 
 /* Item cards */
+.item-card {
+  width: 32%;
+  background-color: #fcfaf4;
+  border-radius: 8px;
+  padding: 12px; /* 0.75rem */
+  border: 1px solid #eee;
+  margin-bottom: 20px; /* ~1.25rem */
+  margin-right: 2%;    /* fake gap between columns */
+}
+.item-card:nth-child(3n) {
+  margin-right: 0;
+}
 .item-card img {
   width: 100%;
   height: 170px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px; /* 0.5rem */
 }
 .item-meta {
-  font-size: 0.9rem;
+  font-size: 14px; /* 0.9rem */
   color: #555;
 }
 .price {
@@ -209,20 +214,24 @@ main {
   color: #b48817;
 }
 .wishlist {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  margin-top: 24px;   /* 1.5rem */
+  padding-top: 16px;  /* 1rem */
   border-top: 1px dashed #e2d2a1;
-  font-size: 0.9rem;
+  font-size: 14px;    /* 0.9rem */
 }
 
 /* Gallery grid – flex */
 .gallery-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1.25rem;
 }
 .gallery-card {
-  flex: 0 0 32%;
+  width: 32%;
+  margin-right: 2%;
+  margin-bottom: 20px; /* ~1.25rem */
+}
+.gallery-card:nth-child(3n) {
+  margin-right: 0;
 }
 .gallery-card img {
   width: 100%;
@@ -247,7 +256,7 @@ main {
 }
 .lightbox-content {
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 16px; /* 1rem */
   border-radius: 10px;
   max-width: 90%;
   max-height: 90%;
@@ -262,17 +271,16 @@ main {
 /* About – flex instead of grid */
 .about-layout {
   display: flex;
-  gap: 2.5rem;
-  align-items: stretch;
 }
 .about-text {
-  flex: 1 1 60%;
+  width: 60%; /* instead of flex: 1 1 60% */
+  margin-right: 40px; /* simulate gap (~2.5rem) */
 }
 .about-text p {
-  margin-bottom: 1rem;
+  margin-bottom: 16px; /* 1rem */
 }
 .about-image-panel {
-  flex: 0 0 40%;
+  width: 40%; /* instead of flex: 0 0 40% */
   display: flex;
   align-items: stretch;
 }
@@ -290,8 +298,8 @@ main {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 .about-hero-caption {
-  margin-top: 0.75rem;
-  font-size: 0.9rem;
+  margin-top: 12px; /* 0.75rem */
+  font-size: 14px; /* 0.9rem */
   color: #8a6d1d;
   text-align: right;
   font-style: italic;
@@ -300,34 +308,34 @@ main {
 /* Contact form */
 form label {
   display: block;
-  margin-top: 0.75rem;
+  margin-top: 12px; /* 0.75rem */
   font-weight: 500;
 }
 form input,
 form textarea,
 form select {
-  padding: 0.4rem;
+  padding: 6px; /* 0.4rem approx */
   border-radius: 4px;
   border: 1px solid #ccc;
-  margin-top: 0.2rem;
+  margin-top: 3px; /* ~0.2rem */
 }
 form textarea {
   min-height: 120px;
 }
 .error {
   color: #b00020;
-  font-size: 0.85rem;
+  font-size: 13px; /* 0.85rem */
 }
 .success {
   color: #0d7c3b;
-  font-size: 0.95rem;
-  margin-top: 0.75rem;
+  font-size: 15px; /* 0.95rem */
+  margin-top: 12px; /* 0.75rem */
 }
 
 /* FAQ */
 .faq-item {
   border-bottom: 1px solid #eee;
-  padding: 0.5rem 0;
+  padding: 8px 0; /* 0.5rem */
 }
 .faq-question {
   cursor: pointer;
@@ -336,16 +344,16 @@ form textarea {
 }
 .faq-answer {
   display: none;
-  padding-top: 0.25rem;
-  font-size: 0.9rem;
+  padding-top: 4px; /* 0.25rem */
+  font-size: 14px; /* 0.9rem */
   color: #555;
 }
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 1.5rem 0 2rem;
-  font-size: 0.9rem;
+  padding: 24px 0 32px; /* 1.5rem 0 2rem */
+  font-size: 14px; /* 0.9rem */
   color: #777;
 }
 
@@ -355,20 +363,47 @@ form textarea {
     flex-direction: column;
   }
 
+  .hero-text {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 24px;
+  }
+
+  .hero-image {
+    width: 100%;
+  }
+
   .shop-layout {
     flex-direction: column;
   }
 
+  .filter-panel {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 24px;
+  }
+
   .item-card,
   .gallery-card {
-    flex: 0 0 48%;
+    width: 48%; /* instead of flex: 0 0 48% */
+    margin-right: 4%;
+  }
+  .item-card:nth-child(2n),
+  .gallery-card:nth-child(2n) {
+    margin-right: 0;
   }
 
   .about-layout {
     flex-direction: column;
   }
 
+  .about-text,
   .about-image-panel {
-    flex: 1 1 auto;
+    width: 100%;
+    margin-right: 0;
+  }
+
+  .about-text {
+    margin-bottom: 24px;
   }
 }
