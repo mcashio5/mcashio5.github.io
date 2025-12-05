@@ -16,17 +16,17 @@ body {
 /* Headings */
 h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 28px;
 }
 h2 {
   margin-top: 0;
-  margin-bottom: 1rem;
-  padding-bottom: 0.5rem;
+  margin-bottom: 16px;
+  padding-bottom: 8px;
   border-bottom: 2px solid #f0e1b0;
   color: #b48817;
 }
 h3 {
-  margin-top: 1.5rem;
+  margin-top: 24px;
   color: #333;
 }
 p {
@@ -39,36 +39,40 @@ ul {
 /* Wrapper */
 .wrapper {
   min-height: 100%;
-  display: flex;
-  flex-direction: column;
+  display: block;
 }
 
 /* Header and nav */
 .site-header {
   background-color: #ffffff;
   border-bottom: 4px solid #d4af37;
-  padding: 0.75rem 2rem;
+  padding: 12px 32px;
 }
 .site-header p {
-  margin: 0.1rem 0 0.5rem;
+  margin: 2px 0 8px;
   color: #555;
 }
 .main-nav ul {
   list-style: none;
   padding: 0;
   margin: 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
+}
+.main-nav li {
+  display: inline-block;
+  margin-right: 16px;
 }
 .main-nav a {
   text-decoration: none;
   color: #b48817;
   font-weight: 600;
-  padding: 0.25rem 0;
+  padding: 4px 0;
 }
-.main-nav a:hover,
-.main-nav a:focus,
+.main-nav a:hover {
+  border-bottom: 2px solid #b48817;
+}
+.main-nav a:focus {
+  border-bottom: 2px solid #b48817;
+}
 .main-nav .active {
   border-bottom: 2px solid #b48817;
 }
@@ -76,25 +80,24 @@ ul {
 /* Main shell */
 main {
   max-width: 1100px;
-  margin: 2rem auto;
-  padding: 2rem 1.5rem 2.5rem;
+  margin: 32px auto;
+  padding: 32px 24px 40px;
   background-color: #ffffff;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
-  flex: 1;
 }
 
-/* Hero section (home) – flex instead of grid */
+/* Hero section (home) – floats instead of flex/grid */
 .hero {
-  display: flex;
-  gap: 2rem;
-  align-items: center;
+  overflow: hidden;
 }
 .hero-text {
-  flex: 1 1 60%;
+  float: left;
+  width: 60%;
 }
 .hero-image {
-  flex: 0 0 40%;
+  float: right;
+  width: 38%;
   border-radius: 10px;
   border: 1px solid #eee;
   min-height: 220px;
@@ -106,8 +109,8 @@ main {
   margin: 0;
 }
 .hero-caption {
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 8px;
+  font-size: 14px;
   color: #8a6d1d;
   text-align: center;
   font-style: italic;
@@ -116,14 +119,14 @@ main {
 /* Buttons */
 .btn {
   display: inline-block;
-  padding: 0.55rem 1.3rem;
+  padding: 8px 20px;
   border-radius: 999px;
   border: none;
   text-decoration: none;
   cursor: pointer;
   font-weight: 600;
-  margin-right: 0.5rem;
-  margin-top: 0.5rem;
+  margin-right: 8px;
+  margin-top: 8px;
 }
 .btn-primary {
   background-color: #b48817;
@@ -134,11 +137,14 @@ main {
   color: #b48817;
   border: 2px solid #b48817;
 }
-.btn-primary:hover,
+.btn-primary:hover {
+  opacity: 0.9;
+}
 .btn-outline:hover {
   opacity: 0.9;
 }
 
+/* Featured grid */
 .featured-grid {
   margin-top: 16px;
 }
@@ -147,61 +153,65 @@ main {
 .card {
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 16px;
   border: 1px solid #eee;
 }
 
-/* Shop layout – flex instead of grid */
+/* Shop layout – floats instead of grid/flex */
 .shop-layout {
-  display: flex;
-  gap: 1.5rem;
+  overflow: hidden;
+  margin-top: 24px;
 }
 .filter-panel {
-  flex: 0 0 260px;
+  float: left;
+  width: 260px;
   background-color: #fcfaf4;
   border-radius: 8px;
-  padding: 1rem;
+  padding: 16px;
   border: 1px solid #eee;
 }
 .filter-panel label {
   display: block;
-  margin-top: 0.5rem;
-  font-size: 0.9rem;
+  margin-top: 8px;
+  font-size: 14px;
 }
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
-  padding: 0.35rem;
-  margin-top: 0.1rem;
+  padding: 6px;
+  margin-top: 2px;
   border-radius: 4px;
   border: 1px solid #ccc;
 }
 
-/* Grid that holds item cards – flex */
+/* Grid that holds item cards – floats */
 .shop-grid {
-  flex: 1 1 auto;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
-}
-.item-card {
-  flex: 0 0 32%;
-  background-color: #fcfaf4;
-  border-radius: 8px;
-  padding: 0.75rem;
-  border: 1px solid #eee;
+  margin-left: 280px;
 }
 
 /* Item cards */
+.item-card {
+  float: left;
+  width: 30%;
+  margin-right: 3.333%;
+  margin-bottom: 20px;
+  background-color: #fcfaf4;
+  border-radius: 8px;
+  padding: 12px;
+  border: 1px solid #eee;
+}
+.item-card:nth-child(3n) {
+  margin-right: 0;
+}
 .item-card img {
   width: 100%;
   height: 170px;
   object-fit: cover;
   border-radius: 6px;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 .item-meta {
-  font-size: 0.9rem;
+  font-size: 14px;
   color: #555;
 }
 .price {
@@ -209,20 +219,24 @@ main {
   color: #b48817;
 }
 .wishlist {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
+  margin-top: 24px;
+  padding-top: 16px;
   border-top: 1px dashed #e2d2a1;
-  font-size: 0.9rem;
+  font-size: 14px;
 }
 
-/* Gallery grid – flex */
+/* Gallery grid – floats */
 .gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1.25rem;
+  margin-top: 24px;
 }
 .gallery-card {
-  flex: 0 0 32%;
+  float: left;
+  width: 30%;
+  margin-right: 3.333%;
+  margin-bottom: 20px;
+}
+.gallery-card:nth-child(3n) {
+  margin-right: 0;
 }
 .gallery-card img {
   width: 100%;
@@ -241,16 +255,15 @@ main {
   left: 0;
   background-color: rgba(0, 0, 0, 0.7);
   display: none;
-  align-items: center;
-  justify-content: center;
   z-index: 1000;
 }
 .lightbox-content {
   background-color: #ffffff;
-  padding: 1rem;
+  padding: 16px;
   border-radius: 10px;
   max-width: 90%;
   max-height: 90%;
+  margin: 40px auto 0;
 }
 .lightbox-content img {
   max-width: 100%;
@@ -259,28 +272,25 @@ main {
   margin: 0 auto;
 }
 
-/* About – flex instead of grid */
+/* About – floats instead of grid/flex */
 .about-layout {
-  display: flex;
-  gap: 2.5rem;
-  align-items: stretch;
+  overflow: hidden;
+  margin-top: 24px;
 }
 .about-text {
-  flex: 1 1 60%;
+  float: left;
+  width: 60%;
 }
 .about-text p {
-  margin-bottom: 1rem;
+  margin-bottom: 16px;
 }
 .about-image-panel {
-  flex: 0 0 40%;
-  display: flex;
-  align-items: stretch;
+  float: right;
+  width: 38%;
 }
 .about-hero-figure {
   margin: 0;
   width: 100%;
-  display: flex;
-  flex-direction: column;
 }
 .about-hero-image {
   width: 100%;
@@ -290,8 +300,8 @@ main {
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 .about-hero-caption {
-  margin-top: 0.75rem;
-  font-size: 0.9rem;
+  margin-top: 12px;
+  font-size: 14px;
   color: #8a6d1d;
   text-align: right;
   font-style: italic;
@@ -300,34 +310,34 @@ main {
 /* Contact form */
 form label {
   display: block;
-  margin-top: 0.75rem;
+  margin-top: 12px;
   font-weight: 500;
 }
 form input,
 form textarea,
 form select {
-  padding: 0.4rem;
+  padding: 6px;
   border-radius: 4px;
   border: 1px solid #ccc;
-  margin-top: 0.2rem;
+  margin-top: 4px;
 }
 form textarea {
   min-height: 120px;
 }
 .error {
   color: #b00020;
-  font-size: 0.85rem;
+  font-size: 13px;
 }
 .success {
   color: #0d7c3b;
-  font-size: 0.95rem;
-  margin-top: 0.75rem;
+  font-size: 14px;
+  margin-top: 12px;
 }
 
 /* FAQ */
 .faq-item {
   border-bottom: 1px solid #eee;
-  padding: 0.5rem 0;
+  padding: 8px 0;
 }
 .faq-question {
   cursor: pointer;
@@ -336,39 +346,59 @@ form textarea {
 }
 .faq-answer {
   display: none;
-  padding-top: 0.25rem;
-  font-size: 0.9rem;
+  padding-top: 4px;
+  font-size: 14px;
   color: #555;
 }
 
 /* Footer */
 .site-footer {
   text-align: center;
-  padding: 1.5rem 0 2rem;
-  font-size: 0.9rem;
+  padding: 24px 0 32px;
+  font-size: 14px;
   color: #777;
 }
 
 /* Responsive */
 @media (max-width: 800px) {
   .hero {
-    flex-direction: column;
+    overflow: visible;
+  }
+  .hero-text,
+  .hero-image {
+    float: none;
+    width: 100%;
   }
 
   .shop-layout {
-    flex-direction: column;
+    overflow: visible;
+  }
+  .filter-panel {
+    float: none;
+    width: 100%;
+    margin-bottom: 16px;
+  }
+  .shop-grid {
+    margin-left: 0;
+  }
+  .item-card {
+    float: none;
+    width: 100%;
+    margin-right: 0;
   }
 
-  .item-card,
   .gallery-card {
-    flex: 0 0 48%;
+    float: none;
+    width: 100%;
+    margin-right: 0;
   }
 
   .about-layout {
-    flex-direction: column;
+    overflow: visible;
   }
-
+  .about-text,
   .about-image-panel {
-    flex: 1 1 auto;
+    float: none;
+    width: 100%;
   }
 }
