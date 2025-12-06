@@ -25,40 +25,46 @@
     </header>
 
     <main>
-      <!-- Styled Rooms Gallery section with heading inside the section -->
-      <section class="gallery-grid" aria-labelledby="gallery-heading">
+      <!-- Styled Rooms Gallery section -->
+      <section class="gallery-section" aria-labelledby="gallery-heading">
         <h2 id="gallery-heading">Styled Rooms Gallery</h2>
-        <p>See how Dragonfly Homes stages complete rooms. Items currently available for purchase are labeled below each photo.</p>
+        <p>
+          See how Dragonfly Homes stages complete rooms. Items currently available
+          for purchase are labeled below each photo.
+        </p>
 
-        <article class="card gallery-card">
-          <img src="images/livingroom.png"
-               alt="Bright living room with neutral sofa"
-               data-lightbox-src="images/livingroom.png"
-               data-lightbox-caption="Blended living room: sofa, coffee table, accent chairs. Sofa, side tables and lamps currently available.">
-          <h3>Neutral Living Room</h3>
-          <p>Sofa, side tables, accent chairs, and lamps available.</p>
-          <a href="shop.html" class="btn btn-outline">Shop this room</a>
-        </article>
+        <!-- Only the cards are in the grid -->
+        <div class="gallery-grid">
+          <article class="card gallery-card">
+            <img src="images/livingroom.png"
+                 alt="Bright living room with neutral sofa"
+                 data-lightbox-src="images/livingroom.png"
+                 data-lightbox-caption="Blended living room: sofa, coffee table, accent chairs. Sofa, side tables and lamps currently available.">
+            <h3>Neutral Living Room</h3>
+            <p>Sofa, side tables, accent chairs, and lamps available.</p>
+            <a href="shop.html" class="btn btn-outline">Shop this room</a>
+          </article>
 
-        <article class="card gallery-card">
-          <img src="images/bedroom.png"
-               alt="Calm bedroom with upholstered headboard"
-               data-lightbox-src="images/bedroom.png"
-               data-lightbox-caption="Bedroom: queen bedframe, nightstands, console, side chairs and lamps currently available.">
-          <h3>Calm Bedroom</h3>
-          <p>Queen bedframe, nightstands, console, side chairs and lamps currently available.</p>
-          <a href="shop.html" class="btn btn-outline">Shop this room</a>
-        </article>
+          <article class="card gallery-card">
+            <img src="images/bedroom.png"
+                 alt="Calm bedroom with upholstered headboard"
+                 data-lightbox-src="images/bedroom.png"
+                 data-lightbox-caption="Bedroom: queen bedframe, nightstands, console, side chairs and lamps currently available.">
+            <h3>Calm Bedroom</h3>
+            <p>Queen bedframe, nightstands, console, side chairs and lamps currently available.</p>
+            <a href="shop.html" class="btn btn-outline">Shop this room</a>
+          </article>
 
-        <article class="card gallery-card">
-          <img src="images/diningroom.png"
-               alt="Dining room with round table"
-               data-lightbox-src="images/diningroom.png"
-               data-lightbox-caption="Dining: dining table, four chairs, art and decor. Table and chairs currently available.">
-          <h3>Open Dining Area</h3>
-          <p>Dining table and chair set currently available.</p>
-          <a href="shop.html" class="btn btn-outline">Shop this room</a>
-        </article>
+          <article class="card gallery-card">
+            <img src="images/diningroom.png"
+                 alt="Dining room with round table"
+                 data-lightbox-src="images/diningroom.png"
+                 data-lightbox-caption="Dining: dining table, four chairs, art and decor. Table and chairs currently available.">
+            <h3>Open Dining Area</h3>
+            <p>Dining table and chair set currently available.</p>
+            <a href="shop.html" class="btn btn-outline">Shop this room</a>
+          </article>
+        </div>
       </section>
 
       <!-- Lightbox overlay -->
