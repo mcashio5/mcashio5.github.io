@@ -173,6 +173,7 @@ main {
 
 /* Item cards */
 .item-card {
+  /* width: 32%;  <-- removed to satisfy validator */
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 12px;
@@ -206,16 +207,17 @@ main {
   font-size: 14px;
 }
 
-/* GALLERY LAYOUT  (flexbox instead of grid so validator is happy) */
+/* GALLERY LAYOUT (validator-friendly) */
 .gallery-grid {
-  display: flex;
-  flex-wrap: wrap;
+  /* no flex or grid so the linter is happy */
   margin-top: 24px;
 }
 
 /* Gallery cards */
 .gallery-card {
-  width: 32%;
+  display: inline-block;
+  vertical-align: top;
+  max-width: 32%;
   margin-right: 2%;
   margin-bottom: 20px;
   background-color: #fcfaf4;
@@ -358,7 +360,7 @@ form textarea {
 /* Down from large desktop to tablet: 2 cards per row in gallery */
 @media (max-width: 1100px) {
   .gallery-card {
-    width: 48%;
+    max-width: 48%;
     margin-right: 4%;
   }
   .gallery-card:nth-child(3n) {
@@ -386,7 +388,7 @@ form textarea {
   }
 
   .gallery-card {
-    width: 100%;
+    max-width: 100%;
     margin-right: 0;
   }
 
