@@ -43,44 +43,48 @@ var previewItems = [
     roomKey: "living",
     room: "Living room",
     category: "Sofa",
+    name: "Living room sofa",
     price: 500,
     condition: "New",
     dimensions: "",
     image: "images/sofa.png",
-    description: "Previewing a staging sofa."
+    description: "Staging sofa."
   },
   {
     id: 1002,
     roomKey: "living",
     room: "Living room",
     category: "Bench",
+    name: "Living room bench",
     price: 200,
     condition: "New",
     dimensions: "",
     image: "images/bench.png",
-    description: "Previewing a staging bench."
+    description: "Staging bench."
   },
   {
     id: 1003,
     roomKey: "living",
     room: "Living room",
     category: "Chair",
+    name: "Living room chair",
     price: 150,
     condition: "New",
     dimensions: "",
     image: "images/chair.png",
-    description: "Previewing a staging chair."
+    description: "Staging chair."
   },
   {
     id: 1004,
     roomKey: "living",
     room: "Living room",
     category: "Decor",
+    name: "Living room decor lamp",
     price: 75,
     condition: "New",
     dimensions: "",
     image: "images/decor.png",
-    description: "Previewing a decor lamp."
+    description: "Decor lamp."
   },
 
   // - Bedroom -
@@ -89,33 +93,36 @@ var previewItems = [
     roomKey: "bedroom",
     room: "Bedroom",
     category: "Bed",
+    name: "Bedroom bed",
     price: 650,
     condition: "New",
     dimensions: "",
     image: "images/bed.png",
-    description: "Previewing a staged bed with neutral linens."
+    description: "Staged bed with neutral linens."
   },
   {
     id: 2002,
     roomKey: "bedroom",
     room: "Bedroom",
     category: "Bench",
+    name: "Bedroom bench",
     price: 180,
     condition: "New",
     dimensions: "",
     image: "images/bench.png",
-    description: "Previewing a bedroom bench."
+    description: "Bedroom bench."
   },
   {
     id: 2003,
     roomKey: "bedroom",
     room: "Bedroom",
     category: "Decor",
+    name: "Bedroom decor lamp",
     price: 70,
     condition: "New",
     dimensions: "",
     image: "images/decor.png",
-    description: "Previewing bedroom decor."
+    description: "Bedroom decor."
   },
 
   // - Dining room -
@@ -124,22 +131,24 @@ var previewItems = [
     roomKey: "dining",
     room: "Dining room",
     category: "Table",
+    name: "Dining table",
     price: 300,
     condition: "New",
     dimensions: "",
     image: "images/table.png",
-    description: "Previewing a dining table."
+    description: "Dining table."
   },
   {
     id: 3002,
     roomKey: "dining",
     room: "Dining room",
     category: "Chair",
+    name: "Dining chair",
     price: 130,
     condition: "New",
     dimensions: "",
     image: "images/chair.png",
-    description: "Previewing a dining chair."
+    description: "Dining chair."
   }
 ];
 
@@ -176,14 +185,16 @@ function initShopPage() {
   function renderItems(items) {
     shopGrid.innerHTML = "";
     items.forEach(function (item) {
+      var displayName = item.name || item.category || "Item";
+
       var card = document.createElement("article");
       card.className = "card item-card";
       card.innerHTML =
-        '<img src="' + item.image + '" alt="' + item.name + '">' +
-        "<h3>" + item.name + "</h3>" +
+        '<img src="' + item.image + '" alt="' + displayName + '">' +
+        "<h3>" + displayName + "</h3>" +
         '<p class="item-meta">' + item.room + " • " + item.category + "</p>" +
         "<p>" + item.description + "</p>" +
-        '<p class="item-meta">Condition: ' + item.condition + " • " + item.dimensions + "</p>" +
+        '<p class="item-meta">Condition: ' + item.condition + (item.dimensions ? " • " + item.dimensions : "") + "</p>" +
         '<p class="price">$' + item.price + "</p>" +
         '<button class="btn btn-outline btn-wishlist" data-id="' + item.id + '">' +
         "Interested" +
@@ -220,11 +231,12 @@ function initShopPage() {
     if (roomKey === "all" && cat === "all") {
       filtered = previewItems.slice();
     }
-    // 2) All rooms + specific category -> that category in all rooms
+    // 2) All rooms + specific category -> single card for that category
     else if (roomKey === "all" && cat !== "all") {
-      filtered = previewItems.filter(function (item) {
+      var first = previewItems.find(function (item) {
         return item.category === cat;
       });
+      filtered = first ? [first] : [];
     }
     // 3) Specific room + All categories -> room mapping you requested
     else if (roomKey !== "all" && cat === "all") {
@@ -264,7 +276,7 @@ function initShopPage() {
         return;
       }
       var li = document.createElement("li");
-      li.textContent = item.name;
+      li.textContent = item.name || item.category || "Item";
       wishlistList.appendChild(li);
     });
     contactSelectedLink.style.display = wishlist.length ? "inline" : "none";
@@ -297,7 +309,7 @@ function initShopPage() {
     var names = wishlist
       .map(function (id) {
         var item = findAnyItemById(id);
-        return item ? item.name : null;
+        return item ? (item.name || item.category) : null;
       })
       .filter(function (name) {
         return name;
@@ -363,7 +375,6 @@ function initHomeSlideshow() {
     return; // not on home page
   }
 
-  // Images you will drop into the images folder
   var slides = [
     "images/stage1.png",
     "images/stage2.png",
@@ -377,7 +388,7 @@ function initHomeSlideshow() {
   setInterval(function () {
     index = (index + 1) % slides.length;
     img.src = slides[index];
-  }, 2500); // 2.5 seconds per slide
+  }, 2500);
 }
 
 // =========================
@@ -416,7 +427,6 @@ function initContactForm() {
   var itemInput = form.querySelector("#item");
   var statusBox = document.querySelector("#form-status");
 
-  // prefill item-of-interest from query string
   var params = new URLSearchParams(window.location.search);
   var items = params.get("items");
   if (items && itemInput) {
@@ -496,7 +506,6 @@ function initFAQAccordion() {
 // NAV HIGHLIGHT + INIT
 // =========================
 document.addEventListener("DOMContentLoaded", function () {
-  // Simple "active" nav highlighting
   var navLinks = document.querySelectorAll(".main-nav a");
   navLinks.forEach(function (link) {
     if (link.href === window.location.href) {
