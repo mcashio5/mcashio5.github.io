@@ -35,7 +35,127 @@ var sampleInventory = [
   }
 ];
 
+// Items used for the live preview on shop.html
+var previewItems = [
+  // - Living room -
+  {
+    id: 1001,
+    roomKey: "living",
+    room: "Living room",
+    category: "Sofa",
+    price: 500,
+    condition: "New",
+    dimensions: "",
+    image: "images/sofa.png",
+    description: "Previewing a staging sofa."
+  },
+  {
+    id: 1002,
+    roomKey: "living",
+    room: "Living room",
+    category: "Bench",
+    price: 200,
+    condition: "New",
+    dimensions: "",
+    image: "images/bench.png",
+    description: "Previewing a staging bench."
+  },
+  {
+    id: 1003,
+    roomKey: "living",
+    room: "Living room",
+    category: "Chair",
+    price: 150,
+    condition: "New",
+    dimensions: "",
+    image: "images/chair.png",
+    description: "Previewing a staging chair."
+  },
+  {
+    id: 1004,
+    roomKey: "living",
+    room: "Living room",
+    category: "Decor",
+    price: 75,
+    condition: "New",
+    dimensions: "",
+    image: "images/decor.png",
+    description: "Previewing a decor lamp."
+  },
+
+  // - Bedroom -
+  {
+    id: 2001,
+    roomKey: "bedroom",
+    room: "Bedroom",
+    category: "Bed",
+    price: 650,
+    condition: "New",
+    dimensions: "",
+    image: "images/bed.png",
+    description: "Previewing a staged bed with neutral linens."
+  },
+  {
+    id: 2002,
+    roomKey: "bedroom",
+    room: "Bedroom",
+    category: "Bench",
+    price: 180,
+    condition: "New",
+    dimensions: "",
+    image: "images/bench.png",
+    description: "Previewing a bedroom bench."
+  },
+  {
+    id: 2003,
+    roomKey: "bedroom",
+    room: "Bedroom",
+    category: "Decor",
+    price: 70,
+    condition: "New",
+    dimensions: "",
+    image: "images/decor.png",
+    description: "Previewing bedroom decor."
+  },
+
+  // - Dining room -
+  {
+    id: 3001,
+    roomKey: "dining",
+    room: "Dining room",
+    category: "Table",
+    price: 300,
+    condition: "New",
+    dimensions: "",
+    image: "images/table.png",
+    description: "Previewing a dining table."
+  },
+  {
+    id: 3002,
+    roomKey: "dining",
+    room: "Dining room",
+    category: "Chair",
+    price: 130,
+    condition: "New",
+    dimensions: "",
+    image: "images/chair.png",
+    description: "Previewing a dining chair."
+  }
+];
+
 var wishlist = [];
+
+// helper so wishlist can see both original and preview items
+function findAnyItemById(id) {
+  var item =
+    sampleInventory.find(function (i) {
+      return i.id === id;
+    }) ||
+    previewItems.find(function (i) {
+      return i.id === id;
+    });
+  return item || null;
+}
 
 // =========================
 // SHOP PAGE FUNCTIONALITY
@@ -72,82 +192,74 @@ function initShopPage() {
     });
   }
 
-  // only show something when a category is chosen
+  // map room label to an internal key
+  function normalizeRoom(value) {
+    if (!value || value === "all") return "all";
+    var v = value.toLowerCase();
+    if (v.indexOf("living") !== -1) return "living";
+    if (v.indexOf("bed") !== -1) return "bedroom";
+    if (v.indexOf("dining") !== -1) return "dining";
+    return "all";
+  }
+
+  // show items based on room / category / price
   function applyFilters() {
-    var room = roomSelect.value;
-    var cat = catSelect.value;
+    var roomLabel = roomSelect.value; // ex: "All rooms", "Living room"
+    var roomKey = normalizeRoom(roomLabel);
+    var cat = catSelect.value; // "all", "Sofa", etc.
+
     var minP = Number(minPriceInput.value) || 0;
-    var maxP = Number(maxPriceInput.value) || 10000;
+    var maxP =
+      maxPriceInput.value.trim() === ""
+        ? Number.POSITIVE_INFINITY
+        : Number(maxPriceInput.value) || 10000;
 
-    // if "All categories" selected, show nothing
-    if (cat === "all") {
-      renderItems([]);
-      return;
+    var filtered = [];
+
+    // 1) All rooms + All categories -> show everything
+    if (roomKey === "all" && cat === "all") {
+      filtered = previewItems.slice();
+    }
+    // 2) All rooms + specific category -> that category in all rooms
+    else if (roomKey === "all" && cat !== "all") {
+      filtered = previewItems.filter(function (item) {
+        return item.category === cat;
+      });
+    }
+    // 3) Specific room + All categories -> room mapping you requested
+    else if (roomKey !== "all" && cat === "all") {
+      var allowedByRoom = {
+        living: ["Sofa", "Bench", "Chair", "Decor"],
+        bedroom: ["Bed", "Bench", "Decor"],
+        dining: ["Table", "Chair"]
+      };
+      var allowedCats = allowedByRoom[roomKey] || [];
+      filtered = previewItems.filter(function (item) {
+        return (
+          item.roomKey === roomKey &&
+          allowedCats.indexOf(item.category) !== -1
+        );
+      });
+    }
+    // 4) Specific room + specific category -> intersection
+    else {
+      filtered = previewItems.filter(function (item) {
+        return item.roomKey === roomKey && item.category === cat;
+      });
     }
 
-    // hard-coded preview items by category
-    var prices = {
-      Sofa: 500,
-      Chair: 150,
-      Table: 300,
-      Bench: 200,
-      Decor: 75
-    };
+    // apply price range
+    filtered = filtered.filter(function (item) {
+      return item.price >= minP && item.price <= maxP;
+    });
 
-    var names = {
-      Sofa: "Sofa",
-      Chair: "Chair",
-      Table: "Table",
-      Bench: "Bench",
-      Decor: "Decor Lamp"
-    };
-
-    var descriptions = {
-      Sofa: "Previewing a staging sofa.",
-      Chair: "Previewing a staging chair.",
-      Table: "Previewing a staging table.",
-      Bench: "Previewing a staging bench.",
-      Decor: "Previewing a decor lamp."
-    };
-
-    var images = {
-      Sofa: "images/sofa.png",
-      Chair: "images/chair.png",
-      Table: "images/table.png",
-      Bench: "images/bench.png",
-      Decor: "images/decor.png"
-    };
-
-    var price = prices[cat];
-    var image = images[cat];
-
-    // respect price range
-    if (price < minP || price > maxP) {
-      renderItems([]);
-      return;
-    }
-
-    var item = {
-      id: 999,
-      name: names[cat],
-      room: room === "all" ? "Staging" : room,
-      category: cat,
-      price: price,
-      condition: "New",
-      dimensions: "",
-      description: descriptions[cat],
-      image: image
-    };
-
-    renderItems([item]);
+    renderItems(filtered);
   }
 
   function updateWishlist() {
     wishlistList.innerHTML = "";
     wishlist.forEach(function (id) {
-      var item = sampleInventory.find(function (i) {
-        return i.id === id;
-      });
+      var item = findAnyItemById(id);
       if (!item) {
         return;
       }
@@ -158,15 +270,15 @@ function initShopPage() {
     contactSelectedLink.style.display = wishlist.length ? "inline" : "none";
   }
 
-  // initial render: start EMPTY
-  renderItems([]);
+  // initial render: show everything (All rooms + All categories)
+  applyFilters();
 
-  // filter listeners (category change now controls display)
+  // filter listeners
   [roomSelect, catSelect, minPriceInput, maxPriceInput].forEach(function (el) {
     el.addEventListener("change", applyFilters);
   });
 
-  // delegate wishlist clicks (still only really works with sampleInventory items)
+  // delegate wishlist clicks
   shopGrid.addEventListener("click", function (e) {
     var target = e.target;
     if (!target.classList.contains("btn-wishlist")) {
@@ -184,9 +296,7 @@ function initShopPage() {
 
     var names = wishlist
       .map(function (id) {
-        var item = sampleInventory.find(function (i) {
-          return i.id === id;
-        });
+        var item = findAnyItemById(id);
         return item ? item.name : null;
       })
       .filter(function (name) {
@@ -267,7 +377,7 @@ function initHomeSlideshow() {
   setInterval(function () {
     index = (index + 1) % slides.length;
     img.src = slides[index];
-  }, 2500); // 4 seconds per slide
+  }, 2500); // 2.5 seconds per slide
 }
 
 // =========================
@@ -356,7 +466,8 @@ function initContactForm() {
       return;
     }
 
-    statusBox.textContent = "Thank you, we will contact you soon about your selected items.";
+    statusBox.textContent =
+      "Thank you, we will contact you soon about your selected items.";
     statusBox.className = "success";
     form.reset();
   });
