@@ -245,6 +245,32 @@ function initGalleryLightbox() {
 }
 
 // =========================
+// HOME SLIDESHOW
+// =========================
+function initHomeSlideshow() {
+  var img = document.querySelector(".slideshow-image");
+  if (!img) {
+    return; // not on home page
+  }
+
+  // Images you will drop into the images folder
+  var slides = [
+    "images/stage1.png",
+    "images/stage2.png",
+    "images/stage3.png",
+    "images/stage4.png"
+  ];
+
+  var index = 0;
+  img.src = slides[0];
+
+  setInterval(function () {
+    index = (index + 1) % slides.length;
+    img.src = slides[index];
+  }, 4000); // 4 seconds per slide
+}
+
+// =========================
 // CONTACT FORM HELPERS
 // =========================
 function setError(input, msg) {
@@ -367,6 +393,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   });
 
+  initHomeSlideshow();
   initShopPage();
   initGalleryLightbox();
   initContactForm();
