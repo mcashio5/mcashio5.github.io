@@ -154,22 +154,22 @@ main {
   border: 1px solid #eee;
 }
 
-/* Featured categories layout (horizontal on desktop) */
+/* Featured categories layout (horizontal on desktop)
 .featured-grid {
   margin-top: 12px;
   text-align: center;
 }
-
 .featured-grid .card {
   display: inline-block;
   vertical-align: top;
   width: 32%;
   margin-right: 2%;
 }
-
 .featured-grid .card:last-child {
   margin-right: 0;
 }
+*/
+
 
 
 /* Shop layout */
@@ -416,21 +416,20 @@ form textarea {
     flex-direction: column;
   }
 
-  .about-text {
+   .about-text {
     margin-right: 0;
     margin-bottom: 24px;
   }
 
-  /* stack featured categories on small screens */
+  /* stack featured categories on small screens
   .featured-grid {
     text-align: left;
   }
-
   .featured-grid .card {
     display: block;
     width: 100%;
     margin-right: 0;
     margin-bottom: 16px;
   }
+  */
 }
-
