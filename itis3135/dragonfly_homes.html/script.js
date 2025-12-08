@@ -527,3 +527,106 @@ document.addEventListener("DOMContentLoaded", function () {
   initContactForm();
   initFAQAccordion();
 });
+
+// Booking form behavior for contact.html
+document.addEventListener("DOMContentLoaded", function () {
+  var bookingForm = document.getElementById("booking-form");
+  if (!bookingForm) {
+    return;
+  }
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;")
+      .replace(/'/g, "&#39;");
+  }
+
+  var clearBtn = document.getElementById("booking-clear");
+  var bookingStatus = document.getElementById("booking-status");
+  var wrapper = document.getElementById("booking-wrapper");
+  var confirmation = document.getElementById("booking-confirmation");
+
+  // Clear button: wipe every field to empty
+  if (clearBtn) {
+    clearBtn.addEventListener("click", function () {
+      var elements = bookingForm.elements;
+      var i;
+
+      for (i = 0; i < elements.length; i += 1) {
+        var el = elements[i];
+
+        if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+          if (el.type === "checkbox" || el.type === "radio") {
+            el.checked = false;
+          } else if (
+            el.type !== "button" &&
+            el.type !== "submit" &&
+            el.type !== "reset"
+          ) {
+            el.value = "";
+          }
+        }
+      }
+
+      if (bookingStatus) {
+        bookingStatus.textContent = "";
+      }
+    });
+  }
+
+  // Submit: show confirmation with details
+  bookingForm.addEventListener("submit", function (evt) {
+    evt.preventDefault();
+
+    if (!bookingForm.checkValidity()) {
+      bookingForm.reportValidity();
+      return;
+    }
+
+    var fullName = document.getElementById("full-name").value;
+    var email = document.getElementById("email").value;
+    var phone = document.getElementById("phone").value;
+    var roomItem = document.getElementById("room-item").value;
+    var message = document.getElementById("booking-message").value;
+    var date = document.getElementById("preferred-date").value;
+
+    var html =
+      "<h3>Your staging request has been submitted!</h3>" +
+      "<p>Booking details:</p>" +
+      "<ul>" +
+      "<li><strong>Name:</strong> " + escapeHtml(fullName) + "</li>" +
+      "<li><strong>Email:</strong> " + escapeHtml(email) + "</li>" +
+      (phone
+        ? "<li><strong>Phone:</strong> " + escapeHtml(phone) + "</li>"
+        : "") +
+      (roomItem
+        ? "<li><strong>Room / Item:</strong> " + escapeHtml(roomItem) + "</li>"
+        : "") +
+      (date
+        ? "<li><strong>Preferred date:</strong> " + escapeHtml(date) + "</li>"
+        : "") +
+      "<li><strong>Message:</strong> " + escapeHtml(message) + "</li>" +
+      "</ul>" +
+      '<button type="button" id="booking-again" class="btn btn-outline">Submit another booking</button>';
+
+    confirmation.innerHTML = html;
+    wrapper.style.display = "none";
+    confirmation.hidden = false;
+
+    var againBtn = document.getElementById("booking-again");
+    if (againBtn) {
+      againBtn.addEventListener("click", function () {
+        confirmation.hidden = true;
+        wrapper.style.display = "";
+        bookingForm.reset();
+        if (bookingStatus) {
+          bookingStatus.textContent = "";
+        }
+      });
+    }
+  });
+});
+
