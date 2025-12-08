@@ -267,7 +267,7 @@ function initHomeSlideshow() {
   setInterval(function () {
     index = (index + 1) % slides.length;
     img.src = slides[index];
-  }, 4000); // 4 seconds per slide
+  }, 2500); // 4 seconds per slide
 }
 
 // =========================
