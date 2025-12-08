@@ -159,15 +159,18 @@ main {
   margin-top: 12px;
   text-align: center;
 }
+
 .featured-grid .card {
   display: inline-block;
   vertical-align: top;
   width: 32%;
   margin-right: 2%;
 }
+
 .featured-grid .card:last-child {
   margin-right: 0;
 }
+
 
 /* Shop layout */
 .shop-layout {
@@ -386,28 +389,33 @@ form textarea {
   }
 }
 
-/* Phones: 1 card per row & stacked featured categories */
 @media (max-width: 800px) {
   .hero {
     flex-direction: column;
   }
+
   .hero-text {
     margin-bottom: 24px;
   }
+
   .shop-layout {
     flex-direction: column;
   }
+
   .filter-panel {
     margin-right: 0;
     margin-bottom: 24px;
   }
+
   .gallery-card {
     max-width: 100%;
     margin-right: 0;
   }
+
   .about-layout {
     flex-direction: column;
   }
+
   .about-text {
     margin-right: 0;
     margin-bottom: 24px;
@@ -417,6 +425,7 @@ form textarea {
   .featured-grid {
     text-align: left;
   }
+
   .featured-grid .card {
     display: block;
     width: 100%;
@@ -424,3 +433,4 @@ form textarea {
     margin-bottom: 16px;
   }
 }
+
