@@ -273,14 +273,15 @@ main {
   border-radius: 8px;
   cursor: pointer;
 }
+/* Keep gallery cards on one horizontal line */
 .gallery-grid {
-  text-align: center;
-  white-space: nowrap;
+  font-size: 0;   /* removes inline-block whitespace so 3 cards fit on one row */
 }
 
 .gallery-grid .gallery-card {
-  white-space: normal;
+  font-size: 16px;  /* restore normal text size inside each card */
 }
+
 
 
 /* Lightbox */
