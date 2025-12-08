@@ -273,6 +273,15 @@ main {
   border-radius: 8px;
   cursor: pointer;
 }
+.gallery-grid {
+  text-align: center;
+  white-space: nowrap;
+}
+
+.gallery-grid .gallery-card {
+  white-space: normal;
+}
+
 
 /* Lightbox */
 .lightbox-overlay {
