@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dragonfly Home Market – Book a Stage</title>
+  <title>Dragonfly Home Market - How to Buy / Contact</title>
   <link rel="stylesheet" href="styles/dragonfly_homes.css">
   <script src="script.js" defer></script>
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -11,7 +11,7 @@
   <div class="wrapper">
     <header class="site-header">
       <h1>Dragonfly Home Market</h1>
-      <p>Book a Stage</p>
+      <p>How to Buy and Contact</p>
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -24,89 +24,69 @@
     </header>
 
     <main>
-      <h2>Book a Stage</h2>
-
-      <section>
-        <h3>Steps to book</h3>
+      <section class="booking-section" aria-labelledby="booking-heading">
+        <h2 id="booking-heading">Steps to book</h2>
         <ol>
           <li>Browse the <a href="shop.html">Shop Inventory</a> and note the rooms or items that interest you.</li>
           <li>Fill out the booking form below with your staging details and any questions.</li>
           <li>Dragonfly Homes will confirm availability, answer questions, and send pickup / staging details.</li>
           <li>Arrange pickup and payment, then enjoy your staged space.</li>
         </ol>
-      </section>
 
-      <section>
         <h3>Book a Stage with Dragonfly Homes</h3>
 
-        <form id="contact-form" novalidate>
-          <!-- Personal information -->
-          <fieldset class="booking-section">
-            <legend>Personal Information</legend>
+        <!-- Wrapper so we can hide the whole form on confirmation -->
+        <div id="booking-wrapper">
+          <form id="booking-form" novalidate>
+            <fieldset class="booking-fieldset">
+              <legend class="booking-legend">Personal Information</legend>
 
-            <label for="name">Full Name *</label>
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value="Michael Cashion"
-              required>
+              <label for="full-name">Full Name *</label>
+              <input type="text" id="full-name" name="full-name"
+                     required value="Michael Cashion">
 
-            <label for="email">Email *</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value="michael@example.com"
-              required>
+              <label for="email">Email *</label>
+              <input type="email" id="email" name="email"
+                     required value="michael@example.com">
 
-            <label for="phone">Phone (optional)</label>
-            <input
-              type="text"
-              id="phone"
-              name="phone"
-              value="(704) 555-1234">
-          </fieldset>
+              <label for="phone">Phone (optional)</label>
+              <input type="text" id="phone" name="phone"
+                     value="(704) 555-1234">
+            </fieldset>
 
-          <!-- Staging details -->
-          <fieldset class="booking-section">
-            <legend>Staging Details</legend>
+            <fieldset class="booking-fieldset">
+              <legend class="booking-legend">Staging Details</legend>
 
-            <label for="item">Room / Item of Interest</label>
-            <input
-              type="text"
-              id="item"
-              name="item"
-              value="Neutral living room stage"
-              placeholder="Example: living room stage, dining set, bedroom reset">
+              <label for="room-item">Room / Item of Interest</label>
+              <input type="text" id="room-item" name="room-item"
+                     value="Neutral living room stage">
 
-            <label for="message">Message *</label>
-            <textarea
-              id="message"
-              name="message"
-              required>I would like to book a stage for my living room. Please let me know about availability and pricing.</textarea>
-          </fieldset>
+              <label for="booking-message">Message *</label>
+              <textarea id="booking-message" name="booking-message" required>I would like to book a stage for my living room. Please let me know about availability and pricing.</textarea>
+            </fieldset>
 
-          <!-- Scheduling (optional extra info for you) -->
-          <fieldset class="booking-section">
-            <legend>Scheduling</legend>
+            <fieldset class="booking-fieldset">
+              <legend class="booking-legend">Scheduling</legend>
 
-            <label for="preferred-date">Preferred Date</label>
-            <input
-              type="date"
-              id="preferred-date"
-              name="preferred-date">
-          </fieldset>
+              <label for="preferred-date">Preferred Date</label>
+              <input type="date" id="preferred-date" name="preferred-date">
+            </fieldset>
 
-          <!-- Buttons + status -->
-          <div class="booking-buttons">
-            <button type="submit" class="btn btn-primary">Submit booking</button>
-            <button type="reset" class="btn btn-outline">Reset</button>
-            <button type="button" id="clear-btn" class="btn btn-outline">Clear</button>
-          </div>
+            <div class="booking-buttons">
+              <button type="submit" class="btn btn-primary">Submit booking</button>
+              <button type="reset" class="btn btn-outline">Reset</button>
+              <button type="button" id="booking-clear" class="btn btn-outline">Clear</button>
+            </div>
 
-          <div id="form-status"></div>
-        </form>
+            <div id="booking-status"></div>
+          </form>
+        </div>
+
+        <!-- Confirmation panel (hidden until submit) -->
+        <div id="booking-confirmation"
+             class="booking-confirmation"
+             hidden
+             aria-live="polite"></div>
       </section>
 
       <section>
