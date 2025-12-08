@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Dragonfly Home Market – How to Buy / Contact</title>
+  <title>Dragonfly Home Market – Book a Stage</title>
   <link rel="stylesheet" href="styles/dragonfly_homes.css">
   <script src="script.js" defer></script>
   <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
@@ -11,7 +11,7 @@
   <div class="wrapper">
     <header class="site-header">
       <h1>Dragonfly Home Market</h1>
-      <p>How to Buy and Contact</p>
+      <p>Book a Stage</p>
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -24,40 +24,86 @@
     </header>
 
     <main>
-      <h2>How to Buy</h2>
+      <h2>Book a Stage</h2>
 
       <section>
-        <h3>Steps to purchase</h3>
+        <h3>Steps to book</h3>
         <ol>
-          <li>Browse the <a href="shop.html">Shop Inventory</a> and note the item names that interest you.</li>
-          <li>Fill out the contact form below with your preferred items and any questions.</li>
-          <li>Dragonfly Homes will confirm availability, answer questions, and send pickup details.</li>
-          <li>Arrange pickup and payment, then take your staged piece home.</li>
+          <li>Browse the <a href="shop.html">Shop Inventory</a> and note the rooms or items that interest you.</li>
+          <li>Fill out the booking form below with your staging details and any questions.</li>
+          <li>Dragonfly Homes will confirm availability, answer questions, and send pickup / staging details.</li>
+          <li>Arrange pickup and payment, then enjoy your staged space.</li>
         </ol>
       </section>
 
       <section>
-        <h3>Contact Dragonfly Homes</h3>
+        <h3>Book a Stage with Dragonfly Homes</h3>
 
         <form id="contact-form" novalidate>
-          <label for="name">Name *</label>
-          <input type="text" id="name" name="name" required>
+          <!-- Personal information -->
+          <fieldset class="booking-section">
+            <legend>Personal Information</legend>
 
-          <label for="email">Email *</label>
-          <input type="email" id="email" name="email" required>
+            <label for="name">Full Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              value="Michael Cashion"
+              required>
 
-          <label for="phone">Phone (optional)</label>
-          <input type="text" id="phone" name="phone">
+            <label for="email">Email *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              value="michael@example.com"
+              required>
 
-          <label for="item">Item of Interest</label>
-          <input type="text" id="item" name="item"
-                 placeholder="Example: Neutral Linen Sofa, Round Dining Table">
+            <label for="phone">Phone (optional)</label>
+            <input
+              type="text"
+              id="phone"
+              name="phone"
+              value="(704) 555-1234">
+          </fieldset>
 
-          <label for="message">Message *</label>
-          <textarea id="message" name="message" required></textarea>
+          <!-- Staging details -->
+          <fieldset class="booking-section">
+            <legend>Staging Details</legend>
 
-          <button type="submit" class="btn btn-primary">Submit inquiry</button>
-          <button type="reset" class="btn btn-outline">Clear</button>
+            <label for="item">Room / Item of Interest</label>
+            <input
+              type="text"
+              id="item"
+              name="item"
+              value="Neutral living room stage"
+              placeholder="Example: living room stage, dining set, bedroom reset">
+
+            <label for="message">Message *</label>
+            <textarea
+              id="message"
+              name="message"
+              required>I would like to book a stage for my living room. Please let me know about availability and pricing.</textarea>
+          </fieldset>
+
+          <!-- Scheduling (optional extra info for you) -->
+          <fieldset class="booking-section">
+            <legend>Scheduling</legend>
+
+            <label for="preferred-date">Preferred Date</label>
+            <input
+              type="date"
+              id="preferred-date"
+              name="preferred-date">
+          </fieldset>
+
+          <!-- Buttons + status -->
+          <div class="booking-buttons">
+            <button type="submit" class="btn btn-primary">Submit booking</button>
+            <button type="reset" class="btn btn-outline">Reset</button>
+            <button type="button" id="clear-btn" class="btn btn-outline">Clear</button>
+          </div>
 
           <div id="form-status"></div>
         </form>
