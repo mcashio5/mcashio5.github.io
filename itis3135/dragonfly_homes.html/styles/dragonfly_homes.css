@@ -159,14 +159,12 @@ main {
   margin-top: 12px;
   text-align: center;
 }
-
 .featured-grid .card {
   display: inline-block;
   vertical-align: top;
   width: 32%;
   margin-right: 2%;
 }
-
 
 /* Shop layout */
 .shop-layout {
@@ -385,6 +383,7 @@ form textarea {
   }
 }
 
+/* Phones: 1 card per row */
 @media (max-width: 800px) {
   .hero {
     flex-direction: column;
@@ -411,6 +410,10 @@ form textarea {
     margin-bottom: 24px;
   }
 
+  /* stack featured categories on small screens */
+  .featured-grid {
+    text-align: left;
+  }
   .featured-grid .card {
     display: block;
     width: 100%;
