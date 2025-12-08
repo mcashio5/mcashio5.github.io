@@ -93,22 +93,33 @@ main {
 }
 .hero-text {
 }
-.hero-image {
-  border-radius: 10px;
+
+/* Home slideshow */
+.slideshow-section {
+  margin-top: 32px;
+  text-align: center;
+}
+
+.slideshow-frame {
+  max-width: 640px;
+  margin: 0 auto;
+  border-radius: 12px;
+  overflow: hidden;
   border: 1px solid #eee;
-  min-height: 220px;
-  background-color: #f4eee0;
-  background-size: cover;
-  background-position: center;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
-.hero-figure {
-  margin: 0;
+
+.slideshow-image {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
 }
-.hero-caption {
+
+.slideshow-caption {
   margin-top: 8px;
   font-size: 14px;
   color: #8a6d1d;
-  text-align: center;
   font-style: italic;
 }
 
@@ -144,6 +155,17 @@ main {
   border-radius: 8px;
   padding: 16px;
   border: 1px solid #eee;
+}
+
+/* Featured categories layout */
+.featured-grid {
+  display: flex;
+  gap: 16px;
+  margin-top: 12px;
+}
+
+.featured-grid .card {
+  flex: 1 1 0;
 }
 
 /* Shop layout */
@@ -390,5 +412,10 @@ form textarea {
   .about-text {
     margin-right: 0;
     margin-bottom: 24px;
+  }
+
+  /* stack featured categories on small screens */
+  .featured-grid {
+    flex-direction: column;
   }
 }
