@@ -175,19 +175,24 @@ main {
 /* Shop layout */
 .shop-layout {
   display: flex;
+  align-items: flex-start;
 }
+
 .filter-panel {
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 16px;
   border: 1px solid #eee;
   margin-right: 24px;
+  flex: 0 0 280px;   /* fixed-ish width for filters */
 }
+
 .filter-panel label {
   display: block;
   margin-top: 8px;
   font-size: 14px;
 }
+
 .filter-panel select,
 .filter-panel input[type="number"],
 .filter-panel input[type="text"] {
@@ -197,18 +202,27 @@ main {
   border: 1px solid #ccc;
 }
 
-/* Item cards */
+/* Right-hand results column */
+.shop-grid {
+  flex: 1;           /* take all remaining width */
+}
+
+/* Item cards: full width, stacked vertically */
 .item-card {
   background-color: #fcfaf4;
   border-radius: 8px;
   padding: 12px;
   border: 1px solid #eee;
   margin-bottom: 20px;
-  margin-right: 2%;
+  margin-right: 0;   /* no side gap */
+  max-width: 100%;   /* fill the results column */
 }
+
+/* kill old 3-per-row behavior */
 .item-card:nth-child(3n) {
   margin-right: 0;
 }
+
 .item-card img {
   width: 100%;
   height: 170px;
@@ -216,20 +230,24 @@ main {
   border-radius: 6px;
   margin-bottom: 8px;
 }
+
 .item-meta {
   font-size: 14px;
   color: #555;
 }
+
 .price {
   font-weight: 700;
   color: #b48817;
 }
+
 .wishlist {
   margin-top: 24px;
   padding-top: 16px;
   border-top: 1px dashed #e2d2a1;
   font-size: 14px;
 }
+
 
 /* Gallery cards (inline-block layout) */
 .gallery-card {
