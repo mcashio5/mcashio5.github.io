@@ -373,7 +373,27 @@ form textarea {
   color: #777;
 }
 
-/* Responsive */
+/* Shop layout tweaks: make result cards fill the right column and stack vertically */
+.shop-layout {
+  display: flex;
+  align-items: flex-start;
+}
+
+.filter-panel {
+  flex: 0 0 280px; /* fixed-ish width for filters */
+}
+
+/* Right-hand results column */
+#shop-items {
+  flex: 1;
+}
+
+/* Each card fills the width of the results column and stacks vertically */
+#shop-items .item-card {
+  max-width: 100%;
+  margin-right: 0;
+}
+
 
 /* Down from large desktop to tablet: 2 cards per row in gallery */
 @media (max-width: 1100px) {
