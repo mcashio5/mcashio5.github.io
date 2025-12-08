@@ -165,6 +165,9 @@ main {
   width: 32%;
   margin-right: 2%;
 }
+.featured-grid .card:last-child {
+  margin-right: 0;
+}
 
 /* Shop layout */
 .shop-layout {
@@ -383,7 +386,7 @@ form textarea {
   }
 }
 
-/* Phones: 1 card per row */
+/* Phones: 1 card per row & stacked featured categories */
 @media (max-width: 800px) {
   .hero {
     flex-direction: column;
