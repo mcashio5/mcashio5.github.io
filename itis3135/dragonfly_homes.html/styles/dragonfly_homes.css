@@ -99,7 +99,6 @@ main {
   margin-top: 32px;
   text-align: center;
 }
-
 .slideshow-frame {
   max-width: 640px;
   margin: 0 auto;
@@ -108,14 +107,12 @@ main {
   border: 1px solid #eee;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
 }
-
 .slideshow-image {
   display: block;
   width: 100%;
   height: 320px;
   object-fit: cover;
 }
-
 .slideshow-caption {
   margin-top: 8px;
   font-size: 14px;
@@ -157,15 +154,19 @@ main {
   border: 1px solid #eee;
 }
 
-/* Featured categories layout */
+/* Featured categories layout (horizontal on desktop) */
 .featured-grid {
-  display: flex;
-  gap: 16px;
   margin-top: 12px;
+  text-align: center;
 }
-
 .featured-grid .card {
-  flex: 1 1 0;
+  display: inline-block;
+  vertical-align: top;
+  width: 32%;
+  margin-right: 2%;
+}
+.featured-grid .card:last-child {
+  margin-right: 0;
 }
 
 /* Shop layout */
@@ -400,12 +401,10 @@ form textarea {
     margin-right: 0;
     margin-bottom: 24px;
   }
-
   .gallery-card {
     max-width: 100%;
     margin-right: 0;
   }
-
   .about-layout {
     flex-direction: column;
   }
@@ -415,7 +414,10 @@ form textarea {
   }
 
   /* stack featured categories on small screens */
-  .featured-grid {
-    flex-direction: column;
+  .featured-grid .card {
+    display: block;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 16px;
   }
 }
