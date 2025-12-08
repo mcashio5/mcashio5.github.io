@@ -275,11 +275,11 @@ main {
 }
 /* Keep gallery cards on one horizontal line */
 .gallery-grid {
-  font-size: 0;   /* removes inline-block whitespace so 3 cards fit on one row */
+  font-size: 0;
 }
 
 .gallery-grid .gallery-card {
-  font-size: 16px;  /* restore normal text size inside each card */
+  font-size: 16px;
 }
 
 
