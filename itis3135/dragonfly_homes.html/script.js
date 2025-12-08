@@ -411,9 +411,6 @@ function clearError(input) {
   }
 }
 
-// =========================
-// CONTACT FORM VALIDATION
-// =========================
 function initContactForm() {
   var form = document.querySelector("#contact-form");
   if (!form) {
@@ -426,11 +423,22 @@ function initContactForm() {
   var phoneInput = form.querySelector("#phone");
   var itemInput = form.querySelector("#item");
   var statusBox = document.querySelector("#form-status");
+  var clearBtn = form.querySelector("#clear-btn");
 
+  // prefill item-of-interest from query string (still works with new form)
   var params = new URLSearchParams(window.location.search);
   var items = params.get("items");
   if (items && itemInput) {
     itemInput.value = items;
+  }
+
+  // CLEAR button: wipe everything and status text
+  if (clearBtn) {
+    clearBtn.addEventListener("click", function () {
+      form.reset();
+      statusBox.textContent = "";
+      statusBox.className = "";
+    });
   }
 
   form.addEventListener("submit", function (e) {
@@ -477,7 +485,7 @@ function initContactForm() {
     }
 
     statusBox.textContent =
-      "Thank you, we will contact you soon about your selected items.";
+      "Thank you, your staging request has been submitted. We will contact you soon.";
     statusBox.className = "success";
     form.reset();
   });
