@@ -204,8 +204,11 @@ main {
 
 /* Right-hand results column */
 .shop-grid {
-  flex: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0;
 }
+
 
 /* Item cards: full width, stacked vertically */
 .item-card {
