@@ -171,11 +171,9 @@ main {
 */
 
 
-
 /* Shop layout */
 .shop-layout {
   display: flex;
-  align-items: flex-start;
 }
 
 .filter-panel {
@@ -184,7 +182,6 @@ main {
   padding: 16px;
   border: 1px solid #eee;
   margin-right: 24px;
-  flex: 0 0 280px;   /* fixed-ish width for filters */
 }
 
 .filter-panel label {
@@ -202,12 +199,7 @@ main {
   border: 1px solid #ccc;
 }
 
-.shop-grid {
-  width: 100%;
-  display: block;
-}
-
-
+/* REMOVE any .shop-grid rule entirely */
 
 /* Item cards: full width, stacked vertically */
 .item-card {
@@ -217,10 +209,12 @@ main {
   border: 1px solid #eee;
   margin-bottom: 20px;
   margin-right: 0;   /* no side gap */
-  max-width: 100%;   /* fill the results column */
+  width: 100%;       /* fill the results column */
+  max-width: 100%;
+  display: block;
 }
 
-/* kill old 3-per-row behavior */
+/* Old 3 per row rule is now pointless but harmless, you can keep or delete */
 .item-card:nth-child(3n) {
   margin-right: 0;
 }
@@ -232,6 +226,7 @@ main {
   border-radius: 6px;
   margin-bottom: 8px;
 }
+
 
 .item-meta {
   font-size: 14px;
