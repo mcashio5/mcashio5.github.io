@@ -204,7 +204,7 @@ main {
 
 /* Right-hand results column */
 .shop-grid {
-  flex: 1;           /* take all remaining width */
+  flex: 1;
 }
 
 /* Item cards: full width, stacked vertically */
