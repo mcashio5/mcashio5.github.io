@@ -202,12 +202,11 @@ main {
   border: 1px solid #ccc;
 }
 
-/* Right-hand results column */
 .shop-grid {
-  flex-grow: 1;
-  flex-shrink: 1;
-  flex-basis: 0;
+  width: 100%;
+  display: block;
 }
+
 
 
 /* Item cards: full width, stacked vertically */
